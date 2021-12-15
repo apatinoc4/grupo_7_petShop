@@ -12,3 +12,10 @@ Santiago Medina
 Andrés Zapata
 Carlos Fidelbo
 Andrés Patiño
+
+## Referentes
+
+Puppis
+https://www.puppis.com.co/
+
+Tienda web de alimentos para mascotas con gran variedad de marcas, ofertas, buscador y posibilidad de realizar envio express o regular a la mayoria de ciudades de Colombia

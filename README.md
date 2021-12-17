@@ -14,7 +14,7 @@ Ingeniero de sonido, director de proyectos de audio y acústica arquitectónica
 
 ### Carlos Fidelbo
 
-# Andrés Patiño <br />
+### Andrés Patiño <br />
 
 Ingeniero de diseño de producto y desarrollador front-end
 

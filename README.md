@@ -13,6 +13,7 @@ Somos un equipo de desarrolladores fullStack pertenecientes a Digital House, el 
 Ingeniero de sonido, director de proyectos de audio y acústica arquitectónica
 
 ### Carlos Fidelbo
+Diseñador Multimedial, Ejecutivo Comercial.
 
 ### Andrés Patiño <br />
 

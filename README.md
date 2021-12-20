@@ -36,3 +36,8 @@ Tienda online con más de 4000 productos y 17 servicios con gran acogida por var
 
 https://tucachorrotienda.com/ <br />
 Empresa colombiana posicionada como marca canina líder en el sector de mascotas en el país. Posee gran variedad de servicios, productos y espacios para la atención personalizada del cliente.
+
+### Puppis <br />
+
+https://www.puppis.com.ar// <br />
+Primera y única cadena de tiendas de Argentina especializada en productos y servicios para mascotas. Te damos una experiencia diferente de compra, ofreciendo productos y servicios de alta calidad que cumplen con las necesidades de las mascotas y la satisfacción de sus dueños.

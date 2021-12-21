@@ -7,6 +7,7 @@ Tienda online encargada de llevar a tus mascotas los mejores alimentos y el mejo
 Somos un equipo de desarrolladores fullStack pertenecientes a Digital House, el equipo esta conformado por:
 
 ### Santiago Medina
+Docente de Ciencias Sociales
 
 ### Andrés Zapata Mazo <br />
 

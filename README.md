@@ -7,6 +7,7 @@ Tienda online encargada de llevar a tus mascotas los mejores alimentos y el mejo
 Somos un equipo de desarrolladores fullStack pertenecientes a Digital House, el equipo esta conformado por:
 
 ### Santiago Medina
+
 Docente de Ciencias Sociales
 
 ### Andrés Zapata Mazo <br />
@@ -14,6 +15,7 @@ Docente de Ciencias Sociales
 Ingeniero de sonido, director de proyectos de audio y acústica arquitectónica
 
 ### Carlos Fidelbo
+
 Diseñador Multimedial, Ejecutivo Comercial.
 
 ### Andrés Patiño <br />
@@ -42,3 +44,7 @@ Empresa colombiana posicionada como marca canina líder en el sector de mascotas
 
 https://www.timberline.com.ar/ <br />
 Somos el 1° Pet Shop On line de Argentina y ofrecemos una experiencia cómoda en las compras para tus mascotas. Podes comprar las 24hs desde tu smart phone o compu. Tenemos la mejor selección de productos que no se consiguen en cualquier pet shop.
+
+## Tablero de trabajo
+
+https://trello.com/b/S85m0P3J/project-management

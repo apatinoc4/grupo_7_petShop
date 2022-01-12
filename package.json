@@ -1,0 +1,22 @@
+{
+  "name": "grupo-7dh",
+  "version": "1.0.0",
+  "description": "Proyecto grupal \"Pet Shop\" creado por Grupo 7 para Digital House",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apatinoc4/grupo_7_petShop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apatinoc4/grupo_7_petShop/issues"
+  },
+  "homepage": "https://github.com/apatinoc4/grupo_7_petShop#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

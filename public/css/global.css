@@ -1,0 +1,29 @@
+/* Variables de color */
+
+:root {
+  --naranja1: #f29f05;
+  --naranja2: #f2a341;
+  --naranja3: #d9863d;
+  --gris: #f2f2f2;
+  --grisOscuro: #a6a6a6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: var(--gris);
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background-color: var(--naranja2);
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}

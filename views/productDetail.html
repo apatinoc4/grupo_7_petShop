@@ -7,58 +7,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/productDetail.css">
 
     <title>Detalle de Producto</title>
 </head>
 <body style="align-self: center;">
-   
-   
-   
-    <header class="topHeader">
-        <div class="logoCaja"> 
-            <img src="" alt="" class="imgLogo">
-        </div>  
-        <div>
-           <button type="button">Buscar</button>
+  <header>
+    <div class="headerSuperior">
+      <p>PetShop Grupo 7</p>
+      <div class="buscador-nav">
+        <div class='buscador'>
+          <input name="buscador-header" placeholder="Qué quieres buscar hoy?" type="search" >
+          <button type="button">Buscar</button>
         </div>
-        <div class="searchBar">
-            <input type="search" >
-        </div>
-        <select name="Pais" id="tienda"> 
-         <div class="selectorPais">
-             <p>Tiendas en:</p>
-                <option value="Colombia">Colombia</option>
-                <option value="Argentina">Argentina</option>
-            </select>
-        </div>
-    <div class="ingresarCaja">
-        <button type="button">Ingresar</button>
-   
-            <button type="button">Crear Cuenta</button>
-      
-            <button type="button">Carrito</button>
-       
+        <nav>
+          <a href="/">Home</a>
+          <a href="">Carrito</a>
+          <a href="">Registro</a>
+          <a href="">Ingreso</a>
+        </nav>
+      </div>
+    
     </div>
-    </header>
-    <header class="bottomHeader">
-        <p>Promociones</p>
-        <p>Servicios</p>
-        <p>Alimentos</p>
-        <p>Snacks</p>
-        <p>Cuidados</p>
-        <p>Juguetes</p>
-        <p>Farmacia</p>
-
-    </header>
-
-
-
-
-
-  
-    <section class="mainSection"  >
-       
+    <div class="headerInferior">
+      <p>Promociones</p>
+      <p>Servicios</p>
+      <p>Alimentos</p>
+      <p>Snacks</p>
+      <p>Cuidados</p>
+      <p>Juguetes</p>
+      <p>Farmacia</p>
+    </div>
+  </header> 
+    <section class="mainSection"  >      
         <div class="mainFoto">
             <img src="/img/juguetePerro7.jpg" alt="Juguete" class="imgMain">
             <div class="imgVistas">
@@ -104,6 +86,7 @@
             <div class="botonCarrito"></div>
 
         </div>
+      </div>
     </section>
     <div>
     
@@ -151,12 +134,45 @@
                 <p class="discount">10% off</p>
                 <button type="button" class="botonAnadir">Añadir al carrito</button> </div>
         </article>
-
-    </section>
-    
+        <article>
+          <img
+            src="img/juguetePerro.jpg"
+            alt="Perro de juguete"
+            class="productImg"
+          />
+          <div class="mainArticle">
+            <h4 class="description">Juguete Perro</h4>
+            <p class="price">$30.000</p>
+            <p class="discount">10% off</p>
+            <button type="button">Añadir al carrito</button>
+          </div>
+        </article>
+        <article>
+          <img
+            src="img/juguetePerro.jpg"
+            alt="Perro de juguete"
+            class="productImg"
+          />
+          <div class="mainArticle">
+            <h4 class="description">Juguete Perro</h4>
+            <p class="price">$30.000</p>
+            <p class="discount">10% off</p>
+            <button type="button">Añadir al carrito</button>
+          </div>
+        </article>
+      </section>
     </div>
-</body>
-<footer>
-
-</footer>
+  </body>
+  <footer>
+    <p>Repositorio del proyecto:</p>
+    <a href="https://github.com/apatinoc4/grupo_7_petShop/tree/feature/homePage">Click aquí</a>
+    <!-- <div>
+      <div>
+        <p>correo</p>
+        <p>github</p>
+        <p>Linkedin</p>
+      </div>
+    </div> -->
+    <p>&copy 2022 Digital House</p>
+  </footer>
 </html>

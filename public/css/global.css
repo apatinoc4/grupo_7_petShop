@@ -1,11 +1,12 @@
 /* Variables de color */
 
 :root {
+  --gris: #f2f2f2;
+  --grisOscuro: #a6a6a6;
   --naranja1: #f29f05;
   --naranja2: #f2a341;
   --naranja3: #d9863d;
-  --gris: #f2f2f2;
-  --grisOscuro: #a6a6a6;
+  --negro: #292929;
 }
 
 * {
@@ -16,14 +17,50 @@
 
 body {
   background-color: var(--gris);
+  color: var(--negro);
   font-family: "Montserrat", sans-serif;
   font-family: "Roboto", sans-serif;
 }
 
+footer {
+  align-items: center;
+  background-color: var(--negro);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 100%;
+}
+
 header {
+  align-items: center;
   background-color: var(--naranja2);
   display: flex;
+  height: 4rem;
   justify-content: space-between;
-  margin: 0;
+  margin-bottom: 15px;
+  padding: 0 2%;
   width: 100%;
+}
+
+header p {
+  color: white;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+header nav > a {
+  color: white;
+  margin: 0 3px;
+  text-decoration: none;
+}
+
+header nav > a:hover {
+  color: var(--gris);
+  font-weight: 800;
+}
+
+section {
+  margin: 20px 0;
 }

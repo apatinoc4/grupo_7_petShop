@@ -169,6 +169,7 @@ h2 {
   .pd-slider {
     aspect-ratio: 1 / 1;
     width: 90%;
+    font-size: 10vw;
   }
   .wrapper-productos {
     justify-content: center;

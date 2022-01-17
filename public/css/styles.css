@@ -4,7 +4,7 @@
     box-sizing: border-box;
 } 
 
-header{
+.topHeader{
 display: flex;
 align-items: center;
 padding-left: 5vw;
@@ -12,8 +12,16 @@ padding-right: 5vw;
 
 height: 10vh;
 background-color: #76D7C4;
-
-margin-bottom: 20px;
+box-shadow: 2px 4px 22px -6px #000000;
+z-index:10 ;
+}
+.bottomHeader{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #439786;
+    z-index: 5;
 }
 
 .logoCaja{
@@ -121,6 +129,8 @@ text-align: center;
     border: 1px solid rgb(255, 189, 66);
     background-color: rgb(255, 189, 66);
     border-radius: 50%;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 .circulo2{
     width: 30px;
@@ -135,10 +145,13 @@ text-align: center;
     border: 1px solid rgb(255, 1, 170);
     background-color: rgb(255, 1, 170);
     border-radius: 50%;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 .cajaColores{
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
     margin-bottom: 20px;
 }
@@ -159,13 +172,14 @@ text-align: center;
 .anadirCaja{
     display: flex;
     
-    align-content: center;
+    align-items: center;
     justify-content: space-around;
 }   
 .botonAnadirGrande{
     flex-grow: 6;
     border: rgb(76, 233, 181) solid 5px;
     border-radius: 15px;
+    height: 30px;
     background-color: rgb(76, 233, 181);
 
 
@@ -175,6 +189,8 @@ text-align: center;
     border: rgb(76, 233, 181) solid 5px;
     border-radius: 15px;
     background-color: rgb(76, 233, 181);
+    margin-left: 1vw;
+    margin-right: 1vw;
 
 }
 .cantidad{
@@ -185,6 +201,8 @@ text-align: center;
     border: rgb(76, 233, 181) solid 5px;
     border-radius: 15px;
     background-color: rgb(76, 233, 181);
+    margin-left: 1vw;
+    margin-right: 1vw;
  
 }
 /* PRODUCTOS SIMILARES /////////////////////////////////// */

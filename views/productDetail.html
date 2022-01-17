@@ -8,75 +8,135 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    
+
     <title>Detalle de Producto</title>
 </head>
-<body >
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque nulla a dolorum nisi enim modi eveniet corrupti at quisquam, voluptates quam debitis harum, accusamus, sequi officiis. Cupiditate qui expedita vel.
-    <section>
+<body style="align-self: center;">
+   
+   
+   
+    <header class="topHeader">
+        <div class="logoCaja"> 
+            <img src="" alt="" class="imgLogo">
+        </div>  
         <div>
-            <img src="/img/juguetePerro7.jpg" alt="Juguete" class="imgMain">
-            <img src="/img/juguetePerro6.png" alt="Juguete" class="imgVistas">
-            <img src="/img/juguetePerro5.jpg" alt="Juguete" class="imgVistas">
-            <img src="/img/juguetePerro7.jpg" alt="Juguete" class="imgVistas">
+           <button type="button">Buscar</button>
         </div>
-        <div>
+        <div class="searchBar">
+            <input type="search" >
+        </div>
+         <div class="selectorPais">
+            <select name="Pais" id="tienda">Tiendas en: 
+                <option value="Colombia">Colombia</option>
+                <option value="Argentina">Argentina</option>
+            </select>
+        </div>
+    <div class="ingresarCaja">
+        <button type="button">Ingresar</button>
+   
+            <button type="button">Crear Cuenta</button>
+      
+            <button type="button">Carrito</button>
+       
+    </div>
+    </header>
+
+
+
+  
+    <section class="mainSection"  >
+       
+        <div class="mainFoto">
+            <img src="/img/juguetePerro7.jpg" alt="Juguete" class="imgMain">
+            <div class="imgVistas">
+                <img src="/img/juguetePerro6.png" alt="Juguete" class="imgVista">
+                <img src="/img/juguetePerro5.jpg" alt="Juguete" class="imgVista">
+                <img src="/img/juguetePerro7.jpg" alt="Juguete" class="imgVista">
+            </div>
+        </div>
+
+        <div class="mainArticle">
             <h2 class="tituloProducto">Juguete Perro</h2>
             <div>
+                
+            </div>
+            <div>
                 <p class="priceMain"> $60.000</p>
+            </div>
+            <div>
                 <p class="disponible"> Producto disponible</p>
             </div>
+            <div class="descripcionMain">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.
+            </div>
+            <div class="cajaColores" >
+                <p class="color">Color/Tipo</p>
 
+                <button type="button" class="circulo1" name="color1"></button>
+                <button type="button" class="circulo2" name="color2"></button>
+                <button type="button" class="circulo3" name="color2"></button>
+              
+
+            </div>
+
+            <div class="anadirCaja">
+                <button type="button" class="botonAnadirGrande">Añadir al carrito</button>
+          
+                <button type="button" class="menosUno">-</button>
+        
+                 <input type="number" name="cantidad" class="cantidad">
+      
+                <button type="button" class="masUno">+</button>
+            </div>
+            <div class="botonCarrito"></div>
 
         </div>
     </section>
     <div>
-    <h3>Productos Similares</h3>
+    
+        <h3 class="tituloProductos">Productos Similares</h3>
     <section class="productosSimilares">
             <article>
                 <img src="img/juguetePerro.jpg" alt="Perro de juguete" class="productImg">
-                <div class="mainArticle"> 
+                <div class="sideArticle"> 
                     <h4 class="description"> Juguete Perro</h4>
                     <p class="price"> $30.000</p>
                     <p class="discount">10% off</p>
-                    <button type="button" >Añadir al carrito</button>
+                    <button type="button" class="botonAnadir">Añadir al carrito</button>
                  </div>
            </article>
            <article>
             <img src="img/juguetePerro.jpg" alt="Perro de juguete" class="productImg">
-            <div class="mainArticle"> 
+            <div class="sideArticle"> 
                 <h4 class="description"> Juguete Perro</h4>
                 <p class="price"> $30.000</p>
                 <p class="discount">10% off</p>
-                <button type="button" >Añadir al carrito</button>
+                <button type="button" class="botonAnadir">Añadir al carrito</button>
              </div>
        </article>
        <article>
             <img src="img/juguetePerro.jpg" alt="Perro de juguete" class="productImg">
-            <div class="mainArticle"> 
+            <div class="sideArticle"> 
                 <h4 class="description"> Juguete Perro</h4>
                 <p class="price"> $30.000</p>
                 <p class="discount">10% off</p>
-                <button type="button" >Añadir al carrito</button>
-            </div>
+                <button type="button" class="botonAnadir">Añadir al carrito</button> </div>
         </article>
         <article>
             <img src="img/juguetePerro.jpg" alt="Perro de juguete" class="productImg">
-            <div class="mainArticle"> 
+            <div class="sideArticle"> 
                 <h4 class="description"> Juguete Perro</h4>
                 <p class="price"> $30.000</p>
                 <p class="discount">10% off</p>
-                <button type="button" >Añadir al carrito</button>
-            </div>
+                <button type="button" class="botonAnadir">Añadir al carrito</button> </div>
         </article>
         <article>
             <img src="img/juguetePerro.jpg" alt="Perro de juguete" class="productImg">
-            <div class="mainArticle"> 
+            <div class="sideArticle"> 
                 <h4 class="description"> Juguete Perro</h4>
                 <p class="price"> $30.000</p>
                 <p class="discount">10% off</p>
-                <button type="button" >Añadir al carrito</button>
-            </div>
+                <button type="button" class="botonAnadir">Añadir al carrito</button> </div>
         </article>
 
     </section>

@@ -125,3 +125,26 @@ header nav > a:hover {
 section {
   margin: 20px 0;
 }
+
+@media (max-width: 769px) {
+  .buscador {
+    margin: 10px 0;
+    width: 30%;
+  }
+  header {
+    max-width: 100vh;
+    height: 15vh;
+  }
+  .headerInferior {
+    display: none;
+  }
+  .headerSuperior {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .buscador-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

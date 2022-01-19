@@ -1,4 +1,4 @@
-/* Variables de color, para usar en sus archivos de estilos agreguen @import url("./global.css") en la primera linea */
+/* Variables, para usar en sus archivos de estilos agreguen @import url("./global.css") en la primera linea */
 
 :root {
   --gris: #f2f2f2;
@@ -7,6 +7,8 @@
   --naranja2: #f2a341;
   --naranja3: #d9863d;
   --negro: #292929;
+
+  --footerHeight: 10vh;
 }
 
 * {
@@ -27,7 +29,7 @@ body {
   width: 50%;
 }
 .buscador button {
-  background: var(--grisOscuro);
+  background: var(--naranja3);
   border: none;
   cursor: pointer;
   color: white;
@@ -41,7 +43,7 @@ body {
   width: 25%;
 }
 .buscador button:hover {
-  background: var(--naranja3);
+  background: var(--grisOscuro);
 }
 .buscador input {
   width: 100%;
@@ -67,6 +69,7 @@ footer {
   color: white;
   display: flex;
   flex-direction: column;
+  height: var(--footerHeight);
   justify-content: center;
   padding: 1rem 0;
   width: 100%;
@@ -154,4 +157,9 @@ section {
     justify-content: center;
     flex-direction: column;
   }
+}
+
+h2 {
+  font-size: 36px;
+  margin: 20px 0;
 }

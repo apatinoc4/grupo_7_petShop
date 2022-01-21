@@ -1,3 +1,5 @@
+@import url("./global.css");
+
 /* MAIN///////////////////////////////// */
 .imgMain {
   width: 30vw;
@@ -224,7 +226,7 @@ article {
 
 /* EFECTOS /////////////////////// */
 .enviarLogin:hover {
-  background-color: blue;
+  background-color: var(--grisOscuro);
   transition: 1s;
 }
 .back {

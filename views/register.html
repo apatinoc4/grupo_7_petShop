@@ -11,7 +11,169 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/productDetail.css" />
     <title>Registrarse</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="headerSuperior">
+        <p>PetShop Grupo 7</p>
+        <div class="buscador-nav">
+          <div class="buscador">
+            <input
+              name="buscador-header"
+              placeholder="Qué quieres buscar hoy?"
+              type="search"
+            />
+            <button type="button">Buscar</button>
+          </div>
+          <nav>
+            <a href="/">Home</a>
+            <a href="/productCart">Carrito</a>
+            <a href="/register">Registro</a>
+            <a href="/login">Ingreso</a>
+          </nav>
+        </div>
+      </div>
+      <div class="headerInferior">
+        <p>Promociones</p>
+        <p>Servicios</p>
+        <p>Alimentos</p>
+        <p>Snacks</p>
+        <p>Cuidados</p>
+        <p>Juguetes</p>
+        <p>Farmacia</p>
+      </div>
+    </header>
+    <div>
+      <div class="cajaRegister">
+        <form action="" method="post">
+          <label class="tituloRegister" for="registrarse">Crea tu Cuenta</label>
+          <p>
+            <input
+              class="barraInput"
+              type="text"
+              name="nameSend"
+              id="name"
+              minlength=" 2"
+              placeholder="Nombre y Apellido"
+            />
+          </p>
+          <p>
+            <input
+              class="barraInput"
+              type="text"
+              name="userNameSend"
+              id="userName"
+              minlength=" 2"
+              placeholder="Nombre de Usuario"
+            />
+          </p>
+          <p>
+            <input
+              class="barraInput"
+              type="email"
+              name="emailSend"
+              id="email"
+              minlength=" 2"
+              placeholder="Correo Electronico"
+            />
+          </p>
+          <div>
+            <br />
+            <br />
+            <label class="tituloRegister" for="dateB"
+              >Fecha de nacimiento</label
+            >
+            <br />
+            <input
+              class="barraInput"
+              type="date"
+              name="dateBSend"
+              id="dateB"
+              minlength=" 2"
+            />
+          </div>
+          <p>
+            <label for="domicilio"></label>
+            <input
+              class="barraInput"
+              type="text"
+              name="domicilioSend"
+              id="domicilio"
+              minlength=" 2"
+              placeholder="Domicilio"
+            />
+          </p>
+          <br />
+          <br />
+          <p class="tituloRegister" for="autorizacion">
+            Autorización de contenido
+          </p>
+          <br />
+          <div style="width: 80%">
+            <input type="checkbox" name="autorizacion" id="autorizacionId" />
+            <label
+              class="textoPequeno"
+              for="autorizacion "
+              style="flex-wrap: wrap"
+            >
+              ¿Deseas recibir contenido de promociones y novedades de nuestra
+              tienda?</label
+            >
+          </div>
+          <br />
+          <div class="register-wrapper">
+            <p class="tituloRegister" for="fotoDeUsuario">Foto de usuario</p>
+
+            <input class="barraInput" type="file" src="" alt="Enviar" />
+
+            <p>
+              <input
+                class="barraInput"
+                type="password"
+                name="contrasenaSend"
+                id="contrasena"
+                minlength=" 2"
+                placeholder="Contraseña"
+              />
+            </p>
+            <p>
+              <input
+                class="barraInput"
+                type="password"
+                name="confirmarContrasenaSend"
+                id="confirmarContrasena"
+                minlength=" 2"
+                placeholder="Confirmar Contraseña"
+              />
+            </p>
+
+            <button class="enviarLogin" type="submit">
+              <a style="color: white; text-decoration: none" href="/">Enviar</a>
+            </button>
+            <br />
+            <button class="enviarLogin" type="reset">Borrar Datos</button>
+            <br />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>Repositorio del proyecto:</p>
+      <a
+        href="https://github.com/apatinoc4/grupo_7_petShop/tree/feature/homePage"
+        >Click aquí</a
+      >
+      <!-- <div>
+      <div>
+        <p>correo</p>
+        <p>github</p>
+        <p>Linkedin</p>
+      </div>
+    </div> -->
+      <p>&copy 2022 Digital House</p>
+    </footer>
+  </body>
 </html>

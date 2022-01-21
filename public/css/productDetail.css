@@ -124,25 +124,27 @@
   margin-right: 1vw;
 }
 /* PRODUCTOS SIMILARES /////////////////////////////////// */
+
 .tituloProductos {
   text-align: center;
   background-color: white;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.productosSimilares {
+div .productosSimilares {
   display: flex;
+  flex-wrap: wrap;
   padding-top: 1vh;
   justify-content: space-around;
 }
 article {
   display: flex;
-  width: 17vw;
+  width: 30%;
+  position: relative;
   flex-wrap: wrap;
   justify-content: center;
   background-color: white;
   margin: 50px;
-
   border-radius: 15px;
   margin: auto;
   text-align: center;
@@ -158,4 +160,76 @@ article {
   border-radius: 15px;
   margin-bottom: 10px;
   background-color: rgb(76, 233, 181);
+}
+
+/* LOGIN//////////////////////////////////////////////////} */
+
+.barraInput {
+  font-size: 1rem;
+  color: gray;
+  padding: 15px;
+  border-radius: 5px;
+  border: white solid 0.2px;
+  margin-top: 5vh;
+  width: 100%;
+}
+
+.enviarLogin {
+  background-color: rgb(255, 115, 0);
+  text-align: center;
+  border-radius: 5px;
+  border: solid 0.2px white;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 5vh;
+  text-decoration: none;
+  padding: 10px;
+  width: 100%;
+}
+
+.loginCaja,
+.cajaRegister {
+  /* display: flex; */
+  justify-content: center;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.719);
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  border: 0.2px solid rgba(255, 255, 255, 0.726);
+  border-radius: 20px;
+}
+
+.tituloLogin,
+.tituloRegister {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+@media (min-width: 720px) {
+  section .productosSimilares {
+    flex-wrap: nowrap;
+  }
+  article {
+    width: 17vw;
+  }
+  .cajaRegister {
+    width: 40%;
+  }
+  .loginCaja {
+    width: 40%;
+  }
+}
+
+/* EFECTOS /////////////////////// */
+.enviarLogin:hover {
+  background-color: blue;
+  transition: 1s;
+}
+.back {
+  background: linear-gradient(rgba(255, 115, 0, 0.726), transparent),
+    /* linear-gradient(to top left, lime, transparent), */
+      linear-gradient(to top right, rgba(0, 0, 255, 0.596), transparent);
+  background-blend-mode: screen;
 }

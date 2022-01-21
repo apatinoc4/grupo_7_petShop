@@ -114,6 +114,7 @@
 }
 
 .index-wrapper {
+  box-sizing: border-box;
   min-height: 100vh;
   margin-bottom: 50px;
   max-width: 100vw;
@@ -122,8 +123,8 @@
 }
 
 .mas-detalles {
-  background-color: var(--grisOscuro);
-  border: 1px solid var(--grisOscuro);
+  background-color: var(--magenta);
+  border: 1px solid var(--magenta);
   border-radius: 10px;
   color: white;
   cursor: pointer;
@@ -138,7 +139,7 @@
 
 .pd-slider {
   aspect-ratio: 1 / 0.2;
-  background-color: var(--grisOscuro);
+  background-color: var(--magenta);
   color: white;
   display: flex;
   font-size: 50px;
@@ -149,8 +150,49 @@
   width: 80%;
 }
 
-.slogan {
+.banner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
   text-align: center;
+  width: 100vw;
+  max-width: 100vw;
+  background: linear-gradient(to right, #ee0979, #ff6a00);
+  padding: 2% 0 2% 10%;
+}
+
+.slogan button {
+  margin-top: 20px;
+  border: 2px solid white;
+  background-color: transparent;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 18px;
+  font-weight: 800;
+  font-size: 28px;
+  color: white;
+}
+
+.slogan button:hover {
+  background-color: var(--naranja2);
+  border: 1px solid var(--naranja2);
+}
+
+.slogan {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  color: white;
+}
+
+.slogan h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 70px;
 }
 
 .wrapper-productos {
@@ -161,6 +203,14 @@
 }
 
 @media (max-width: 769px) {
+  .banner {
+    overflow: hidden;
+    align-items: center;
+    font-size: 18px;
+  }
+  .banner img {
+    height: 200px;
+  }
   .index-wrapper {
     padding: 0 5%;
   }
@@ -168,6 +218,19 @@
     aspect-ratio: 1 / 1;
     width: 90%;
     font-size: 10vw;
+  }
+  .slogan {
+    width: 60%;
+  }
+  .slogan h1 {
+    font-size: 2em;
+  }
+
+  .slogan h3 {
+    font-size: 10px;
+  }
+  .slogan button {
+    display: none;
   }
   .wrapper-productos {
     justify-content: center;

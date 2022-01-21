@@ -122,6 +122,11 @@
   width: 100vw;
 } */
 
+#alimentos,
+#juguetes h2 {
+  margin-left: 1%;
+}
+
 .mas-detalles {
   background-color: var(--magenta);
   border: 1px solid var(--magenta);

@@ -16,36 +16,7 @@
     <title>Detalle de Producto</title>
   </head>
   <body style="align-self: center">
-    <header>
-      <div class="headerSuperior">
-        <p>PetShop Grupo 7</p>
-        <div class="buscador-nav">
-          <div class="buscador">
-            <input
-              name="buscador-header"
-              placeholder="Qué quieres buscar hoy?"
-              type="search"
-            />
-            <button type="button">Buscar</button>
-          </div>
-          <nav>
-            <a href="/">Home</a>
-            <a href="/productCart">Carrito</a>
-            <a href="">Registro</a>
-            <a href="">Ingreso</a>
-          </nav>
-        </div>
-      </div>
-      <div class="headerInferior">
-        <p>Promociones</p>
-        <p>Servicios</p>
-        <p>Alimentos</p>
-        <p>Snacks</p>
-        <p>Cuidados</p>
-        <p>Juguetes</p>
-        <p>Farmacia</p>
-      </div>
-    </header>
+    <%- include('../partials/header') %>
     <section class="mainSection">
       <div class="mainFoto">
         <img src="/img/juguetePerro7.jpg" alt="Juguete" class="imgMain" />
@@ -175,19 +146,6 @@
         </div>
       </section>
     </div>
+    <%- include('../partials/footer') %>
   </body>
-  <footer>
-    <p>Repositorio del proyecto:</p>
-    <a href="https://github.com/apatinoc4/grupo_7_petShop/tree/feature/homePage"
-      >Click aquí</a
-    >
-    <!-- <div>
-      <div>
-        <p>correo</p>
-        <p>github</p>
-        <p>Linkedin</p>
-      </div>
-    </div> -->
-    <p>&copy 2022 Digital House</p>
-  </footer>
 </html>

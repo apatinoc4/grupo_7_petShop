@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/productDetail.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/productDetail.css" />
 
     <title>Detalle de Producto</title>
   </head>
@@ -19,7 +19,11 @@
     <%- include('../partials/header') %>
     <section class="mainSection">
       <div class="mainFoto">
-        <img src="/img/juguetePerro7.jpg" alt="Juguete" class="imgMain" />
+        <img
+          src="/img/<%=productoADetalle.imagen%>"
+          alt="Juguete"
+          class="imgMain"
+        />
         <div class="imgVistas">
           <img src="/img/juguetePerro6.png" alt="Juguete" class="imgVista" />
           <img src="/img/juguetePerro5.jpg" alt="Juguete" class="imgVista" />
@@ -28,20 +32,15 @@
       </div>
 
       <div class="mainArticle">
-        <h2 class="tituloProducto">Juguete Perro</h2>
+        <h2 class="tituloProducto"><%=productoADetalle.nombre%></h2>
         <div></div>
         <div>
-          <p class="priceMain">$60.000</p>
+          <p class="priceMain"><%=productoADetalle.precio%></p>
         </div>
         <div>
           <p class="disponible">Producto disponible</p>
         </div>
-        <div class="descripcionMain">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga
-          quasi inventore, ipsam eligendi repellendus ab, est corporis beatae
-          totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse
-          ratione.
-        </div>
+        <div class="descripcionMain"><%=productoADetalle.descripcion%></div>
         <div class="cajaColores">
           <p class="color">Color/Tipo</p>
 
@@ -68,81 +67,23 @@
       <h3 class="tituloProductos">Productos Similares</h3>
       <section>
         <div class="productosSimilares">
+          <% for(let producto of productosSimilares){ %>
           <article>
             <img
-              src="img/juguetePerro.jpg"
+              src="/img/<%=producto.imagen%>"
               alt="Perro de juguete"
               class="productImg"
             />
             <div class="sideArticle">
-              <h4 class="description">Juguete Perro</h4>
-              <p class="price">$30.000</p>
+              <h4 class="description"><%=producto.nombre%></h4>
+              <p class="price"><%=producto.precio%></p>
               <p class="discount">10% off</p>
               <button type="button" class="botonAnadir">
                 Añadir al carrito
               </button>
             </div>
           </article>
-          <article>
-            <img
-              src="img/juguetePerro.jpg"
-              alt="Perro de juguete"
-              class="productImg"
-            />
-            <div class="sideArticle">
-              <h4 class="description">Juguete Perro</h4>
-              <p class="price">$30.000</p>
-              <p class="discount">10% off</p>
-              <button type="button" class="botonAnadir">
-                Añadir al carrito
-              </button>
-            </div>
-          </article>
-          <article>
-            <img
-              src="img/juguetePerro.jpg"
-              alt="Perro de juguete"
-              class="productImg"
-            />
-            <div class="sideArticle">
-              <h4 class="description">Juguete Perro</h4>
-              <p class="price">$30.000</p>
-              <p class="discount">10% off</p>
-              <button type="button" class="botonAnadir">
-                Añadir al carrito
-              </button>
-            </div>
-          </article>
-          <article>
-            <img
-              src="img/juguetePerro.jpg"
-              alt="Perro de juguete"
-              class="productImg"
-            />
-            <div class="sideArticle">
-              <h4 class="description">Juguete Perro</h4>
-              <p class="price">$30.000</p>
-              <p class="discount">10% off</p>
-              <button type="button" class="botonAnadir">
-                Añadir al carrito
-              </button>
-            </div>
-          </article>
-          <article>
-            <img
-              src="img/juguetePerro.jpg"
-              alt="Perro de juguete"
-              class="productImg"
-            />
-            <div class="sideArticle">
-              <h4 class="description">Juguete Perro</h4>
-              <p class="price">$30.000</p>
-              <p class="discount">10% off</p>
-              <button type="button" class="botonAnadir">
-                Añadir al carrito
-              </button>
-            </div>
-          </article>
+          <%} %>
         </div>
       </section>
     </div>

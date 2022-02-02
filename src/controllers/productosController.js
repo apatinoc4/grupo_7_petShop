@@ -88,7 +88,7 @@ const listaProductos = [
     imagen: "juguetePerro4.jpg",
     descripcion:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    precio: "$70.000",
+    precio: "$75.000",
     tipo: "juguete",
   },
   {

@@ -12,7 +12,7 @@ const listaProductos = [
   },
   {
     id: 1,
-    nombre: "Lata para gatos",
+    nombre: "Lata para Felinos",
     imagen: "comidaGato.jpg",
     descripcion:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",

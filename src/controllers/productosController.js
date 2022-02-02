@@ -16,7 +16,7 @@ const listaProductos = [
     imagen: "comidaGato.jpg",
     descripcion:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    precio: "$5.000",
+    precio: "$6.000",
     tipo: "alimento",
   },
   {

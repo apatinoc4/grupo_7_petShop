@@ -34,10 +34,10 @@
       <div class="mainArticle">
         <h2 class="tituloProducto"><%=productoADetalle.nombre%></h2>
         <div></div>
-        <div>
+        <div style="align-items: center;">
           <p class="priceMain"><%=productoADetalle.precio%></p>
         </div>
-        <div>
+        <div style="align-items: center; display: flex;">
           <p class="disponible">Producto disponible</p>
         </div>
         <div class="descripcionMain"><%=productoADetalle.descripcion%></div>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="anadirCaja">
-          <button type="button" class="botonAnadirGrande">
+          <button type="button" class="botonAnadirGrande" onclick="window.location.href='/productCart'">
             Añadir al carrito
           </button>
 
@@ -66,22 +66,41 @@
     <div>
       <h3 class="tituloProductos">Productos Similares</h3>
       <section>
-        <div class="productosSimilares">
+        <div class="wrapper-productos">
           <% for(let producto of productosSimilares){ %>
-          <article>
-            <img
-              src="/img/<%=producto.imagen%>"
-              alt="Perro de juguete"
-              class="productImg"
-            />
-            <div class="sideArticle">
-              <h4 class="description"><%=producto.nombre%></h4>
-              <p class="price"><%=producto.precio%></p>
-              <p class="discount">10% off</p>
-              <button type="button" class="botonAnadir">
-                Añadir al carrito
-              </button>
+          <article class="carta-producto"> 
+            <div class="imagen-producto">
+              <img src="/img/<%=producto.imagen%>" alt="Perro de juguete" />
             </div>
+            <div class="info-producto">
+              <p class="nombre-producto"><%=producto.nombre%></p>
+              <p class="precio-producto"><%=producto.precio%></p>
+              <div class="detalles-agregar">
+                <button
+                  class="mas-detalles"
+                  onclick="window.location.href='/productDetail/<%=producto.id%>'"
+                >
+                  Más Detalles
+                </button>
+                <div class="agregar">
+                  <div class="botones-agregar">
+                    <button>-</button>
+                    <p>Agregar</p>
+                    <button>+</button>
+                  </div>
+                  <div class="cantidad-agregada">
+                    <p>1</p>
+                  </div>
+                </div>
+              </div>
+              
+             
+            </div>
+            <div class="boton-comprar">
+              <button onclick="window.location.href='/productCart'">
+                Comprar
+              </button>
+           </div>
           </article>
           <%} %>
         </div>

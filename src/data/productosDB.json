@@ -4,7 +4,7 @@
     "nombre": "Bulto gato ESSENTIALS",
     "imagen": "comidaGato3.jpeg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$55.000",
+    "precio": "55.000",
     "tipo": "alimento"
   },
   {
@@ -12,7 +12,7 @@
     "nombre": "Lata para Felinos",
     "imagen": "comidaGato.jpg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$6.000",
+    "precio": "6.000",
     "tipo": "alimento"
   },
   {
@@ -20,7 +20,7 @@
     "nombre": "Bulto perro PRO",
     "imagen": "comidaPerro2.jpg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$60.000",
+    "precio": "60.000",
     "tipo": "alimento"
   },
   {
@@ -28,7 +28,7 @@
     "nombre": "Bulto para gato",
     "imagen": "comidaGato2.jpeg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$30.000",
+    "precio": "30.000",
     "tipo": "alimento"
   },
   {
@@ -36,7 +36,7 @@
     "nombre": "Bulto para perros",
     "imagen": "comidaPerro3.jpeg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$35.000",
+    "precio": "35.000",
     "tipo": "alimento"
   },
   {
@@ -44,7 +44,7 @@
     "nombre": "Bulto perros PREMIUM",
     "imagen": "comidaPerro4.jpeg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$40.000",
+    "precio": "40.000",
     "tipo": "alimento"
   },
   {
@@ -52,7 +52,7 @@
     "nombre": "Perrito Salchicha",
     "imagen": "juguetePerro.jpg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$70.000",
+    "precio": "70.000",
     "tipo": "juguete"
   },
   {
@@ -60,7 +60,7 @@
     "nombre": "Muslo de peluche",
     "imagen": "juguetePerro2.jpg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$50.000",
+    "precio": "50.000",
     "tipo": "juguete"
   },
   {
@@ -68,7 +68,7 @@
     "nombre": "Banana de peluche",
     "imagen": "juguetePerro3.jpg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$50.000",
+    "precio": "50.000",
     "tipo": "juguete"
   },
   {
@@ -76,7 +76,7 @@
     "nombre": "Pelota feliz",
     "imagen": "juguetePerro4.jpg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$75.000",
+    "precio": "75.000",
     "tipo": "juguete"
   },
   {
@@ -84,7 +84,7 @@
     "nombre": "Hueso de goma",
     "imagen": "juguetePerro5.jpg",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$30.000",
+    "precio": "30.000",
     "tipo": "juguete"
   },
   {
@@ -92,7 +92,7 @@
     "nombre": "Hueso de goma",
     "imagen": "juguetePerro6.png",
     "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim fuga quasi inventore, ipsam eligendi repellendus ab, est corporis beatae totam dicta quod fugit doloribus rem? Maiores minus nesciunt esse ratione.",
-    "precio": "$30.000",
+    "precio": "30.000",
     "tipo": "juguete"
   }
 ]

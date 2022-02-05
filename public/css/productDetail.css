@@ -3,12 +3,20 @@
 /* MAIN///////////////////////////////// */
 
 .imgMain {
-  width: 30vw;
   outline-style: solid #ebebeb;
   border-radius: 15px;
   margin: auto;
   text-align: center;
+  max-width: 100%;
+  object-fit: cover;
 }
+
+.contenedor-foto {
+  height: 70%;
+  max-width: 100%;
+  padding: 20px;
+}
+
 .mainSection {
   display: flex;
   margin: auto;
@@ -19,12 +27,19 @@
   background-color: white;
   box-shadow: 2px 4px 22px -6px #000000;
   flex-direction: column;
+  min-height: 560px;
 }
 
 .mainFoto {
   padding-right: 1vw;
   padding-left: 1vw;
   margin: auto;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .mainArticle {
@@ -32,17 +47,24 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
- 
+  width: 60%;
 }
 .tituloProducto {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  font-weight: 800;
   width: 100%;
-  font-size:25px;
+  text-align: center;
 }
 .priceMain {
-  display: flex;
+  font-family: "Montserrat", sans-serif;
   font-size: 30px;
-  align-self: start;
-  justify-self: center;
+  font-weight: 800;
+}
+
+.precio-disponibilidad {
+  display: flex;
+  align-items: center;
 }
 .disponible {
   font-size: 15px;
@@ -50,9 +72,9 @@
 .descripcionMain {
   padding-bottom: 5vh;
   flex-wrap: wrap;
-  font-size:  18px;
+  font-size: 20px !important;
 }
-.color{
+.color {
   font-size: 2vw;
 }
 .circulo1 {
@@ -91,7 +113,7 @@
 .imgVistas {
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction:row; */
+  height: 30%;
   width: 30vw;
 }
 .imgVista {
@@ -112,11 +134,12 @@
   color: white;
   border-radius: 15px;
   height: 30px;
-  font-weight: 800;
   background-color: var(--naranja2);
   border: 1px solid var(--naranja2);
+  cursor: pointer;
 }
-.menosUno, .masUno {
+.menosUno,
+.masUno {
   flex-grow: 2;
   border-radius: 15px;
   background-color: var(--naranja2);
@@ -132,7 +155,7 @@
 }
 
 /* PRODUCTOS SIMILARES /////////////////////////////////// */
-.tituloProductos{
+.tituloProductos {
   padding-top: 20px;
   font-size: 20px;
   text-align: center;
@@ -170,7 +193,6 @@
   padding: 5% 2%;
   width: 100%;
 }
-
 
 .carta-producto .detalles-agregar {
   align-items: center;
@@ -266,52 +288,6 @@
   font-weight: 800;
 }
 
-
-/* LOGIN//////////////////////////////////////////////////} */
-
-.barraInput {
-  font-size: 1rem;
-  color: gray;
-  padding: 15px;
-  border-radius: 5px;
-  border: white solid 0.2px;
-  margin-top: 5vh;
-  width: 100%;
-}
-
-.enviarLogin {
-  background-color: rgb(255, 115, 0);
-  text-align: center;
-  border-radius: 5px;
-  border: solid 0.2px white;
-  color: #fff;
-  font-size: 1.5rem;
-  margin-top: 5vh;
-  text-decoration: none;
-  padding: 10px;
-  width: 100%;
-}
-
-.loginCaja,
-.cajaRegister {
-  /* display: flex; */
-  justify-content: center;
-  width: 80%;
-  background-color: rgba(255, 255, 255, 0.719);
-  padding-top: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
-  border: 0.2px solid rgba(255, 255, 255, 0.726);
-  border-radius: 20px;
-}
-
-.tituloLogin,
-.tituloRegister {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 @media (min-width: 720px) {
   section .productosSimilares {
     flex-wrap: nowrap;
@@ -325,24 +301,24 @@
   .loginCaja {
     width: 40%;
   }
-  .wrapper-productos{
+  .wrapper-productos {
     justify-content: start;
   }
-  .tituloProducto{
+  .tituloProducto {
     font-size: 35px;
   }
-  .tituloProductos{
+  .tituloProductos {
     padding-top: 20px;
     font-size: 2.5vw;
     text-align: start;
   }
-  .descripcionMain{
+  .descripcionMain {
     font-size: 2vw;
   }
-  .mainSection{
+  .mainSection {
     flex-direction: row;
   }
-  .mainArticle{
+  .mainArticle {
     width: 100vw;
   }
   .priceMain {
@@ -351,14 +327,17 @@
   .disponible {
     font-size: 2vw;
   }
-
 }
 
-/* EFECTOS /////////////////////// */
-.enviarLogin:hover {
-  background-color: var(--grisOscuro);
-  transition: 1s;
+@media (max-width: 720px) {
+  .mainArticle {
+    width: 100%;
+  }
+  .color {
+    font-size: 12px;
+  }
 }
+
 .back {
   background: linear-gradient(rgba(255, 115, 0, 0.726), transparent),
     /* linear-gradient(to top left, lime, transparent), */

@@ -29,8 +29,55 @@ const productosController = {
     });
     res.redirect("/listaProductos");
   },
+  editarProducto: function (req, res) {
+    const idProducto = req.params.id;
+    const { id, nombre, imagen, descripcion, precio, tipo } = req.body;
+
+    const productoEditado = {
+      id: id,
+      nombre: nombre,
+      imagen: imagen,
+      descripcion: descripcion,
+      precio: precio,
+      tipo: tipo,
+    };
+
+    listaProductos.forEach((elem, idx) => {
+      if (elem.id == idProducto) {
+        listaProductos[idx] = productoEditado;
+      }
+    });
+    fs.writeFile(productsFilePath, JSON.stringify(listaProductos), (err) => {
+      if (err) {
+        console.log("Fallo en la edición del producto");
+      } else {
+        console.log("Producto editado exitosamente");
+      }
+    });
+    res.redirect("/listaProductos");
+  },
+  eliminarProducto: function (req, res) {
+    const idProducto = req.params.id;
+    const listaFiltrada = listaProductos.filter(
+      (elem) => elem.id != idProducto
+    );
+    fs.writeFile(productsFilePath, JSON.stringify(listaFiltrada), (err) => {
+      if (err) {
+        console.log("Fallo en la eliminación del producto");
+      } else {
+        console.log("Producto eliminado exitosamente");
+      }
+    });
+    res.redirect("/listaProductos");
+  },
+  renderFormularioEdicion: function (req, res) {
+    const idProducto = req.params.id;
+    const productoAEditar = listaProductos[idProducto];
+
+    res.render("editarProducto", { productoAEditar, archivosImagen });
+  },
   renderIndex: function (req, res) {
-    res.render("index", { alimentos: alimentos, juguetes: juguetes });
+    res.render("index", { alimentos, juguetes });
   },
   renderDetalleProducto: function (req, res) {
     const idProducto = req.params.id;
@@ -53,13 +100,13 @@ const productosController = {
 
     res.render("productDetail", {
       productoADetalle: producto,
-      productosSimilares: productosSimilares,
+      productosSimilares,
     });
   },
   renderListaProductos: function (req, res) {
     res.render("listaProductos", {
-      listaProductos: listaProductos,
-      archivosImagen: archivosImagen,
+      listaProductos,
+      archivosImagen,
     });
   },
 };

@@ -100,6 +100,14 @@ thead td {
   padding: 10px;
 }
 
+thead td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+thead td:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
 tbody td {
   padding: 10px;
   /* border: 1px solid var(--negro); */
@@ -171,8 +179,8 @@ tbody tr:hover {
   width: 100%;
 }
 .botones.no-desktop button {
-  width: 30%;
-  margin: 0 10px;
+  width: 60%;
+  margin: 5px 10px;
 }
 
 .editar {
@@ -192,6 +200,20 @@ tbody tr:hover {
 }
 
 @media (max-width: 820px) {
+  .botones-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .botones-mobile {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    background-color: white;
+    border-top: 1px solid var(--grisOscuro);
+    display: flex;
+    flex-direction: row;
+  }
   .formulario-creacion {
     width: 95%;
     padding: 20px;
@@ -202,6 +224,7 @@ tbody tr:hover {
   form {
     width: 100%;
   }
+
   .campos-formulario {
     flex-direction: column;
   }
@@ -212,13 +235,18 @@ tbody tr:hover {
   .no-mobile {
     display: none;
   }
+  thead td:first-child {
+    border-radius: 0;
+  }
+
   table {
     width: 95%;
   }
   tbody > tr {
     box-shadow: none;
     height: 80px;
-    pointer-events: none;
+    /* pointer-events: none; */
+    z-index: 20;
   }
 
   tbody > tr:nth-child(even) {
@@ -251,6 +279,7 @@ tbody tr:hover {
     display: table-row;
     border-radius: 0;
     text-align: center;
+    background-color: white !important;
   }
   .no-desktop > td {
     display: table-cell;

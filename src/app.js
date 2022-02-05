@@ -5,6 +5,9 @@ const rutasAutorizacion = require("./routes/autorizacion");
 const rutasProductos = require("./routes/productos");
 const rutasUsuarios = require("./routes/usuarios");
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 app.use(express.static(path.resolve(__dirname, "../public")));
 
 app.set("view engine", "ejs");

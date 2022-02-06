@@ -1,3 +1,4 @@
+const e = require("express");
 const fs = require("fs");
 const path = require("path");
 
@@ -7,6 +8,7 @@ let listaProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 const alimentos = listaProductos.filter((i) => i.tipo === "alimento");
 const juguetes = listaProductos.filter((i) => i.tipo === "juguete");
 const archivosImagen = listaProductos.map((i) => i.imagen);
+const arrayIds = listaProductos.map((i) => i.id);
 
 const productosController = {
   crearProducto: function (req, res) {
@@ -74,7 +76,10 @@ const productosController = {
     const idProducto = req.params.id;
     const productoAEditar = listaProductos[idProducto];
 
-    res.render("editarProducto", { productoAEditar, archivosImagen });
+    res.render("editarProducto", {
+      productoAEditar,
+      archivosImagen,
+    });
   },
   renderIndex: function (req, res) {
     res.render("index", { alimentos, juguetes });
@@ -104,9 +109,21 @@ const productosController = {
     });
   },
   renderListaProductos: function (req, res) {
+    let idCreacion;
+
+    for (let i = 0; i <= arrayIds.length; i++) {
+      if (arrayIds.indexOf(i) == -1) {
+        idCreacion = i;
+        break;
+      } else {
+        idCreacion = arrayIds.length;
+      }
+    }
+
     res.render("listaProductos", {
       listaProductos,
       archivosImagen,
+      idCreacion,
     });
   },
 };

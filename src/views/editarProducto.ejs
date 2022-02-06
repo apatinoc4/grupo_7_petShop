@@ -20,6 +20,18 @@
     <div class="listaProductos-wrapper">
       <h2>Editar Producto</h2>
       <section>
+        <div class="formulario-creacion preview-producto">
+          <div class="imagen-wrapper"><img src="/img/<%=productoAEditar.imagen%>" alt="img"></div>
+          <div class="info-wrapper">
+            <p class="preview-titulo"> <%=productoAEditar.id%>.  <%=productoAEditar.nombre%></p>
+            <div class="preview-info">
+              <p><span>Precio:</span> $<%=productoAEditar.precio%></p>
+              <p><span>Tipo:</span> <%=productoAEditar.tipo%></p>
+              <p><span>Archivo Imagen:</span> <%=productoAEditar.imagen%></p>
+              <p><span>Descripción:</span><br/><%=productoAEditar.descripcion%></p>
+            </div>      
+          </div>        
+        </div>
         <div class="formulario-creacion">
           <form method="POST" action="/listaProductos/<%=productoAEditar.id%>/editar?_method=PUT">
             <div class="campos-formulario">

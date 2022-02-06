@@ -29,7 +29,7 @@
                   type="number"
                   name="id"
                   readonly
-                  value="<%=listaProductos.length%>"
+                  value="<%=idCreacion%>"
                   id="id"
                 />
                 <label for="descripcion">Descripción</label>
@@ -89,19 +89,39 @@
             <tr>
               <td class="negrita idProducto"><%=producto.id%></td>
               <td><%=producto.nombre%></td>
-              <td class="negrita"><%=producto.precio%></td>
+              <td class="negrita">$<%=producto.precio%></td>
               <td class="descripcion no-mobile"><%=producto.descripcion%></td>
               <td><%=producto.tipo%></td>
               <td class="no-mobile"><%=producto.imagen%></td>
               <td class="botones no-mobile" width="120">
-                <button class="editar">Editar</button>
-                <button class="eliminar">Eliminar</button>
+                <form action="/listaProductos/<%=producto.id%>/editar/">
+                  <button type="submit" class="editar">Editar</button>
+                </form>
+                <form
+                  method="POST"
+                  action="/listaProductos/<%=producto.id%>/eliminar?_method=DELETE"
+                >
+                  <button type="submit" class="eliminar">Eliminar</button>
+                </form>
               </td>
             </tr>
             <tr class="no-desktop no-desktop-tr">
-              <td class="no-desktop botones" width="100%" colspan="7">
-                <button class="editar">Editar</button>
-                <button class="eliminar">Eliminar</button>
+              <td
+                class="no-desktop botones botones-mobile"
+                width="100%"
+                colspan="7"
+              >
+                <div class="botones-wrapper">
+                  <form action="/listaProductos/<%=producto.id%>/editar/">
+                    <button type="submit" class="editar">Editar</button>
+                  </form>
+                  <form
+                    method="POST"
+                    action="/listaProductos/<%=producto.id%>/eliminar?_method=DELETE"
+                  >
+                    <button type="submit" class="eliminar">Eliminar</button>
+                  </form>
+                </div>
               </td>
             </tr>
             <%} %>
@@ -109,7 +129,6 @@
         </table>
       </section>
     </div>
-
     <%- include('../partials/footer') %>
   </body>
 </html>

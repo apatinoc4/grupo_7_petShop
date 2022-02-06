@@ -19,11 +19,13 @@
     <%- include('../partials/header') %>
     <section class="mainSection">
       <div class="mainFoto">
-        <img
-          src="/img/<%=productoADetalle.imagen%>"
-          alt="Juguete"
-          class="imgMain"
-        />
+        <div class="contenedor-foto">
+          <img
+            src="/img/<%=productoADetalle.imagen%>"
+            alt="Juguete"
+            class="imgMain"
+          />
+        </div>
         <div class="imgVistas">
           <img src="/img/juguetePerro6.png" alt="Juguete" class="imgVista" />
           <img src="/img/juguetePerro5.jpg" alt="Juguete" class="imgVista" />
@@ -34,10 +36,10 @@
       <div class="mainArticle">
         <h2 class="tituloProducto"><%=productoADetalle.nombre%></h2>
         <div></div>
-        <div style="align-items: center;">
-          <p class="priceMain"><%=productoADetalle.precio%></p>
+        <div class="precio-disponibilidad">
+          <p class="priceMain">$<%=productoADetalle.precio%></p>
         </div>
-        <div style="align-items: center; display: flex;">
+        <div class="precio-disponibilidad">
           <p class="disponible">Producto disponible</p>
         </div>
         <div class="descripcionMain"><%=productoADetalle.descripcion%></div>
@@ -50,7 +52,11 @@
         </div>
 
         <div class="anadirCaja">
-          <button type="button" class="botonAnadirGrande" onclick="window.location.href='/productCart'">
+          <button
+            type="button"
+            class="botonAnadirGrande"
+            onclick="window.location.href='/productCart'"
+          >
             Añadir al carrito
           </button>
 
@@ -64,17 +70,17 @@
       </div>
     </section>
     <div>
-      <h3 class="tituloProductos">Productos Similares</h3>
+      <h2>Productos Similares</h2>
       <section>
         <div class="wrapper-productos">
           <% for(let producto of productosSimilares){ %>
-          <article class="carta-producto"> 
+          <article class="carta-producto">
             <div class="imagen-producto">
               <img src="/img/<%=producto.imagen%>" alt="Perro de juguete" />
             </div>
             <div class="info-producto">
               <p class="nombre-producto"><%=producto.nombre%></p>
-              <p class="precio-producto"><%=producto.precio%></p>
+              <p class="precio-producto">$<%=producto.precio%></p>
               <div class="detalles-agregar">
                 <button
                   class="mas-detalles"
@@ -93,14 +99,12 @@
                   </div>
                 </div>
               </div>
-              
-             
             </div>
             <div class="boton-comprar">
               <button onclick="window.location.href='/productCart'">
                 Comprar
               </button>
-           </div>
+            </div>
           </article>
           <%} %>
         </div>

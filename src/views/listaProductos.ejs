@@ -21,7 +21,11 @@
       <h2>Crear Nuevo Producto</h2>
       <section>
         <div class="formulario-creacion">
-          <form method="POST" action="/listaProductos/crear">
+          <form
+            method="POST"
+            action="/listaProductos/crear"
+            enctype="multipart/form-data"
+          >
             <div class="campos-formulario">
               <div>
                 <label for="id">ID</label>
@@ -53,14 +57,16 @@
               <div>
                 <label for="precio">Precio</label>
                 <input type="number" name="precio" id="precio" />
-                <label for="imagen">Archivo imagen</label>
+                <!-- <label for="imagen">Archivo imagen</label>
                 <select name="imagen" id="imagen">
                   <% for(let opcion in archivosImagen){ %>
                   <option value="<%=archivosImagen[opcion]%>">
                     <%=archivosImagen[opcion]%>
                   </option>
                   <%} %>
-                </select>
+                </select> -->
+                <label for="imagenNueva">Imagen nueva:</label>
+                <input type="file" id="imagen" name="imagen" />
                 <input
                   class="no-desktop crear-boton"
                   type="submit"

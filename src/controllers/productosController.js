@@ -12,11 +12,11 @@ const arrayIds = listaProductos.map((i) => i.id);
 
 const productosController = {
   crearProducto: function (req, res) {
-    const { id, nombre, imagen, descripcion, precio, tipo } = req.body;
+    const { id, nombre, descripcion, precio, tipo } = req.body;
     const productoCreado = {
       id: id,
       nombre: nombre,
-      imagen: imagen,
+      imagen: req.file.filename,
       descripcion: descripcion,
       precio: precio,
       tipo: tipo,

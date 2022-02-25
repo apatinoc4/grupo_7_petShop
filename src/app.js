@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const methodOverride = require("method-override");
 const path = require("path");
+
 const rutasAutorizacion = require("./routes/autorizacion");
 const rutasProductos = require("./routes/productos");
 const rutasUsuarios = require("./routes/usuarios");

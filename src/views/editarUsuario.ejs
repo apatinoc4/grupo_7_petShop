@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/userProfile.css" />
+
+    <title>Edicion de Usuario</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <div class="contenedor-section">
+        
+        <section class="mainSection">
+            <div>
+                <h2>Edicion de Usuario</h2>
+                <form method ="post" action="/listaUsuarios/<%=usuarioADetalle.id%>/editar?_method=PUT" enctype="multipart/form-data">
+                    <img class="mainFoto"
+                        src="/img/users/<%=usuarioADetalle.foto%>"
+                        alt="Foto de Perfil"
+                        />
+                        <input class="botonEditar" type="file" style="color: white"  id="foto" name="foto"
+                        />
+                    </div>
+                    <div class="contenedorParrafos">
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                User ID:
+                            </p>
+                            <input class="parrafoUsuario" 
+                                id="id"
+                                name="id"
+                                readonly
+                                value="<%=usuarioADetalle.id%>"
+                            />
+                        </div>
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                Nombre:
+                            </p>
+                            <input class="parrafoUsuario"
+                                id="nombre"
+                                name="nombre"
+                                value="<%=usuarioADetalle.nombre%>"
+                            />
+                        </div>
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                Usuario:
+                            </p>
+                            <input class="parrafoUsuario"
+                                id="usuario"
+                                name="usuario"
+                                value="<%=usuarioADetalle.usuario%>"
+                            />
+                        </div>
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                Email:
+                            </p>
+                            <input class="parrafoUsuario"
+                                id="email"
+                                name="email"
+                                type="email"
+                                value="<%=usuarioADetalle.email%>"
+                            />
+
+                        </div>
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                Fecha de Nacimiento:
+                            </p>
+                            <input class="parrafoUsuario"
+                                id="fecha"
+                                name="fecha"
+                                value="<%=usuarioADetalle.fecha%>"
+                                type="date"
+                            />
+                        </div>
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                Pais:
+                            </p>
+                            <input class="parrafoUsuario"
+                                id="pais"
+                                name="pais"
+                                value="<%=usuarioADetalle.pais%>"
+                            />
+                        </div>
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                Ciudad:
+                            </p>
+                            <input class="parrafoUsuario"
+                                id="ciudad"
+                                name="ciudad"
+                                value="<%=usuarioADetalle.ciudad%>"
+                            />
+                        </div>
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                Direccion:
+                            </p>
+                            <input class="parrafoUsuario"
+                                id="direccion"
+                                name="direccion"
+                                value="<%=usuarioADetalle.direccion%>" 
+                            />
+                        </div>
+                        <input type="submit" class="botonEditar" value="Guardar Cambios">
+                    </div>
+                </form>  
+            </div>
+            
+        </section>
+        <%- include('../partials/footer') %>
+</body>
+</html>

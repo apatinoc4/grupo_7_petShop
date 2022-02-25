@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/listaUsuarios.css" />
+
+    <title>Lista de usuarios</title>
+  </head>
+  <body style="align-self: center">
+    <%- include('../partials/header') %>
+    <div class="listaUsuarios-wrapper">
+
+      <% if(typeof errors != 'undefined'){ %>
+        <h2>Errores</h2>
+        <p style="color:red">ERROR</p>
+        <ul>
+          <% for (let i=0; i<errors.length; i++){ %>
+            <li style="color:red">
+              <%= errors[i].msg %>
+            </li>
+            <%}%>
+        </ul>
+      <%}%>
+
+      <h2>Crear Nuevo Usuario</h2>
+      <section>
+        <div class="formulario-creacion">
+          <form method="POST" action="/listaUsuarios/crear" enctype="multipart/form-data">
+            <div class="campos-formulario">
+              <div>
+                <label for="id">ID</label>
+                <input
+                  type="number"
+                  name="id"
+                  readonly
+                  value="<%=idCreacion%>"
+                  id="id"
+                />
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" />
+                <label for="usuario">Usuario</label>
+                <input type="text" name="usuario" id="usuario"/>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email"/>
+                <label for="fecha">Fecha De Nacimiento</label>
+                <input type="dateB" name="fecha" id="fecha" />
+              </div>
+              <div>
+                <label for="pais">Pais</label>
+                <input type="text" name="pais" id="pais" />
+                <label for="ciudad">Ciudad</label>
+                <input type="text" name="ciudad" id="ciudad"/>
+                <label for="direccion">Direccion</label>
+                <input type="text" name="direccion" id="direccion" />
+                <label for="autorizacion">Autorizacion</label>
+                <p><input type="checkbox" name="autorizacion" id="autorizacion" />
+                Envio de Contenido</p>
+                <input
+                  class="crear-boton no-mobile"
+                  type="submit"
+                  value="Crear Usuario"
+                />
+              </div>
+              <div>
+
+                <label for="foto">Archivo Foto</label>
+                <input type="file" name="foto" id="foto" />
+                <label for="tipo">Tipo de usuario</label>
+                <select name="tipo" id="tipo" >
+                  <option value="administrador">Administrador</option>
+                  <option value="usuario">Usuario</option>
+                </select>
+                <label for="contrasena">Contrasena</label>
+                <input type="text" name="contrasena" id="contrasena" />
+                
+                <input
+                  class="no-desktop crear-boton"
+                  type="submit"
+                  value="Crear Usuario"
+                />
+                <input type="reset" class="eliminar  crear-boton" value="Limpiar Campos"/>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <h2>Lista de Usuarios</h2>
+      <section>
+        <table>
+          <thead>
+            <td>ID</td>
+            <td>Nombre</td>
+            <td>Usuario</td>
+            <td>Email</td>
+            <td>Fecha de Nacimiento</td>
+            <td>Pais</td>
+            <td>Ciudad</td>
+            <td>Direccion</td>
+            <td>Archivo Imagen</td>
+            <td>Autorizacion</td>
+            <td>Tipo</td>
+            <td>Contraseña</td>
+            <td class="no-mobile"></td>
+          </thead>
+          <tbody>
+            <% for(let usuario of listaUsuarios){ %>
+            <tr onclick=window.location.href='/userProfile/<%=usuario.id%>'>
+              <td class="negrita idUsuario"><%=usuario.id%></td>
+              <td><%=usuario.nombre%></td>
+              <td ><%=usuario.usuario%></td>
+              <td class="negrita"><%=usuario.email%></td>
+              <td><%=usuario.fecha%></td>
+              <td><%=usuario.pais%></td>
+              <td><%=usuario.ciudad%></td>
+              <td><%=usuario.direccion%></td>
+              <td><%=usuario.foto%></td>
+              <td class="negrita"><%=usuario.autorizacion%></td>
+              <td lass="negrita"><%=usuario.tipo%></td>
+              <td><%=usuario.contrasena%></td>
+              <td class="botones no-mobile" width="120">
+                <form action="/listaUsuarios/<%=usuario.id%>/editar/">
+                  <button type="submit" class="editar">Editar</button>
+                </form>
+                <form
+                  method="POST"
+                  action="/listaUsuarios/<%=usuario.id%>/eliminar?_method=DELETE"
+                >
+                  <button type="submit" class="eliminar">Eliminar</button>
+                </form>
+              </td>
+            </tr>
+            <tr class="no-desktop no-desktop-tr">
+              <td
+                class="no-desktop botones botones-mobile"
+                width="100%"
+                colspan="13"
+              >
+                <div class="botones-wrapper">
+                  <form action="/listaUsuarios/<%=usuario.id%>/editar/">
+                    <button type="submit" class="editar">Editar</button>
+                  </form>
+                  <form
+                    method="POST"
+                    action="/listaUsuarios/<%=usuario.id%>/eliminar?_method=DELETE"
+                  >
+                    <button type="submit" class="eliminar">Eliminar</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+            <%} %>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

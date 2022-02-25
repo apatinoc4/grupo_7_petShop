@@ -10,122 +10,136 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/productDetail.css" />
-    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/register.css" />
     <title>Registrarse</title>
   </head>
   <body>
     <%- include('../partials/header') %>
-    <div>
-      <div class="register-wrapper">
-        <div class="cajaRegister">
-          <form action="" method="post">
-            <label class="tituloRegister" for="registrarse"
-              >Crea tu Cuenta</label
+    <div class="register-wrapper">
+      <div class="cajaRegister">
+
+        <% if(typeof errors != 'undefined'){ %>
+          <h2>Errores</h2>
+          <p style="color:red">ERROR</p>
+          <ul>
+            <% for (let i=0; i<errors.length; i++){ %>
+              <li style="color:red">
+                <%= errors[i].msg %>
+              </li>
+              <%}%>
+          </ul>
+        <%}%>
+  
+        <form action="/userProfile/crear" method="POST"  enctype="multipart/form-data">
+          <p class="tituloRegister" for="registrarse"
+            >Crea tu Cuenta
+          </p>
+          <input
+            class="barraInput"
+            type="text"
+            name="nombre"
+            id="nombre"
+            minlength=" 2"
+            placeholder="Nombre y Apellido"
+          />
+          <input
+            class="barraInput"
+            type="text"
+            name="usuario"
+            id="usuario"
+            minlength=" 2"
+            placeholder="Nombre de Usuario"
+            />
+          <input
+            class="barraInput"
+            type="email"
+            name="email"
+            id="email"
+            minlength=" 2"
+            placeholder="Correo Electronico"
+          />
+          <p class="tituloRegister" for="dateB"
+            >Fecha de nacimiento
+          </p>
+          <input
+            class="barraInput"
+            type="date"
+            name="fecha"
+            id="fecha"
+            minlength=" 2"
+          />
+          <p class="tituloRegister" 
+            name="direccion"
+            id="direccion"
+            for="dateB"
+            >Dirección
+          </p>
+          <input
+            class="barraInput"
+            type="text"
+            name="pais"
+            id="pais"
+            minlength=" 2"
+            placeholder="País"
+          />
+          <input
+            class="barraInput"
+            type="text"
+            name="ciudad"
+            id="ciudad"
+            minlength=" 2"
+            placeholder="Ciudad"
+          />
+          <input
+            class="barraInput"
+            type="text"
+            name="direccion"
+            id="direccion"
+            minlength=" 2"
+            placeholder="Direccion">
+          </input>
+          <p class="tituloRegister" for="autorizacionTextp">
+            Autorización de contenido
+          </p>
+         </input>
+          <div style="width: 80%">
+            <input type="checkbox"
+            name="autorizacion"
+            id="autorizacion" />
+            <label
+              class="textoPequeno"
+              for="autorizacion "
+              style="flex-wrap: wrap"
             >
-            <p>
-              <input
-                class="barraInput"
-                type="text"
-                name="nameSend"
-                id="name"
-                minlength=" 2"
-                placeholder="Nombre y Apellido"
-              />
-            </p>
-            <p>
-              <input
-                class="barraInput"
-                type="text"
-                name="userNameSend"
-                id="userName"
-                minlength=" 2"
-                placeholder="Nombre de Usuario"
-              />
-            </p>
-            <p>
-              <input
-                class="barraInput"
-                type="email"
-                name="emailSend"
-                id="email"
-                minlength=" 2"
-                placeholder="Correo Electronico"
-              />
-            </p>
-            <div>
-              <label class="tituloRegister" for="dateB"
-                >Fecha de nacimiento</label
-              >
-
-              <input
-                class="barraInput"
-                type="date"
-                name="dateBSend"
-                id="dateB"
-                minlength=" 2"
-              />
-            </div>
-            <p>
-              <label for="domicilio"></label>
-              <input
-                class="barraInput"
-                type="text"
-                name="domicilioSend"
-                id="domicilio"
-                minlength=" 2"
-                placeholder="Domicilio"
-              />
-            </p>
-
-            <p class="tituloRegister" for="autorizacion">
-              Autorización de contenido
-            </p>
-
-            <div style="width: 80%">
-              <input type="checkbox" name="autorizacion" id="autorizacionId" />
-              <label
-                class="textoPequeno"
-                for="autorizacion "
-                style="flex-wrap: wrap"
-              >
-                ¿Deseas recibir contenido de promociones y novedades de nuestra
-                tienda?</label
-              >
-            </div>
-            <p class="tituloRegister" for="fotoDeUsuario">Foto de usuario</p>
-
-            <input class="barraInput" type="file" src="" alt="Enviar" />
-
-            <p>
-              <input
-                class="barraInput"
-                type="password"
-                name="contrasenaSend"
-                id="contrasena"
-                minlength=" 2"
-                placeholder="Contraseña"
-              />
-            </p>
-            <p>
-              <input
-                class="barraInput"
-                type="password"
-                name="confirmarContrasenaSend"
-                id="confirmarContrasena"
-                minlength=" 2"
-                placeholder="Confirmar Contraseña"
-              />
-            </p>
-
-            <button class="enviarLogin" type="submit">
-              <a style="color: white; text-decoration: none" href="/">Enviar</a>
-            </button>
-
-            <button class="enviarLogin" type="reset">Borrar Datos</button>
-          </form>
-        </div>
+              ¿Deseas recibir contenido de promociones y novedades de nuestra
+              tienda?
+            </label>
+          </div>
+          <p class="tituloRegister" for="fotoDeUsuario">Foto de usuario</p>
+          <input class="barraInput" 
+          type="file" src="" alt="Enviar" 
+          name="foto" id="foto" 
+          />
+          <input
+            class="barraInput"
+            type="password"
+            name="contrasena"
+            id="contrasena"
+            minlength=" 2"
+            placeholder="Contraseña"
+          />
+          <input
+            class="barraInput"
+            type="password"
+            name="confirmarContrasena"
+            id="confirmarContrasena"
+            minlength=" 2"
+            placeholder="Confirmar Contraseña"
+          />
+          <input class="enviarLogin" type="submit" value="Crear Usuario">
+          <input class="enviarLogin" type="reset" value="Borrar Datos"></in>
+        </form>
       </div>
     </div>
     <%- include('../partials/footer') %>

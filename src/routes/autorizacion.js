@@ -17,6 +17,11 @@ const upload = multer({storage: storage})
 
 
 router.get("/login", autorizacionController.renderLogin);
+router.post("/login/store",
+    check("email").notEmpty().withMessage("Debes ingresar un email")
+                .isEmail().withMessage("Debes ingresar un email valido"),
+    check("contrasena").notEmpty().withMessage("Debes ingresar una contraseña"),
+    autorizacionController.storeLogin);
 router.get("/register", autorizacionController.renderRegistro);
 router.get("/productCart", autorizacionController.renderCarrito);
 

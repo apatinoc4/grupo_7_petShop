@@ -22,7 +22,7 @@
         <section class="mainSection">
             <div>
                 <h2>Edicion de Usuario</h2>
-                <form method ="post" action="/listaUsuarios/<%=usuarioADetalle.id%>/editar?_method=PUT" enctype="multipart/form-data">
+                <form method ="post" action="/userProfile/<%=usuarioADetalle.id%>/editar?_method=PUT" enctype="multipart/form-data">
                     <img class="mainFoto"
                         src="/img/users/<%=usuarioADetalle.foto%>"
                         alt="Foto de Perfil"
@@ -113,6 +113,17 @@
                                 id="direccion"
                                 name="direccion"
                                 value="<%=usuarioADetalle.direccion%>" 
+                            />
+                        </div>
+                        <div class="contenedorParrafo">
+                            <p class="parrafoBoldUsuario">
+                                Autorización de Envio de Contenido:
+                            </p>
+                            <input type="checkbox" 
+                                class="parrafoUsuario"
+                                id="autorizacion"
+                                name="autorizacion"
+                                
                             />
                         </div>
                         <input type="submit" class="botonEditar" value="Guardar Cambios">

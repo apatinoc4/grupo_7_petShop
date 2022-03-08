@@ -1,1 +1,16 @@
-[{"id":0,"nombre":"andres","usuario":"andrespatino","email":"andrepatino@gmail.com","fecha":"1111-11-11","pais":"colombia","ciudad":"itagui","direccion":"asada","tipo":"admin","autorizacion":"on","foto":"default.jpg","contrasena":"111"},{"id":"1","nombre":"andres","usuario":"mazo","email":"andrez.mazo@gmail.com","fecha":"1111-11-11","pais":"argentina","ciudad":"envigado","direccion":"asada","foto":"foto-1645676980664.png"},{"id":3,"nombre":"Andrés","usuario":"asd","email":"ingenieria1@a-int.co","fecha":"11/11/1111","pais":"sdfgsdfg","ciudad":"itagui","direccion":"asada","autorizacion":"on","foto":"default.jpg","tipo":"administrador","contrasena":"123"}]
+[
+ {
+  "id": 0,
+  "nombre": "Andrés",
+  "usuario": "Andres",
+  "email": "hola@gmail.com",
+  "fecha": "1111-11-11",
+  "pais": "11111",
+  "ciudad": "11111",
+  "direccion": "11111",
+  "autorizacion": "on",
+  "foto": "default.jpg",
+  "tipo": "usuario",
+  "contrasena": "$2a$10$4fr54Iltw.Nlftv.Il2O/eirdl.5b3x5JgNyOym8XIcENqq8OxUca"
+ }
+]

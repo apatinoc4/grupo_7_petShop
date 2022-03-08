@@ -25,7 +25,7 @@
                     src="/img/users/<%=usuarioADetalle.foto%>"
                     alt="Foto de Perfil"
                     />
-                    <form  action="/listaUsuarios/<%=usuarioADetalle.id%>/editar/">
+                    <form  action="/userProfile/<%=usuarioADetalle.id%>/editar/">
                         <button class="botonEditar" type="submit" class="editar">Editar</button>
                       </form>
                 </div>
@@ -93,6 +93,15 @@
                         <p class="parrafoUsuario">
                             <%=usuarioADetalle.direccion%>
                         </p>
+                    </div>
+                    <div class="contenedorParrafo">
+                        <p class="parrafoBoldUsuario">
+                            Autorización de Contenido:
+                        </p>
+                        <p class="parrafoUsuario">
+                            <%=usuarioADetalle.autorizacion%>
+                        </p>
+                        
                     </div>
                 </div>
             </div>

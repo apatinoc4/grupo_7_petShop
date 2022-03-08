@@ -28,6 +28,11 @@
                 <%= errors[i].msg %>
               </li>
               <%}%>
+              <% if(errors.create){%>
+                <li style="color:red">
+                  <%= errors.create %>
+                </li>
+              <%}%>
           </ul>
         <%}%>
   
@@ -42,6 +47,7 @@
             id="nombre"
             minlength=" 2"
             placeholder="Nombre y Apellido"
+            value="<%= locals.old && old.nombre%>"
           />
           <input
             class="barraInput"
@@ -50,6 +56,7 @@
             id="usuario"
             minlength=" 2"
             placeholder="Nombre de Usuario"
+            value="<%= locals.old && old.usuario %>"
             />
           <input
             class="barraInput"
@@ -58,6 +65,7 @@
             id="email"
             minlength=" 2"
             placeholder="Correo Electronico"
+            value="<%= locals.old && old.email %>"
           />
           <p class="tituloRegister" for="dateB"
             >Fecha de nacimiento
@@ -68,11 +76,12 @@
             name="fecha"
             id="fecha"
             minlength=" 2"
+            value="<%= locals.old && old.fecha %>"
           />
           <p class="tituloRegister" 
-            name="direccion"
-            id="direccion"
-            for="dateB"
+            name="direccionT"
+            id="direccionT"
+            for="direccionT"
             >Dirección
           </p>
           <input
@@ -82,6 +91,7 @@
             id="pais"
             minlength=" 2"
             placeholder="País"
+            value="<%= locals.old && old.pais %>"
           />
           <input
             class="barraInput"
@@ -90,6 +100,7 @@
             id="ciudad"
             minlength=" 2"
             placeholder="Ciudad"
+            value="<%= locals.old && old.ciudad %>"
           />
           <input
             class="barraInput"
@@ -97,6 +108,7 @@
             name="direccion"
             id="direccion"
             minlength=" 2"
+            value="<%= locals.old && old.direccion %>"
             placeholder="Direccion">
           </input>
           <p class="tituloRegister" for="autorizacionTextp">
@@ -106,7 +118,8 @@
           <div style="width: 80%">
             <input type="checkbox"
             name="autorizacion"
-            id="autorizacion" />
+            id="autorizacion" 
+            />
             <label
               class="textoPequeno"
               for="autorizacion "
@@ -119,7 +132,8 @@
           <p class="tituloRegister" for="fotoDeUsuario">Foto de usuario</p>
           <input class="barraInput" 
           type="file" src="" alt="Enviar" 
-          name="foto" id="foto" 
+          name="foto" id="foto"
+          value="<%= locals.old && old.foto %>" 
           />
           <input
             class="barraInput"

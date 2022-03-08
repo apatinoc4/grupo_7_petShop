@@ -93,6 +93,7 @@ const usuariosController = {
       fecha: fecha,
       pais: pais,
       ciudad: ciudad,
+      autorizacion: autorizacion,
       direccion: direccion,
       foto: foto
     };

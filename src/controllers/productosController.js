@@ -82,7 +82,21 @@ const productosController = {
     });
   },
   renderIndex: function (req, res) {
-    res.render("index", { alimentos, juguetes });
+    
+    //Revision de session
+    if(req.session.email == 'undefined'){
+      const login ='undefined'
+    }else{
+      const login = req.session.email
+    } 
+
+    if(req.session.user=="undefined"){
+      const user = "undefined"
+      res.render("index", { alimentos, juguetes,user });
+    }else{
+      const user = req.session.user
+      res.render("index", { alimentos, juguetes,user });
+    }
   },
   renderDetalleProducto: function (req, res) {
     const idProducto = req.params.id;

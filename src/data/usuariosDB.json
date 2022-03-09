@@ -1,16 +1,16 @@
 [
- {
-  "id": 1,
-  "nombre": "Andrés",
-  "usuario": "Andres",
-  "email": "hola@gmail.com",
-  "fecha": "1111-11-11",
-  "pais": "11111",
-  "ciudad": "11111",
-  "direccion": "11111",
-  "autorizacion": "on",
-  "foto": "default.jpg",
-  "tipo": "usuario",
-  "contrasena": "$2a$10$4fr54Iltw.Nlftv.Il2O/eirdl.5b3x5JgNyOym8XIcENqq8OxUca"
- }
+  {
+    "id": 1,
+    "nombre": "usuario test",
+    "usuario": "usuario",
+    "email": "user@test.com",
+    "fecha": "2012-12-05",
+    "pais": "Colombia",
+    "ciudad": "Medellin",
+    "direccion": "Cra75 DA #2Bsur 50 Mota Campestre casa 9814",
+    "autorizacion": "on",
+    "contrasena": "123",
+    "confirmarContrasena": "123",
+    "foto": "default.jpg"
+  }
 ]

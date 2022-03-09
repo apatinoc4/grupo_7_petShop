@@ -2,6 +2,18 @@ const fs = require("fs");
 
 const Usuario = {
   nombreArchivo: "./src/data/usuariosDB.json",
+  obtenerListaUsuarios: function () {
+    return JSON.parse(fs.readFileSync(this.nombreArchivo, "utf-8"));
+  },
+  generarId: function () {
+    const listaUsuarios = this.obtenerListaUsuarios();
+    const ultimoUsuario = listaUsuarios.pop();
+
+    if (ultimoUsuario) {
+      return ultimoUsuario.id + 1;
+    }
+    return 1;
+  },
   borrarUsuarioPorId: function (id) {
     const listaUsuarios = this.obtenerListaUsuarios();
     const listaSinUsuario = listaUsuarios.filter(
@@ -14,20 +26,26 @@ const Usuario = {
 
     return true;
   },
-
-  crearusuario: function (nuevoUsuario) {
+  crearUsuario: function (nuevoUsuario) {
     const listaUsuarios = this.obtenerListaUsuarios();
     const usuarioACrear = {
       id: this.generarId(),
       ...nuevoUsuario,
     };
-    listaUsuarios.push(nuevoUsuario);
+    listaUsuarios.push(usuarioACrear);
     fs.writeFileSync(
       this.nombreArchivo,
-      JSON.stringify(usuarioACrear, null, " ")
+      JSON.stringify(listaUsuarios, null, " "),
+      (err) => {
+        if (err) {
+          console.log("Fallo en la creación del usuario");
+        } else {
+          console.log("Usuario creado exitosamente");
+        }
+      }
     );
 
-    return true;
+    return usuarioACrear;
   },
   encontrarUsuarioPorCampo: function (campo, valor) {
     const listaUsuarios = this.obtenerListaUsuarios();
@@ -38,19 +56,6 @@ const Usuario = {
     const listaUsuarios = this.obtenerListaUsuarios();
 
     return listaUsuarios.find((usuario) => pk == usuario.id);
-  },
-  generarId: function () {
-    const listaUsuarios = this.obtenerListaUsuarios();
-    const ultimoUsuario = listaUsuarios.pop();
-
-    if (ultimoUsuario) {
-      return ultimoUsuario.id + 1;
-    }
-
-    return 1;
-  },
-  obtenerListaUsuarios: function () {
-    return JSON.parse(fs.readFileSync(this.nombreArchivo, "utf-8"));
   },
 };
 

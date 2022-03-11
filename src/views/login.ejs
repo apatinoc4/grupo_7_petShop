@@ -19,7 +19,7 @@
     <%- include('../partials/header') %>
     <div class="login-wrapper">
       <div class="loginCaja">
-        <form style="width: 100%" action="/login/store" method="POST">
+        <form style="width: 100%" action="/login" method="POST">
           <label class="tituloLogin" for="loginTit">Ingresa a tu Cuenta</label>
           <br />
           <% if(typeof errors != 'undefined'){ %>
@@ -38,7 +38,7 @@
             </ul>
             
           <%}%>
-          <p>
+
             <input
               class="barraInput"
               type="text"
@@ -49,8 +49,11 @@
               value="<%= locals.old && old.email %>"
 
             />
-          </p>
-          <p>
+            <% if(locals.errors && errors.email){%>
+              <div style="color:red">
+                <%= errors.email.msg %>
+              </div>
+            <%}%>
             <input
               class="barraInput"
               type="password"
@@ -59,7 +62,6 @@
               minlength=" 2"
               placeholder="Ingresa tu Contraseña"
             />
-          </p>
           <p>
             <input 
               class="barraInput"

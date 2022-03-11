@@ -17,12 +17,11 @@ var storage = multer.diskStorage({
   },
 });
 var upload = multer({ storage: storage });
-
+router.get("/userProfile", usuariosController.renderPerfilUsuarioLoggeado);
 router.post(
   "/userProfile/crear",
   upload.single("foto"),
   check("nombre").notEmpty().withMessage("Debes ingresar un nombre"),
-  check("usuario").notEmpty().withMessage("Debes ingresar un usuario"),
   check("email")
     .notEmpty()
     .withMessage("Debes ingresar un email")

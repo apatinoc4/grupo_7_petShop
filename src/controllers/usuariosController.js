@@ -4,6 +4,9 @@ const fs = require("fs");
 const { userInfo } = require("os");
 const path = require("path");
 const Usuario = require("../models/Usuario");
+const bcrypt = require("bcryptjs");
+
+const { hashSync } = bcrypt;
 
 const usuariosFilePath = path.join(__dirname, "../data/usuariosDB.json");
 let listaUsuarios = JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
@@ -12,24 +15,44 @@ const archivosImagen = listaUsuarios.map((i) => i.foto);
 
 const usuariosController = {
   crearUsuario: function (req, res) {
-    let errors = validationResult(req);
+    const errors = validationResult(req);
+    const contrasenaHasheada = hashSync(req.body.contrasena, 10);
+    const usuarioEnDB = Usuario.encontrarUsuarioPorCampo(
+      "email",
+      req.body.email
+    );
+
+    if (usuarioEnDB) {
+      return res.render("register", {
+        old: req.body,
+        errors: {
+          email: {
+            msg: "este email ya se encuentra en la base de datos",
+          },
+        },
+      });
+    }
 
     if (errors.isEmpty()) {
       Usuario.crearUsuario({
         ...req.body,
         foto: req.file ? req.file.filename : "default.jpg",
+        contrasena: contrasenaHasheada,
       });
 
-      res.send("woot");
+      res.redirect("/login");
     } else {
-      res.render("listaUsuarios", {
+      return res.render("register", {
+        old: req.body,
         errors: errors.errors,
-        idCreacion,
-        listaUsuarios,
       });
     }
   },
-
+  renderPerfilUsuarioLoggeado: (req, res) => {
+    res.render("userProfile", {
+      infoUsuario: req.session.usuarioLoggeado,
+    });
+  },
   editarUsuario: function (req, res) {
     let idUsuario = req.params.id;
     let usuarioOld = listaUsuarios.find((elem) => elem.id == idUsuario);

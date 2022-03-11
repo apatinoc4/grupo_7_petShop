@@ -19,6 +19,7 @@ const Usuario = {
     const listaSinUsuario = listaUsuarios.filter(
       (usuario) => usuario.id !== id
     );
+
     fs.writeFileSync(
       this.nombreArchivo,
       JSON.stringify(listaSinUsuario, null, " ")
@@ -32,6 +33,7 @@ const Usuario = {
       id: this.generarId(),
       ...nuevoUsuario,
     };
+
     listaUsuarios.push(usuarioACrear);
     fs.writeFileSync(
       this.nombreArchivo,

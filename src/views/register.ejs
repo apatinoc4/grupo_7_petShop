@@ -51,15 +51,6 @@
           />
           <input
             class="barraInput"
-            type="text"
-            name="usuario"
-            id="usuario"
-            minlength=" 2"
-            placeholder="Nombre de Usuario"
-            value="<%= locals.old && old.usuario %>"
-            />
-          <input
-            class="barraInput"
             type="email"
             name="email"
             id="email"
@@ -109,12 +100,10 @@
             id="direccion"
             minlength=" 2"
             value="<%= locals.old && old.direccion %>"
-            placeholder="Direccion">
-          </input>
+            placeholder="Direccion" />
           <p class="tituloRegister" for="autorizacionTextp">
             Autorización de contenido
           </p>
-         </input>
           <div style="width: 80%">
             <input type="checkbox"
             name="autorizacion"
@@ -142,14 +131,6 @@
             id="contrasena"
             minlength=" 2"
             placeholder="Contraseña"
-          />
-          <input
-            class="barraInput"
-            type="password"
-            name="confirmarContrasena"
-            id="confirmarContrasena"
-            minlength=" 2"
-            placeholder="Confirmar Contraseña"
           />
           <input class="enviarLogin" type="submit" value="Crear Usuario">
           <input class="enviarLogin" type="reset" value="Borrar Datos"></in>

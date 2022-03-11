@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const methodOverride = require("method-override");
 const path = require("path");
-const session = require("express-session")
-var cookieParser = require('cookie-parser');
+const session = require("express-session");
+var cookieParser = require("cookie-parser");
 
 const rutasAutorizacion = require("./routes/autorizacion");
 const rutasProductos = require("./routes/productos");
@@ -12,13 +12,14 @@ const rutasUsuarios = require("./routes/usuarios");
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(session({
-  secret: "Mensaje secreto",
-  resave: false,
-  saveUninitialized: true,
-}));
+app.use(
+  session({
+    secret: "Mensaje secreto",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 app.use(cookieParser());
-
 
 app.use(express.static(path.resolve(__dirname, "../public")));
 

@@ -13,9 +13,12 @@
       <nav>
         <a href="/">Home</a>
         <% if(locals.hayUsuarioLoggeado){%>
+        <a href="/userProfile">Perfil</a>
         <a href="/productCart">Carrito</a>
+        <%if(locals.infoUsuarioLoggeado.admin){%>
         <a href="/listaProductos">Inventario</a>
         <a href="/listaUsuarios">Directorio</a>
+        <%}%>
         <a href="/logout">Salir</a>
         <%} else {%>
         <a href="/login">Ingreso</a>

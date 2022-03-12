@@ -31,6 +31,7 @@ const Usuario = {
     const listaUsuarios = this.obtenerListaUsuarios();
     const usuarioACrear = {
       id: this.generarId(),
+      admin: false,
       ...nuevoUsuario,
     };
 

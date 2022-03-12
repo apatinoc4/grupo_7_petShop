@@ -21,9 +21,9 @@ app.use(
   })
 );
 
-app.use(usuarioLoggeadoMiddleware);
-
 app.use(cookieParser());
+
+app.use(usuarioLoggeadoMiddleware);
 
 app.use(express.static(path.resolve(__dirname, "../public")));
 

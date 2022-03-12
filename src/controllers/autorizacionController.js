@@ -7,12 +7,7 @@ const bcrypt = require("bcryptjs");
 const Usuario = require("../models/Usuario");
 
 let usuariosFilePath = path.join(__dirname, "../data/usuariosDB.json");
-let userLoginInfoFilePath = path.join(__dirname, "../data/usuarioLogin.json");
-
 let listaUsuarios = JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
-let usersLoginInfo = JSON.parse(
-  fs.readFileSync(userLoginInfoFilePath, "utf-8")
-);
 
 const autorizacionController = {
   renderLogin: function (req, res) {
@@ -22,6 +17,7 @@ const autorizacionController = {
     res.render("register");
   },
   cerrarSesion: function (req, res) {
+    res.clearCookie("emailUsuario");
     req.session.destroy();
 
     return res.redirect("/");
@@ -136,7 +132,12 @@ const autorizacionController = {
       }
       delete usuarioAIngresar.contrasena;
       req.session.usuarioLoggeado = usuarioAIngresar;
-      res.redirect("/userProfile");
+
+      if (req.body.recordarUsuario) {
+        res.cookie("emailUsuario", req.body.email, { MaxAge: 1000 * 60 * 5 });
+      }
+
+      return res.redirect("/");
     }
     return res.render("login", {
       errors: {

@@ -1,14 +1,14 @@
 [
-  {
-    "id": 1,
-    "admin": false,
-    "nombre": "andy test",
-    "email": "apatinoc4@gmail.com",
-    "fecha": "2022-03-09",
-    "pais": "Colombia",
-    "ciudad": "Medellin",
-    "direccion": "Cra75 DA #2Bsur 50 Mota Campestre casa 9814",
-    "contrasena": "$2a$10$ZuS3WIUBEyx.XdoNmvNs/.k/h6UZB4b6S.g2ZQFXCeO6i8.mGfnny",
-    "foto": "default.jpg"
-  }
+ {
+  "id": "1",
+  "nombre": "andy test",
+  "usuario": "",
+  "email": "apatinoc4@gmail.com",
+  "fecha": "2022-03-09",
+  "pais": "Colombia",
+  "ciudad": "Medellin",
+  "autorizacion": "off",
+  "direccion": "Cra75 DA #2Bsur 50 Mota Campestre casa 9814",
+  "foto": "default.jpg"
+ }
 ]

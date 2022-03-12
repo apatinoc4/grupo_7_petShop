@@ -3,7 +3,6 @@
     <p>PetShop Grupo 7</p>
     <div class="buscador-nav">
       <div class="buscador">
-        
         <input
           name="buscador-header"
           placeholder="Qué quieres buscar hoy?"
@@ -13,10 +12,15 @@
       </div>
       <nav>
         <a href="/">Home</a>
+        <% if(locals.hayUsuarioLoggeado){%>
         <a href="/productCart">Carrito</a>
-        <a href="/register">Registro</a>
-        <a href="/login">Ingreso</a>
         <a href="/listaProductos">Inventario</a>
+        <a href="/listaUsuarios">Directorio</a>
+        <a href="/logout">Salir</a>
+        <%} else {%>
+        <a href="/login">Ingreso</a>
+        <a href="/register">Registro</a>
+        <%}%>
       </nav>
     </div>
   </div>

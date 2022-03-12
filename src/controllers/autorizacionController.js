@@ -21,6 +21,11 @@ const autorizacionController = {
   renderRegistro: function (req, res) {
     res.render("register");
   },
+  cerrarSesion: function (req, res) {
+    req.session.destroy();
+
+    return res.redirect("/");
+  },
   renderCarrito: function (req, res) {
     res.render("productCart");
   },

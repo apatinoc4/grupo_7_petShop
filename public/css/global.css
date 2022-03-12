@@ -116,6 +116,10 @@ header {
   font-weight: 500;
 }
 
+header nav {
+  width: 100%;
+}
+
 header p {
   color: white;
   font-weight: 800;

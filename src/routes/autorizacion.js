@@ -18,8 +18,12 @@ var storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+//LOGIN
 router.get("/login", autorizacionController.renderLogin);
 router.post("/login", autorizacionController.procesarLogin);
+
+//LOGOUT
+router.get("/logout", autorizacionController.cerrarSesion);
 
 router.get("/register", autorizacionController.renderRegistro);
 router.get("/productCart", autorizacionController.renderCarrito);

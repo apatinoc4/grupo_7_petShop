@@ -21,49 +21,28 @@
       <div class="loginCaja">
         <form style="width: 100%" action="/login" method="POST">
           <label class="tituloLogin" for="loginTit">Ingresa a tu Cuenta</label>
-          <br />
-          <% if(typeof errors != 'undefined'){ %>
-            <p style="color:red">Errores</p>
-            <ul>
-              <% for (let i=0; i<errors.length; i++){ %>
-                <li style="color:red">
-                  <%= errors[i].msg %>
-                </li>
-              <%}%>
-              <% if(errors.login){%>
-                <li style="color:red">
-                  <%= errors.login %>
-                </li>
-              <%}%>
-            </ul>
-            
+          <input
+            class="barraInput"
+            type="text"
+            name="email"
+            id="email"
+            minlength=" 2"
+            placeholder="Ingresa tu email"
+            value="<%= locals.old && old.email %>"
+          />
+          <% if(locals.errors && errors.email){%>
+          <div style="color: red"><%= errors.email.msg %></div>
           <%}%>
-
-            <input
-              class="barraInput"
-              type="text"
-              name="email"
-              id="email"
-              minlength=" 2"
-              placeholder="Ingresa tu email"
-              value="<%= locals.old && old.email %>"
-
-            />
-            <% if(locals.errors && errors.email){%>
-              <div style="color:red">
-                <%= errors.email.msg %>
-              </div>
-            <%}%>
-            <input
-              class="barraInput"
-              type="password"
-              name="contrasena"
-              id="contrasena"
-              minlength=" 2"
-              placeholder="Ingresa tu Contraseña"
-            />
+          <input
+            class="barraInput"
+            type="password"
+            name="contrasena"
+            id="contrasena"
+            minlength=" 2"
+            placeholder="Ingresa tu Contraseña"
+          />
           <p>
-            <input 
+            <input
               class="barraInput"
               type="checkbox"
               name="remember"

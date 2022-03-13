@@ -22,9 +22,7 @@ const autorizacionController = {
 
     return res.redirect("/");
   },
-  renderCarrito: function (req, res) {
-    res.render("productCart");
-  },
+
   editarUsuario: function (req, res) {
     const idUsuario = req.params.id;
     let usuarioOld = listaUsuarios.find((elem) => elem.id == idUsuario);
@@ -78,22 +76,6 @@ const autorizacionController = {
     );
     res.redirect("/userProfile/" + usuarioADetalle.id);
   },
-  eliminarUsuario: function (req, res) {
-    const idUsuario = req.params.id;
-    const listaFiltrada = listaUsuarios.filter((elem) => elem.id != idUsuario);
-    fs.writeFile(
-      usuariosFilePath,
-      JSON.stringify(listaFiltrada, null, " "),
-      (err) => {
-        if (err) {
-          console.log("Fallo en la eliminación del usuario");
-        } else {
-          console.log("Usuario eliminado exitosamente");
-        }
-      }
-    );
-    res.redirect("/userProfile");
-  },
   renderFormularioEdicion: function (req, res) {
     const idUsuario = req.params.id;
     const usuarioADetalle = listaUsuarios.find((elem) => elem.id == idUsuario);
@@ -136,7 +118,6 @@ const autorizacionController = {
       if (req.body.recordarUsuario) {
         res.cookie("emailUsuario", req.body.email, { MaxAge: 1000 * 60 * 5 });
       }
-
       return res.redirect("/");
     }
     return res.render("login", {

@@ -15,5 +15,6 @@ router.delete(
   "/listaProductos/:id/eliminar/",
   productosController.eliminarProducto
 );
+router.get("/productCart", productosController.renderCarrito);
 
 module.exports = router;

@@ -38,6 +38,7 @@ const usuariosController = {
         ...req.body,
         foto: req.file ? req.file.filename : "default.jpg",
         contrasena: contrasenaHasheada,
+        autoriza: req.body.autorizacion ? true : false,
       });
 
       res.redirect("/login");

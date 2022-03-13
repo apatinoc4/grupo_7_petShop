@@ -26,7 +26,6 @@ router.post("/login", autorizacionController.procesarLogin);
 router.get("/logout", autorizacionController.cerrarSesion);
 
 router.get("/register", autorizacionController.renderRegistro);
-router.get("/productCart", autorizacionController.renderCarrito);
 
 router.get("/userProfile/:id", autorizacionController.renderUsuario);
 router.get(
@@ -37,10 +36,6 @@ router.put(
   "/userProfile/:id/editar/",
   upload.single("foto"),
   autorizacionController.editarUsuario
-);
-router.delete(
-  "/userProfile/:id/eliminar/",
-  autorizacionController.eliminarUsuario
 );
 
 module.exports = router;

@@ -61,14 +61,9 @@
                 <input type="text" name="ciudad" id="ciudad"/>
                 <label for="direccion">Direccion</label>
                 <input type="text" name="direccion" id="direccion" />
-                <label for="autorizacion">Autorizacion</label>
-                <p><input type="checkbox" name="autorizacion" id="autorizacion" />
-                Envio de Contenido</p>
-                <input
-                  class="crear-boton no-mobile"
-                  type="submit"
-                  value="Crear Usuario"
-                />
+                <label >Autorizacion</label>
+                <label class="autorizacion"><input class="checkbox" type="checkbox" name="autorizacion" id="autorizacion" />
+                Envio de Contenido</label>
               </div>
               <div>
 
@@ -87,6 +82,11 @@
                   type="submit"
                   value="Crear Usuario"
                 />
+                <input
+                  class="crear-boton no-mobile"
+                  type="submit"
+                  value="Crear Usuario"
+                />
                 <input type="reset" class="eliminar  crear-boton" value="Limpiar Campos"/>
               </div>
             </div>
@@ -99,16 +99,14 @@
           <thead>
             <td>ID</td>
             <td>Nombre</td>
-            <td>Usuario</td>
             <td>Email</td>
             <td>Fecha de Nacimiento</td>
             <td>Pais</td>
             <td>Ciudad</td>
             <td>Direccion</td>
-            <td>Archivo Imagen</td>
+            <td class="no-mobile">Archivo Imagen</td>
             <td>Autorizacion</td>
             <td>Tipo</td>
-            <td>Contraseña</td>
             <td class="no-mobile"></td>
           </thead>
           <tbody>
@@ -116,16 +114,14 @@
             <tr>
               <td class="negrita idUsuario"><%=usuario.id%></td>
               <td><%=usuario.nombre%></td>
-              <td ><%=usuario.usuario%></td>
               <td class="negrita"><%=usuario.email%></td>
               <td><%=usuario.fecha%></td>
               <td><%=usuario.pais%></td>
               <td><%=usuario.ciudad%></td>
               <td><%=usuario.direccion%></td>
-              <td><%=usuario.foto%></td>
+              <td class="no-mobile"><%=usuario.foto%></td>
               <td class="negrita"><%=usuario.autorizacion%></td>
               <td lass="negrita"><%=usuario.tipo%></td>
-              <td><%=usuario.contrasena%></td>
               <td class="botones no-mobile" width="120">
                 <form action="/listaUsuarios/<%=usuario.id%>/editar/">
                   <button type="submit" class="editar">Editar</button>

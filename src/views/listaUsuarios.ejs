@@ -18,65 +18,98 @@
   <body style="align-self: center">
     <%- include('../partials/header') %>
     <div class="listaUsuarios-wrapper">
-
-      <% if(typeof errors != 'undefined'){ %>
-        <h2>Errores</h2>
-        <p style="color:red">ERROR</p>
-        <ul>
-          <% for (let i=0; i<errors.length; i++){ %>
-            <li style="color:red">
-              <%= errors[i].msg %>
-            </li>
-            <%}%>
-        </ul>
-      <%}%>
-
       <h2>Crear Nuevo Usuario</h2>
       <section>
         <div class="formulario-creacion">
-          <form method="POST" action="/listaUsuarios/crear" enctype="multipart/form-data">
+          <form
+            method="POST"
+            action="/listaUsuarios/crear"
+            enctype="multipart/form-data"
+          >
             <div class="campos-formulario">
               <div>
-                <label for="id">ID</label>
-                <input
-                  type="number"
-                  name="id"
-                  readonly
-                  value="<%=idCreacion%>"
-                  id="id"
-                />
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" />
-                <label for="usuario">Usuario</label>
-                <input type="text" name="usuario" id="usuario"/>
+                <% if(locals.errors && errors.find((error)=>error.param ==
+                'nombre')){%>
+                <div style="color: red">
+                  <%= errors.find((error)=>error.param == 'nombre').msg %>
+                </div>
+                <%}%>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email"/>
+                <input type="email" name="email" id="email" />
+                <% if(locals.errors && errors.find((error)=>error.param ==
+                'email')){%>
+                <div style="color: red">
+                  <%= errors.find((error)=>error.param == 'email').msg %>
+                </div>
+                <%}%>
                 <label for="fecha">Fecha De Nacimiento</label>
-                <input type="dateB" name="fecha" id="fecha" />
+                <input type="date" name="fecha" id="fecha" />
+                <% if(locals.errors && errors.find((error)=>error.param ==
+                'fecha')){%>
+                <div style="color: red">
+                  <%= errors.find((error)=>error.param == 'fecha').msg %>
+                </div>
+                <%}%>
               </div>
               <div>
                 <label for="pais">Pais</label>
                 <input type="text" name="pais" id="pais" />
+                <% if(locals.errors && errors.find((error)=>error.param ==
+                'pais')){%>
+                <div style="color: red">
+                  <%= errors.find((error)=>error.param == 'pais').msg %>
+                </div>
+                <%}%>
                 <label for="ciudad">Ciudad</label>
-                <input type="text" name="ciudad" id="ciudad"/>
+                <input
+                  type="text"
+                  name="ciudad"
+                  id="ciudad"
+                  value="<%= locals.old && old.ciudad %>"
+                />
+                <% if(locals.errors && errors.find((error)=>error.param ==
+                'ciudad')){%>
+                <div style="color: red">
+                  <%= errors.find((error)=>error.param == 'ciudad').msg %>
+                </div>
+                <%}%>
                 <label for="direccion">Direccion</label>
                 <input type="text" name="direccion" id="direccion" />
-                <label >Autorizacion</label>
-                <label class="autorizacion"><input class="checkbox" type="checkbox" name="autorizacion" id="autorizacion" />
-                Envio de Contenido</label>
+                <% if(locals.errors && errors.find((error)=>error.param ==
+                'direccion')){%>
+                <div style="color: red">
+                  <%= errors.find((error)=>error.param == 'direccion').msg %>
+                </div>
+                <%}%>
+                <label>Autorizacion</label>
+                <label class="autorizacion"
+                  ><input
+                    class="checkbox"
+                    type="checkbox"
+                    name="autorizacion"
+                    id="autorizacion"
+                  />
+                  Envio de Contenido</label
+                >
               </div>
               <div>
-
                 <label for="foto">Archivo Foto</label>
                 <input type="file" name="foto" id="foto" />
                 <label for="tipo">Tipo de usuario</label>
-                <select name="tipo" id="tipo" >
+                <select name="tipo" id="tipo">
                   <option value="administrador">Administrador</option>
                   <option value="usuario">Usuario</option>
                 </select>
                 <label for="contrasena">Contrasena</label>
-                <input type="text" name="contrasena" id="contrasena" />
-                
+                <input type="password" name="contrasena" id="contrasena" />
+                <% if(locals.errors && errors.find((error)=>error.param ==
+                'contrasena')){%>
+                <div style="color: red">
+                  <%= errors.find((error)=>error.param == 'contrasena').msg %>
+                </div>
+                <%}%>
                 <input
                   class="no-desktop crear-boton"
                   type="submit"
@@ -87,7 +120,11 @@
                   type="submit"
                   value="Crear Usuario"
                 />
-                <input type="reset" class="eliminar  crear-boton" value="Limpiar Campos"/>
+                <input
+                  type="reset"
+                  class="eliminar crear-boton"
+                  value="Limpiar Campos"
+                />
               </div>
             </div>
           </form>

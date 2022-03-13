@@ -9,7 +9,7 @@ const bcrypt = require("bcryptjs");
 const { hashSync } = bcrypt;
 
 const usuariosFilePath = path.join(__dirname, "../data/usuariosDB.json");
-let listaUsuarios = JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
+const listaUsuarios = Usuario.obtenerListaUsuarios();
 
 const archivosImagen = listaUsuarios.map((i) => i.foto);
 
@@ -39,6 +39,7 @@ const usuariosController = {
         foto: req.file ? req.file.filename : "default.jpg",
         contrasena: contrasenaHasheada,
         autoriza: req.body.autorizacion ? true : false,
+        admin: false,
       });
 
       res.redirect("/login");
@@ -49,6 +50,47 @@ const usuariosController = {
       });
     }
   },
+
+  crearUsuarioDesdeDirectorio: function (req, res) {
+    const errors = validationResult(req);
+    const contrasenaHasheada = hashSync(req.body.contrasena, 10);
+    const usuarioEnDB = Usuario.encontrarUsuarioPorCampo(
+      "email",
+      req.body.email
+    );
+    const listaUsuarios = Usuario.obtenerListaUsuarios();
+
+    if (usuarioEnDB) {
+      return res.render("listaUsuarios", {
+        old: req.body,
+        errors: {
+          email: {
+            msg: "email en uso",
+          },
+        },
+      });
+    }
+
+    if (errors.isEmpty()) {
+      Usuario.crearUsuario({
+        ...req.body,
+        foto: req.file ? req.file.filename : "default.jpg",
+        contrasena: contrasenaHasheada,
+        autoriza: req.body.autorizacion ? true : false,
+        admin: req.tipo === "administrador" ? true : false,
+      });
+
+      res.redirect("/listaUsuarios");
+    } else {
+      console.log(errors);
+      return res.render("listaUsuarios", {
+        old: req.body,
+        errors: errors.errors,
+        listaUsuarios,
+      });
+    }
+  },
+
   renderPerfilUsuarioLoggeado: (req, res) => {
     res.render("userProfile", {
       infoUsuario: req.session.usuarioLoggeado,
@@ -134,12 +176,10 @@ const usuariosController = {
   //   });
   // },
   renderListaUsuarios: function (req, res) {
-    let idCreacion = Number(listaUsuarios[listaUsuarios.length - 1].id) + 1;
+    const listaUsuarios = Usuario.obtenerListaUsuarios();
 
     res.render("listaUsuarios", {
       listaUsuarios,
-      archivosImagen,
-      idCreacion,
     });
   },
 };

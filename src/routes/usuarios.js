@@ -29,7 +29,7 @@ router.post(
   "/listaUsuarios/crear",
   upload.single("foto"),
   validacionesRegistro,
-  usuariosController.crearUsuario
+  usuariosController.crearUsuarioDesdeDirectorio
 );
 router.get(
   "/listaUsuarios/:id/editar/",

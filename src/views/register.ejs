@@ -69,23 +69,8 @@
             <%= errors.find((error)=>error.param == 'fecha').msg %>
           </div>
           <%}%>
-          <p
-            class="tituloRegister"
-            name="direccionT"
-            id="direccionT"
-            for="direccionT"
-          >
-            Ubicación
-          </p>
-          <!-- <input
-            class="barraInput"
-            type="text"
-            name="pais"
-            id="pais"
-            minlength=" 2"
-            placeholder="País"
-            value="<%= locals.old && old.pais %>"
-          /> -->
+          <p class="tituloRegister">Ubicación</p>
+
           <select class="barraInput" name="pais" id="pais">
             <option value="colombia">Colombia</option>
             <option value="argentina">Argentina</option>
@@ -95,15 +80,6 @@
             <%= errors.find((error)=>error.param == 'pais').msg %>
           </div>
           <%}%>
-          <!-- <input
-            class="barraInput"
-            type="text"
-            name="ciudad"
-            id="ciudad"
-            minlength=" 2"
-            placeholder="Ciudad"
-            value="<%= locals.old && old.ciudad %>"
-          /> -->
           <select class="barraInput" name="ciudad" id="ciudad">
             <option value="colombia">Medellín</option>
             <option value="buenos_aires">Buenos Aires</option>

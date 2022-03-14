@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const usuariosController = require("../controllers/usuariosController");
+const proteccionRutasUsuarioMiddleware = require("../middlewares/proteccionRutasUsuarioMiddleware");
+const proteccionRutasAdminMiddleware = require("../middlewares/proteccionRutasAdminMiddleware");
 const multer = require("multer");
 const path = require("path");
 const validacionesRegistro = require("../middlewares/validacionesRegistroMiddleware");
@@ -27,7 +29,12 @@ router.post(
 
 // Desde directorio de usuarios
 
-router.get("/listaUsuarios", usuariosController.renderListaUsuarios);
+router.get(
+  "/listaUsuarios",
+  proteccionRutasUsuarioMiddleware,
+  proteccionRutasAdminMiddleware,
+  usuariosController.renderListaUsuarios
+);
 
 router.get("/userProfile/:id", usuariosController.renderPerfilDesdeDirectorio);
 

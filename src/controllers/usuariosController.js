@@ -68,6 +68,7 @@ const usuariosController = {
             msg: "email en uso",
           },
         },
+        listaUsuarios,
       });
     }
 
@@ -79,11 +80,8 @@ const usuariosController = {
         autoriza: req.body.autorizacion ? true : false,
         admin: req.tipo === "administrador" ? true : false,
       });
-      console.log("buena");
-      res.redirect("/listaUsuarios");
-      return res.render("listaUsuarios", {
-        listaUsuarios,
-      });
+
+      return res.redirect("/listaUsuarios");
     } else {
       return res.render("listaUsuarios", {
         old: req.body,

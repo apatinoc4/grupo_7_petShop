@@ -93,6 +93,10 @@ header {
   width: 100%;
 }
 
+#admin {
+  background-color: var(--negro);
+}
+
 .headerSuperior {
   align-items: center;
   display: flex;

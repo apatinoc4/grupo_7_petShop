@@ -95,6 +95,17 @@ const usuariosController = {
       infoUsuario: req.session.usuarioLoggeado,
     });
   },
+
+  renderPerfilDesdeDirectorio: function (req, res) {
+    const listaUsuarios = Usuario.obtenerListaUsuarios();
+    const idUsuario = req.params.id;
+    const infoUsuario = listaUsuarios.find((elem) => elem.id == idUsuario);
+
+    res.render("userProfile", {
+      infoUsuario,
+    });
+  },
+
   editarUsuario: function (req, res) {
     let idUsuario = req.params.id;
     let usuarioOld = listaUsuarios.find((elem) => elem.id == idUsuario);
@@ -143,18 +154,15 @@ const usuariosController = {
     );
     res.redirect("/listaUsuarios");
   },
+
   eliminarUsuario: function (req, res) {
-    const idUsuario = req.params.id;
-    const listaFiltrada = listaUsuarios.filter((elem) => elem.id != idUsuario);
-    fs.writeFile(usuariosFilePath, JSON.stringify(listaFiltrada), (err) => {
-      if (err) {
-        console.log("Fallo en la eliminación del usuario");
-      } else {
-        console.log("Usuario eliminado exitosamente");
-      }
-    });
+    const idUsuario = parseInt(req.params.id);
+
+    Usuario.borrarUsuarioPorId(idUsuario);
+
     res.redirect("/listaUsuarios");
   },
+
   renderEdicionUsuario: function (req, res) {
     let idUsuario = req.params.id;
     let usuarioAEditar = listaUsuarios.find((elem) => elem.id == idUsuario);

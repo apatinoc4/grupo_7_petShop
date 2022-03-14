@@ -84,14 +84,6 @@ const autorizacionController = {
       usuarioADetalle,
     });
   },
-  renderUsuario: function (req, res) {
-    const idUsuario = req.params.id;
-    let usuarioADetalle = listaUsuarios.find((elem) => elem.id == idUsuario);
-
-    res.render("userProfile", {
-      usuarioADetalle,
-    });
-  },
   procesarLogin: function (req, res) {
     const usuarioAIngresar = Usuario.encontrarUsuarioPorCampo(
       "email",

@@ -1,5 +1,9 @@
 <header>
-  <div class="headerSuperior">
+  <%if(locals.hayUsuarioLoggeado && locals.infoUsuarioLoggeado.admin){%>
+  <div class="headerSuperior" id="admin">
+    <%} else {%>
+      <div class="headerSuperior">
+      <%}%>
     <p>PetShop Grupo 7</p>
     <div class="buscador-nav">
       <div class="buscador">

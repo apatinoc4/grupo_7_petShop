@@ -24,7 +24,13 @@ router.post(
   validacionesRegistro,
   usuariosController.crearUsuario
 );
+
+// Desde directorio de usuarios
+
 router.get("/listaUsuarios", usuariosController.renderListaUsuarios);
+
+router.get("/userProfile/:id", usuariosController.renderPerfilDesdeDirectorio);
+
 router.post(
   "/listaUsuarios/crear",
   upload.single("foto"),

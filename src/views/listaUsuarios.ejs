@@ -145,6 +145,7 @@
             <td class="no-mobile">Archivo Imagen</td>
             <td>Autorizacion</td>
             <td>Tipo</td>
+            <td>Perfil</td>
             <td class="no-mobile"></td>
           </thead>
           <tbody>
@@ -158,8 +159,16 @@
               <td><%=usuario.ciudad%></td>
               <td><%=usuario.direccion%></td>
               <td class="no-mobile"><%=usuario.foto%></td>
-              <td class="negrita"><%=usuario.autorizacion%></td>
-              <td lass="negrita"><%=usuario.tipo%></td>
+              <td class="negrita"><%=usuario.autorizacion ? "Sí" : "No"%></td>
+              <td lass="negrita"><%=usuario.admin ? "Admin" : "Usuario"%></td>
+              <td>
+                <a href="/userProfile/<%=usuario.id%>"
+                  ><img
+                    class="iconoPerfil"
+                    src="img/assets/iconoPerfil.svg"
+                    alt=""
+                /></a>
+              </td>
               <td class="botones no-mobile" width="120">
                 <form action="/listaUsuarios/<%=usuario.id%>/editar/">
                   <button type="submit" class="editar">Editar</button>

@@ -44,6 +44,11 @@
   flex-direction: column;
 }
 
+.iconoPerfil {
+  max-width: 30px;
+  cursor: pointer;
+}
+
 .preview-info {
   display: flex;
   justify-content: center;

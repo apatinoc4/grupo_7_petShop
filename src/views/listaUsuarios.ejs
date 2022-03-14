@@ -55,7 +55,10 @@
               </div>
               <div>
                 <label for="pais">Pais</label>
-                <input type="text" name="pais" id="pais" />
+                <select name="pais" id="pais">
+                  <option value="colombia">Colombia</option>
+                  <option value="argentina">Argentina</option>
+                </select>
                 <% if(locals.errors && errors.find((error)=>error.param ==
                 'pais')){%>
                 <div style="color: red">
@@ -63,12 +66,10 @@
                 </div>
                 <%}%>
                 <label for="ciudad">Ciudad</label>
-                <input
-                  type="text"
-                  name="ciudad"
-                  id="ciudad"
-                  value="<%= locals.old && old.ciudad %>"
-                />
+                <select name="ciudad" id="ciudad">
+                  <option value="colombia">Medellín</option>
+                  <option value="buenos_aires">Buenos Aires</option>
+                </select>
                 <% if(locals.errors && errors.find((error)=>error.param ==
                 'ciudad')){%>
                 <div style="color: red">

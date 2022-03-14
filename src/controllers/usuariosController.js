@@ -82,7 +82,6 @@ const usuariosController = {
 
       res.redirect("/listaUsuarios");
     } else {
-      console.log(errors);
       return res.render("listaUsuarios", {
         old: req.body,
         errors: errors.errors,

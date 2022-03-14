@@ -46,7 +46,7 @@ const usuariosController = {
     } else {
       return res.render("register", {
         old: req.body,
-        errors: errors.errors,
+        errors: errors.mapped(),
       });
     }
   },
@@ -79,12 +79,15 @@ const usuariosController = {
         autoriza: req.body.autorizacion ? true : false,
         admin: req.tipo === "administrador" ? true : false,
       });
-
+      console.log("buena");
       res.redirect("/listaUsuarios");
+      return res.render("listaUsuarios", {
+        listaUsuarios,
+      });
     } else {
       return res.render("listaUsuarios", {
         old: req.body,
-        errors: errors.errors,
+        errors: errors.mapped(),
         listaUsuarios,
       });
     }

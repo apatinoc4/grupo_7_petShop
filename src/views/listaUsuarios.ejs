@@ -30,27 +30,18 @@
               <div>
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" />
-                <% if(locals.errors && errors.find((error)=>error.param ==
-                'nombre')){%>
-                <div style="color: red">
-                  <%= errors.find((error)=>error.param == 'nombre').msg %>
-                </div>
+                <% if(locals.errors && errors.nombre){%>
+                <div style="color: red"><%= errors.nombre.msg %></div>
                 <%}%>
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" />
-                <% if(locals.errors && errors.find((error)=>error.param ==
-                'email')){%>
-                <div style="color: red">
-                  <%= errors.find((error)=>error.param == 'email').msg %>
-                </div>
+                <% if(locals.errors && errors.email){%>
+                <div style="color: red"><%= errors.email.msg %></div>
                 <%}%>
                 <label for="fecha">Fecha De Nacimiento</label>
                 <input type="date" name="fecha" id="fecha" />
-                <% if(locals.errors && errors.find((error)=>error.param ==
-                'fecha')){%>
-                <div style="color: red">
-                  <%= errors.find((error)=>error.param == 'fecha').msg %>
-                </div>
+                <% if(locals.errors && errors.fecha){%>
+                <div style="color: red"><%= errors.fecha.msg %></div>
                 <%}%>
               </div>
               <div>
@@ -59,30 +50,21 @@
                   <option value="colombia">Colombia</option>
                   <option value="argentina">Argentina</option>
                 </select>
-                <% if(locals.errors && errors.find((error)=>error.param ==
-                'pais')){%>
-                <div style="color: red">
-                  <%= errors.find((error)=>error.param == 'pais').msg %>
-                </div>
+                <% if(locals.errors && errors.pais){%>
+                <div style="color: red"><%= errors.pais.msg %></div>
                 <%}%>
                 <label for="ciudad">Ciudad</label>
                 <select name="ciudad" id="ciudad">
                   <option value="colombia">Medellín</option>
                   <option value="buenos_aires">Buenos Aires</option>
                 </select>
-                <% if(locals.errors && errors.find((error)=>error.param ==
-                'ciudad')){%>
-                <div style="color: red">
-                  <%= errors.find((error)=>error.param == 'ciudad').msg %>
-                </div>
+                <% if(locals.errors && errors.ciudad){%>
+                <div style="color: red"><%= errors.ciudad.msg %></div>
                 <%}%>
                 <label for="direccion">Direccion</label>
                 <input type="text" name="direccion" id="direccion" />
-                <% if(locals.errors && errors.find((error)=>error.param ==
-                'direccion')){%>
-                <div style="color: red">
-                  <%= errors.find((error)=>error.param == 'direccion').msg %>
-                </div>
+                <% if(locals.errors && errors.direccion){%>
+                <div style="color: red"><%= errors.direccion.msg %></div>
                 <%}%>
                 <label>Autorizacion</label>
                 <label class="autorizacion"
@@ -105,11 +87,8 @@
                 </select>
                 <label for="contrasena">Contrasena</label>
                 <input type="password" name="contrasena" id="contrasena" />
-                <% if(locals.errors && errors.find((error)=>error.param ==
-                'contrasena')){%>
-                <div style="color: red">
-                  <%= errors.find((error)=>error.param == 'contrasena').msg %>
-                </div>
+                <% if(locals.errors && errors.contrasena){%>
+                <div style="color: red"><%= errors.contrasena.msg %></div>
                 <%}%>
                 <input
                   class="no-desktop crear-boton"

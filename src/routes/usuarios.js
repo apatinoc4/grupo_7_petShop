@@ -31,8 +31,8 @@ router.post(
 
 router.get(
   "/listaUsuarios",
-  proteccionRutasUsuarioMiddleware,
-  proteccionRutasAdminMiddleware,
+  // proteccionRutasUsuarioMiddleware,
+  // proteccionRutasAdminMiddleware,
   usuariosController.renderListaUsuarios
 );
 

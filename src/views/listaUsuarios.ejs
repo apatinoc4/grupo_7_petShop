@@ -148,6 +148,7 @@
                     alt=""
                 /></a>
               </td>
+              <% if(locals.infoUsuarioLoggeado.id !== usuario.id){%>
               <td class="botones no-mobile" width="120">
                 <form action="/listaUsuarios/<%=usuario.id%>/editar/">
                   <button type="submit" class="editar">Editar</button>
@@ -160,6 +161,9 @@
                 </form>
               </td>
             </tr>
+            <%} else{%>
+            <td class="botones no-mobile" width="120"></td>
+            <%} %> <% if(locals.infoUsuarioLoggeado.id !== usuario.id){%>
             <tr class="no-desktop no-desktop-tr">
               <td
                 class="no-desktop botones botones-mobile"
@@ -179,7 +183,9 @@
                 </div>
               </td>
             </tr>
-            <%} %>
+            <%} else{%>
+            <tr class="no-desktop no-desktop-tr"></tr>
+            <%} %> <%} %>
           </tbody>
         </table>
       </section>

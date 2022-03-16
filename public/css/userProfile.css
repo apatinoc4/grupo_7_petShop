@@ -25,6 +25,7 @@ body {
 .mainFoto {
   border-radius: 50%;
   text-align: center;
+  aspect-ratio: 1/1;
   min-height: 150px;
   min-width: 150px;
   max-width: 250px;

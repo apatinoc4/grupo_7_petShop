@@ -69,11 +69,6 @@ router.put(
 
 //
 
-router.put(
-  "/listaUsuarios/:id/editar/",
-  upload.single("foto"),
-  usuariosController.editarUsuario
-);
 router.delete(
   "/listaUsuarios/:id/eliminar/",
   usuariosController.eliminarUsuario

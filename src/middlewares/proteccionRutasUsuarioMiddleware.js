@@ -1,8 +1,10 @@
+const { redirect } = require("express/lib/response");
+
 const proteccionRutasUsuarioMiddleware = (req, res, next) => {
-  if (req.session.usuarioLoggeado) {
-    next();
+  if (!req.session.usuarioLoggeado) {
+    return res.redirect("/");
   }
-  console.log("back");
+  next();
 };
 
 module.exports = proteccionRutasUsuarioMiddleware;

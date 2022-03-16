@@ -107,6 +107,26 @@ const usuariosController = {
     });
   },
 
+  editarUsuarioDesdeDirectorio: function (req, res) {
+    const idUsuario = parseInt(req.params.id);
+    const usuarioAEditar = Usuario.encontrarUsuarioPorPK(idUsuario);
+    const errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+      Usuario.editarUsuario(usuarioAEditar.email, {
+        ...req.body,
+        foto: req.file ? req.file.filename : usuarioAEditar.foto,
+      });
+      return res.redirect(`/userProfile/${req.params.id}`);
+    } else {
+      return res.render("editarUsuario", {
+        old: req.body,
+        errors: errors.mapped(),
+        infoUsuario: usuarioAEditar,
+      });
+    }
+  },
+
   editarUsuario: function (req, res) {
     let idUsuario = req.params.id;
     let usuarioOld = listaUsuarios.find((elem) => elem.id == idUsuario);
@@ -175,18 +195,20 @@ const usuariosController = {
       usuarioADetalle,
     });
   },
-  // renderUsuario: function (req, res) {
-  //   const idUsuario = req.params.id;
-  //   const usuario = listaUsuarios[idUsuario];
 
-  //   res.render("userProfile", {
-  //     usuarioADetalle: usuario,
-  //   });
-  // },
+  renderFormularioEdicion: function (req, res) {
+    const idUsuarioAEditar = parseInt(req.params.id);
+    const usuarioAEditar = Usuario.encontrarUsuarioPorPK(idUsuarioAEditar);
+
+    return res.render("editarUsuario", {
+      infoUsuario: usuarioAEditar,
+    });
+  },
+
   renderListaUsuarios: function (req, res) {
     const listaUsuarios = Usuario.obtenerListaUsuarios();
 
-    res.render("listaUsuarios", {
+    return res.render("listaUsuarios", {
       listaUsuarios,
     });
   },

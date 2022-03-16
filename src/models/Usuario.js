@@ -59,6 +59,31 @@ const Usuario = {
 
     return listaUsuarios.find((usuario) => pk == usuario.id);
   },
+  editarUsuario: function (email, datosNuevos) {
+    const listaUsuarios = this.obtenerListaUsuarios();
+    const datosPreviosUsuario = this.encontrarUsuarioPorCampo("email", email);
+    const listaSinUsuario = listaUsuarios.filter(
+      (usuario) => usuario.email !== email
+    );
+    const usuarioEditado = {
+      ...datosPreviosUsuario,
+      ...datosNuevos,
+      admin: datosNuevos.admin === "true" ? true : false,
+      autoriza: datosNuevos.autoriza === "true" ? true : false,
+      fecha:
+        datosNuevos.fecha === ""
+          ? datosPreviosUsuario.fecha
+          : datosNuevos.fecha,
+    };
+
+    listaSinUsuario.push(usuarioEditado);
+
+    fs.writeFileSync(
+      this.nombreArchivo,
+      JSON.stringify(listaSinUsuario, null, " ")
+    );
+    return true;
+  },
 };
 
 module.exports = Usuario;

@@ -1,8 +1,9 @@
 const proteccionRutasAdminMiddleware = (req, res, next) => {
-  if (req.session.usuarioLoggeado.admin) {
-    next();
+  if (!req.session.usuarioLoggeado.admin) {
+    return res.redirect("/");
   }
-  console.log("back");
+
+  next();
 };
 
 module.exports = proteccionRutasAdminMiddleware;

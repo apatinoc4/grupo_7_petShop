@@ -33,6 +33,18 @@ body {
   object-fit: cover;
 }
 
+.barraInput {
+  font-size: 1rem;
+  color: var(--grisOscuro);
+  padding: 15px;
+  border-radius: 5px;
+  border: white solid 0.2px;
+  margin-top: 15px;
+  width: 100%;
+  border: 2px solid var(--grisOscuro);
+  margin-bottom: 10px;
+}
+
 .linea-color {
   background-color: var(--naranja2);
   width: 35%;
@@ -49,9 +61,17 @@ body {
   color: white;
 }
 
+#nombre-id-edicion {
+  font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+}
+
 .info-adicional {
   width: 65%;
-  padding: 5%;
+  padding: 2%;
 }
 .tarjeta-usuario {
   display: flex;

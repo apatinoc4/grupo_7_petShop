@@ -6,6 +6,7 @@ const proteccionRutasAdminMiddleware = require("../middlewares/proteccionRutasAd
 const multer = require("multer");
 const path = require("path");
 const validacionesRegistro = require("../middlewares/validacionesRegistroMiddleware");
+const validacionesEdicion = require("../middlewares/validacionesEdicionUsuarioMiddleware");
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -19,7 +20,9 @@ var storage = multer.diskStorage({
   },
 });
 var upload = multer({ storage: storage });
+
 router.get("/userProfile", usuariosController.renderPerfilUsuarioLoggeado);
+
 router.post(
   "/userProfile/crear",
   upload.single("foto"),
@@ -31,12 +34,17 @@ router.post(
 
 router.get(
   "/listaUsuarios",
-  // proteccionRutasUsuarioMiddleware,
-  // proteccionRutasAdminMiddleware,
+  proteccionRutasUsuarioMiddleware,
+  proteccionRutasAdminMiddleware,
   usuariosController.renderListaUsuarios
 );
 
 router.get("/userProfile/:id", usuariosController.renderPerfilDesdeDirectorio);
+
+router.get(
+  "/userProfile/:id/editar/",
+  usuariosController.renderFormularioEdicion
+);
 
 router.post(
   "/listaUsuarios/crear",
@@ -44,10 +52,23 @@ router.post(
   validacionesRegistro,
   usuariosController.crearUsuarioDesdeDirectorio
 );
+
+// Perfil y edicion de usuarios desde directorio
+
 router.get(
   "/listaUsuarios/:id/editar/",
-  usuariosController.renderEdicionUsuario
+  usuariosController.renderFormularioEdicion
 );
+
+router.put(
+  "/userProfile/:id/editar/",
+  upload.single("foto"),
+  validacionesEdicion,
+  usuariosController.editarUsuarioDesdeDirectorio
+);
+
+//
+
 router.put(
   "/listaUsuarios/:id/editar/",
   upload.single("foto"),

@@ -21,8 +21,11 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-router.get("/userProfile", usuariosController.renderPerfilUsuarioLoggeado);
-
+router.get(
+  "/userProfile",
+  proteccionRutasUsuarioMiddleware,
+  usuariosController.renderPerfilUsuarioLoggeado
+);
 router.post(
   "/userProfile/crear",
   upload.single("foto"),
@@ -31,21 +34,17 @@ router.post(
 );
 
 // Desde directorio de usuarios
-
 router.get(
   "/listaUsuarios",
   proteccionRutasUsuarioMiddleware,
   proteccionRutasAdminMiddleware,
   usuariosController.renderListaUsuarios
 );
-
 router.get("/userProfile/:id", usuariosController.renderPerfilDesdeDirectorio);
-
 router.get(
   "/userProfile/:id/editar/",
   usuariosController.renderFormularioEdicion
 );
-
 router.post(
   "/listaUsuarios/crear",
   upload.single("foto"),
@@ -54,19 +53,16 @@ router.post(
 );
 
 // Perfil y edicion de usuarios desde directorio
-
 router.get(
   "/listaUsuarios/:id/editar/",
   usuariosController.renderFormularioEdicion
 );
-
 router.put(
   "/userProfile/:id/editar/",
   upload.single("foto"),
   validacionesEdicion,
   usuariosController.editarUsuarioDesdeDirectorio
 );
-
 //
 
 router.delete(

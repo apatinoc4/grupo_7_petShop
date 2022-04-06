@@ -95,6 +95,7 @@
                 <div style="color: red"><%= errors.direccion.msg %></div>
                 <%}%>
               </div>
+              <%if(locals.infoUsuarioLoggeado.id != infoUsuario.id){%>
               <div class="contenedor-parrafo">
                 <p class="parrafoBoldUsuario">Tipo:</p>
                 <select class="barraInput" name="admin">
@@ -102,6 +103,7 @@
                   <option value="false">Usuario</option>
                 </select>
               </div>
+              <%}%>
               <div class="contenedor-parrafo">
                 <p class="parrafoBoldUsuario">Autorización de Contenido:</p>
                 <select class="barraInput" name="autoriza" id="autoriza">

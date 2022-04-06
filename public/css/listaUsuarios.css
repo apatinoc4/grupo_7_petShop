@@ -11,6 +11,16 @@
   flex-direction: column;
 }
 
+.checkbox {
+  width: 10%;
+  margin: 0;
+}
+.autorizacion {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .preview-usuario {
   margin-bottom: 20px;
   box-sizing: border-box;
@@ -32,6 +42,11 @@
   width: 60%;
   display: flex;
   flex-direction: column;
+}
+
+.iconoPerfil {
+  max-width: 30px;
+  cursor: pointer;
 }
 
 .preview-info {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,90 +14,68 @@
     <link rel="stylesheet" href="/css/userProfile.css" />
 
     <title>Perfil del Usuario</title>
-</head>
-<body>
+  </head>
+  <body>
     <%- include('../partials/header') %>
-    <div class="contenedor-section">
-
-        <section class="mainSection">
-            <div>
-                    <img class="mainFoto"
-                    src="/img/users/<%=usuarioADetalle.foto%>"
-                    alt="Foto de Perfil"
-                    />
-                    <form  action="/listaUsuarios/<%=usuarioADetalle.id%>/editar/">
-                        <button class="botonEditar" type="submit" class="editar">Editar</button>
-                      </form>
-                </div>
-                <div class="contenedorParrafos">
-                    <div class="contenedorParrafo">
-                        <p class="parrafoBoldUsuario">
-                            User ID:
-                        </p>
-                        <p class="parrafoUsuario">
-                            <%=usuarioADetalle.id%>
-                        </p>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoBoldUsuario">
-                            Nombre:
-                        </p>
-                        <p class="parrafoUsuario">
-                            <%=usuarioADetalle.nombre%>
-                        </p>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoBoldUsuario">
-                            Usuario:
-                        </p>
-                        <p class="parrafoUsuario">
-                            <%=usuarioADetalle.usuario%>
-                        </p>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoBoldUsuario">
-                            Email:
-                        </p>
-                        <p class="parrafoUsuario">
-                            <%=usuarioADetalle.email%>
-                        </p>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoBoldUsuario">
-                            Fecha de Nacimiento:
-                        </p>
-                        <p class="parrafoUsuario">
-                            <%=usuarioADetalle.fecha%>
-                        </p>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoBoldUsuario">
-                            Pais:
-                        </p>
-                        <p class="parrafoUsuario">
-                            <%=usuarioADetalle.pais%>
-                        </p>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoBoldUsuario">
-                            Ciudad:
-                        </p>
-                        <p class="parrafoUsuario">
-                            <%=usuarioADetalle.ciudad%>
-                        </p>
-                    </div>
-                    <div class="contenedorParrafo">
-                        <p class="parrafoBoldUsuario">
-                            Direccion:
-                        </p>
-                        <p class="parrafoUsuario">
-                            <%=usuarioADetalle.direccion%>
-                        </p>
-                    </div>
-                </div>
+    <div class="perfilUsuario-wrapper">
+      <section class="contenedor-section">
+        <div class="tarjeta-usuario">
+          <div class="linea-color">
+            <img
+              class="mainFoto"
+              src="/img/users/<%=infoUsuario.foto%>"
+              alt="Foto de Perfil"
+            />
+            <div class="contenedor-parrafo1">
+              <p class="parrafoUsuario" id="nombre-id">
+                <%=infoUsuario.id%>. <%=infoUsuario.nombre%>
+              </p>
+              <p class="parrafoUsuario"><%=infoUsuario.email%></p>
             </div>
-            
-        </section>
-        <%- include('../partials/footer') %>
-</body>
+          </div>
+          <div class="info-adicional">
+            <div class="info-titulo">
+              <p>Información General</p>
+            </div>
+            <div class="contenedor-parrafo">
+              <p class="parrafoBoldUsuario">Fecha de Nacimiento:</p>
+              <p class="parrafoUsuario"><%=infoUsuario.fecha%></p>
+            </div>
+            <div class="contenedor-parrafo">
+              <p class="parrafoBoldUsuario">Pais:</p>
+              <p class="parrafoUsuario"><%=infoUsuario.pais%></p>
+            </div>
+            <div class="contenedor-parrafo">
+              <p class="parrafoBoldUsuario">Ciudad:</p>
+              <p class="parrafoUsuario"><%=infoUsuario.ciudad%></p>
+            </div>
+            <div class="contenedor-parrafo">
+              <p class="parrafoBoldUsuario">Direccion:</p>
+              <p class="parrafoUsuario"><%=infoUsuario.direccion%></p>
+            </div>
+            <div class="contenedor-parrafo">
+              <p class="parrafoBoldUsuario">Tipo:</p>
+              <p class="parrafoUsuario">
+                <%=infoUsuario.admin ? 'Administrador' : 'Usuario'%>
+              </p>
+            </div>
+            <div class="contenedor-parrafo">
+              <p class="parrafoBoldUsuario">Autorización de Contenido:</p>
+              <p class="parrafoUsuario">
+                <%=infoUsuario.autoriza ? 'Si' : 'No'%>
+              </p>
+            </div>
+            <div>
+              <form action="/userProfile/<%=infoUsuario.id%>/editar/">
+                <button class="botonEditar" type="submit" class="editar">
+                  Editar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <%- include('../partials/footer') %>
+  </body>
 </html>

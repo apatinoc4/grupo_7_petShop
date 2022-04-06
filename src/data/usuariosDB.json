@@ -1,1 +1,30 @@
-[{"id":0,"nombre":"andres","usuario":"andrespatino","email":"andrepatino@gmail.com","fecha":"1111-11-11","pais":"colombia","ciudad":"itagui","direccion":"asada","tipo":"admin","autorizacion":"on","foto":"default.jpg","contrasena":"111"},{"id":"1","nombre":"andres","usuario":"mazo","email":"andrez.mazo@gmail.com","fecha":"1111-11-11","pais":"argentina","ciudad":"envigado","direccion":"asada","foto":"foto-1645676980664.png"},{"id":3,"nombre":"Andrés","usuario":"asd","email":"ingenieria1@a-int.co","fecha":"11/11/1111","pais":"sdfgsdfg","ciudad":"itagui","direccion":"asada","autorizacion":"on","foto":"default.jpg","tipo":"administrador","contrasena":"123"}]
+[
+ {
+  "id": 1,
+  "admin": true,
+  "nombre": "andy test",
+  "email": "apatinoc4@gmail.com",
+  "fecha": "1993-12-21",
+  "pais": "colombia",
+  "ciudad": "medellin",
+  "direccion": "Cra75 DA #2Bsur 50 Mota Campestre casa 9814",
+  "autorizacion": "on",
+  "contrasena": "$2a$10$F8XkmMPlibuvq8bI26hqMOvhq0b3bpGqMuTQkw3VNQu4ZScs.TUki",
+  "foto": "foto-1647405203728.jpeg",
+  "autoriza": true
+ },
+ {
+  "id": 2,
+  "nombre": "usuario notest",
+  "email": "apatinossc4@gmail.com",
+  "fecha": "1980-12-12",
+  "pais": "argentina",
+  "ciudad": "medellin",
+  "direccion": "Cra75 DA #2Bsur 50 Mota Campestre casa 9814",
+  "tipo": "administrador",
+  "contrasena": "$2a$10$PJ9vQzbZs1wqB6QLrQ0HRuyMCGMVQ9auaBiF7PEl0ZDO0BWuqG3jK",
+  "foto": "foto-1647563618617.jpg",
+  "autoriza": false,
+  "admin": true
+ }
+]

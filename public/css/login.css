@@ -8,7 +8,12 @@
   margin-top: 5vh;
   width: 100%;
 }
-
+.recordarCheckbox {
+  color: var(--negro);
+  font-weight: 800;
+  font-size: 18px;
+  margin-top: 20px;
+}
 .enviarLogin {
   background-color: rgb(255, 115, 0);
   text-align: center;

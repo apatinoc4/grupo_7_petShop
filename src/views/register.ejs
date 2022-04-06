@@ -18,23 +18,12 @@
     <%- include('../partials/header') %>
     <div class="register-wrapper">
       <div class="cajaRegister">
-
-        <% if(typeof errors != 'undefined'){ %>
-          <h2>Errores</h2>
-          <p style="color:red">ERROR</p>
-          <ul>
-            <% for (let i=0; i<errors.length; i++){ %>
-              <li style="color:red">
-                <%= errors[i].msg %>
-              </li>
-              <%}%>
-          </ul>
-        <%}%>
-  
-        <form action="/userProfile/crear" method="POST"  enctype="multipart/form-data">
-          <p class="tituloRegister" for="registrarse"
-            >Crea tu Cuenta
-          </p>
+        <form
+          action="/userProfile/crear"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <p class="tituloRegister" for="registrarse">Crea tu Cuenta</p>
           <input
             class="barraInput"
             type="text"
@@ -42,15 +31,11 @@
             id="nombre"
             minlength=" 2"
             placeholder="Nombre y Apellido"
+            value="<%= locals.old && old.nombre%>"
           />
-          <input
-            class="barraInput"
-            type="text"
-            name="usuario"
-            id="usuario"
-            minlength=" 2"
-            placeholder="Nombre de Usuario"
-            />
+          <% if(locals.errors && errors.nombre){%>
+          <div style="color: red"><%= errors.nombre.msg %></div>
+          <%}%>
           <input
             class="barraInput"
             type="email"
@@ -58,55 +43,56 @@
             id="email"
             minlength=" 2"
             placeholder="Correo Electronico"
+            value="<%= locals.old && old.email %>"
           />
-          <p class="tituloRegister" for="dateB"
-            >Fecha de nacimiento
-          </p>
+          <% if(locals.errors && errors.email){%>
+          <div style="color: red"><%= errors.email.msg %></div>
+          <%}%>
+          <p class="tituloRegister" for="dateB">Fecha de nacimiento</p>
           <input
             class="barraInput"
             type="date"
             name="fecha"
             id="fecha"
             minlength=" 2"
+            value="<%= locals.old && old.fecha %>"
           />
-          <p class="tituloRegister" 
+          <% if(locals.errors && errors.fecha){%>
+          <div style="color: red"><%= errors.fecha.msg %></div>
+          <%}%>
+          <p class="tituloRegister">Ubicación</p>
+
+          <select class="barraInput" name="pais" id="pais">
+            <option value="colombia">Colombia</option>
+            <option value="argentina">Argentina</option>
+          </select>
+          <% if(locals.errors && errors.pais){%>
+          <div style="color: red"><%= errors.pais.msg %></div>
+          <%}%>
+          <select class="barraInput" name="ciudad" id="ciudad">
+            <option value="colombia">Medellín</option>
+            <option value="buenos_aires">Buenos Aires</option>
+          </select>
+          <% if(locals.errors && errors.ciudad){%>
+          <div style="color: red"><%= errors.ciudad.msg %></div>
+          <%}%>
+          <input
+            class="barraInput"
+            type="text"
             name="direccion"
             id="direccion"
-            for="dateB"
-            >Dirección
-          </p>
-          <input
-            class="barraInput"
-            type="text"
-            name="pais"
-            id="pais"
             minlength=" 2"
-            placeholder="País"
+            value="<%= locals.old && old.direccion %>"
+            placeholder="Direccion"
           />
-          <input
-            class="barraInput"
-            type="text"
-            name="ciudad"
-            id="ciudad"
-            minlength=" 2"
-            placeholder="Ciudad"
-          />
-          <input
-            class="barraInput"
-            type="text"
-            name="direccion"
-            id="direccion"
-            minlength=" 2"
-            placeholder="Direccion">
-          </input>
+          <% if(locals.errors && errors.direccion){%>
+          <div style="color: red"><%= errors.direccion.msg %></div>
+          <%}%>
           <p class="tituloRegister" for="autorizacionTextp">
             Autorización de contenido
           </p>
-         </input>
           <div style="width: 80%">
-            <input type="checkbox"
-            name="autorizacion"
-            id="autorizacion" />
+            <input type="checkbox" name="autorizacion" id="autorizacion" />
             <label
               class="textoPequeno"
               for="autorizacion "
@@ -117,9 +103,14 @@
             </label>
           </div>
           <p class="tituloRegister" for="fotoDeUsuario">Foto de usuario</p>
-          <input class="barraInput" 
-          type="file" src="" alt="Enviar" 
-          name="foto" id="foto" 
+          <input
+            class="barraInput"
+            type="file"
+            src=""
+            alt="Enviar"
+            name="foto"
+            id="foto"
+            value="<%= locals.old && old.foto %>"
           />
           <input
             class="barraInput"
@@ -129,16 +120,11 @@
             minlength=" 2"
             placeholder="Contraseña"
           />
-          <input
-            class="barraInput"
-            type="password"
-            name="confirmarContrasena"
-            id="confirmarContrasena"
-            minlength=" 2"
-            placeholder="Confirmar Contraseña"
-          />
-          <input class="enviarLogin" type="submit" value="Crear Usuario">
-          <input class="enviarLogin" type="reset" value="Borrar Datos"></in>
+          <% if(locals.errors && errors.contrasena){%>
+          <div style="color: red"><%= errors.contrasena.msg %></div>
+          <%}%>
+          <input class="enviarLogin" type="submit" value="Crear Usuario" />
+          <input class="enviarLogin" type="reset" value="Borrar Datos" />
         </form>
       </div>
     </div>

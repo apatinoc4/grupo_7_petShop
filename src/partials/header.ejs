@@ -1,6 +1,13 @@
 <header>
-  <div class="headerSuperior">
-    <p>PetShop Grupo 7</p>
+  <%if(locals.hayUsuarioLoggeado && locals.infoUsuarioLoggeado.admin){%>
+  <div class="headerSuperior" id="admin">
+    <%} else {%>
+      <div class="headerSuperior">
+      <%}%>
+      <div class="nombre-logo">
+        <p>PetShop Grupo 7</p>
+        <img src="/img/assets/LogoPetShop.png" alt="">
+      </div> 
     <div class="buscador-nav">
       <div class="buscador">
         <input
@@ -12,10 +19,18 @@
       </div>
       <nav>
         <a href="/">Home</a>
+        <% if(locals.hayUsuarioLoggeado){%>
+        <a href="/userProfile">Perfil</a>
         <a href="/productCart">Carrito</a>
-        <a href="/register">Registro</a>
-        <a href="/login">Ingreso</a>
+        <%if(locals.infoUsuarioLoggeado.admin){%>
         <a href="/listaProductos">Inventario</a>
+        <a href="/listaUsuarios">Directorio</a>
+        <%}%>
+        <a href="/logout">Salir</a>
+        <%} else {%>
+        <a href="/login">Ingreso</a>
+        <a href="/register">Registro</a>
+        <%}%>
       </nav>
     </div>
   </div>

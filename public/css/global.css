@@ -50,6 +50,17 @@ body {
   width: 100%;
 }
 
+.nombre-logo {
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nombre-logo img {
+  height: 50px;
+}
+
 .buscador-nav {
   display: flex;
   flex-direction: row;
@@ -93,6 +104,10 @@ header {
   width: 100%;
 }
 
+#admin {
+  background-color: var(--negro);
+}
+
 .headerSuperior {
   align-items: center;
   display: flex;
@@ -114,6 +129,10 @@ header {
 .headerInferior p {
   font-size: 16px;
   font-weight: 500;
+}
+
+header nav {
+  width: 100%;
 }
 
 header p {
@@ -148,6 +167,14 @@ section {
     align-items: center;
     max-width: 100%;
   }
+  nav {
+    text-align: center;
+  }
+
+  .nombre-logo {
+    margin-bottom: 10px;
+  }
+
   header {
     max-width: 100vh;
     height: 15vh;

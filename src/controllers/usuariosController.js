@@ -1,160 +1,146 @@
 const e = require("express");
 const { validationResult } = require("express-validator");
-const fs = require("fs");
-const path = require("path");
+const Usuario = require("../models/Usuario");
+const bcrypt = require("bcryptjs");
 
-
-const usuariosFilePath = path.join(__dirname, "../data/usuariosDB.json");
-let listaUsuarios = JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
-
-const archivosImagen = listaUsuarios.map((i) => i.foto);
-const arrayIds = listaUsuarios.map((i) => i.id);
+const { hashSync } = bcrypt;
 
 const usuariosController = {
-  
   crearUsuario: function (req, res) {
-
-    let errors = validationResult(req)
-    let idCreacion = 
-      Number( 
-        listaUsuarios[listaUsuarios.length-1].id) + 1
-
-
-    if (errors.isEmpty()){
-      const { nombre, usuario, 
-        email, fecha, pais,ciudad,
-        direccion, autorizacion,
-        tipo,contrasena 
-      } = req.body;
-        
-      
-  
-      let foto ="default.jpg"
-  
-      if (req.file != undefined){
-        foto= req.file.filename
-      }
-  
-      const usuarioCreado = {
-        id: idCreacion ,
-        nombre: nombre,
-        usuario: usuario,
-        email: email,
-        fecha: fecha,
-        pais: pais,
-        ciudad: ciudad,
-        direccion: direccion,
-        autorizacion: autorizacion,
-        foto: foto,
-        tipo: tipo,
-        contrasena: contrasena,
-      };
-      console.log(usuarioCreado)
-
-      listaUsuarios.push(usuarioCreado);
-  
-      fs.writeFile(usuariosFilePath, JSON.stringify(listaUsuarios,null," "), (err) => {
-        if (err) {
-          console.log("Fallo en la creación del usuario");
-        } else {
-          console.log("Usuario creado exitosamente");
-        }
-      });
-  
-      res.redirect("/listaUsuarios"
-      );
-    } else{
-      res.render("listaUsuarios",{errors:errors.errors,idCreacion,listaUsuarios})
-    }
-    
-  },
-
-  editarUsuario: function (req, res) {
-    let idUsuario = req.params.id;
-    let usuarioOld = listaUsuarios.find(elem=>elem.id==idUsuario);
-
-
-    let { id, nombre, usuario,
-      email, fecha, pais,ciudad,direccion } = req.body;
-
-    let foto = ""
-    if (req.file != undefined){
-      foto = req.file.filename
-      console.log(foto)
-    } else{
-      foto=usuarioOld.foto
-    }
-
-    const usuarioEditado = {
-      id: idUsuario,
-      nombre: nombre,
-      usuario: usuario,
-      email: email,
-      fecha: fecha,
-      pais: pais,
-      ciudad: ciudad,
-      direccion: direccion,
-      foto: foto
-    };
-
-    const usuarioADetalle = usuarioEditado
-
-    listaUsuarios.forEach((elem, idx) => {
-      if (elem.id == idUsuario) {
-        listaUsuarios[idx] = usuarioADetalle;
-      }
-    });
-    fs.writeFile(usuariosFilePath, JSON.stringify(listaUsuarios, null, " "), (err) => {
-      if (err) {
-        console.log("Fallo en la edición del usuario");
-      } else {
-        console.log("Usuario editado exitosamente");
-      }
-    });
-    res.redirect("/listaUsuarios");
-  },
-  eliminarUsuario: function (req, res) {
-    const idUsuario = req.params.id;
-    const listaFiltrada = listaUsuarios.filter(
-      (elem) => elem.id != idUsuario
+    const errors = validationResult(req);
+    const contrasenaHasheada = hashSync(req.body.contrasena, 10);
+    const usuarioEnDB = Usuario.encontrarUsuarioPorCampo(
+      "email",
+      req.body.email
     );
-    fs.writeFile(usuariosFilePath, JSON.stringify(listaFiltrada), (err) => {
-      if (err) {
-        console.log("Fallo en la eliminación del usuario");
-      } else {
-        console.log("Usuario eliminado exitosamente");
-      }
-    });
-    res.redirect("/listaUsuarios");
-  },
-  renderEdicionUsuario: function (req, res) {
-    let idUsuario = req.params.id;
-    let usuarioAEditar = listaUsuarios.find(elem=>elem.id==idUsuario);
-    let usuarioADetalle = usuarioAEditar
 
-    res.render("editarUsuario", {
-      usuarioAEditar,
-      archivosImagen,
-      usuarioADetalle
+    if (usuarioEnDB) {
+      return res.render("register", {
+        old: req.body,
+        errors: {
+          email: {
+            msg: "este email ya se encuentra en la base de datos",
+          },
+        },
+      });
+    }
+
+    if (errors.isEmpty()) {
+      Usuario.crearUsuario({
+        ...req.body,
+        foto: req.file ? req.file.filename : "default.jpg",
+        contrasena: contrasenaHasheada,
+        autoriza: req.body.autorizacion ? true : false,
+        admin: false,
+      });
+
+      return res.redirect("/login");
+    } else {
+      return res.render("register", {
+        old: req.body,
+        errors: errors.mapped(),
+      });
+    }
+  },
+
+  crearUsuarioDesdeDirectorio: function (req, res) {
+    const errors = validationResult(req);
+    const contrasenaHasheada = hashSync(req.body.contrasena, 10);
+    const usuarioEnDB = Usuario.encontrarUsuarioPorCampo(
+      "email",
+      req.body.email
+    );
+    const listaUsuarios = Usuario.obtenerListaUsuarios();
+
+    if (usuarioEnDB) {
+      return res.render("listaUsuarios", {
+        old: req.body,
+        errors: {
+          email: {
+            msg: "email en uso",
+          },
+        },
+        listaUsuarios,
+      });
+    }
+
+    if (errors.isEmpty()) {
+      Usuario.crearUsuario({
+        ...req.body,
+        foto: req.file ? req.file.filename : "default.jpg",
+        contrasena: contrasenaHasheada,
+        autoriza: req.body.autorizacion ? true : false,
+        admin: req.tipo === "administrador" ? true : false,
+      });
+
+      return res.redirect("/listaUsuarios");
+    } else {
+      return res.render("listaUsuarios", {
+        old: req.body,
+        errors: errors.mapped(),
+        listaUsuarios,
+      });
+    }
+  },
+
+  renderPerfilUsuarioLoggeado: (req, res) => {
+    return res.render("userProfile", {
+      infoUsuario: req.session.usuarioLoggeado,
     });
   },
-  // renderUsuario: function (req, res) {
-  //   const idUsuario = req.params.id;
-  //   const usuario = listaUsuarios[idUsuario];
 
-  //   res.render("userProfile", {
-  //     usuarioADetalle: usuario,
-  //   });
-  // },
+  renderPerfilDesdeDirectorio: function (req, res) {
+    const listaUsuarios = Usuario.obtenerListaUsuarios();
+    const idUsuario = req.params.id;
+    const infoUsuario = listaUsuarios.find((elem) => elem.id == idUsuario);
+
+    return res.render("userProfile", {
+      infoUsuario,
+    });
+  },
+
+  editarUsuarioDesdeDirectorio: function (req, res) {
+    const idUsuario = parseInt(req.params.id);
+    const usuarioAEditar = Usuario.encontrarUsuarioPorPK(idUsuario);
+    const errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+      Usuario.editarUsuario(usuarioAEditar.email, {
+        ...req.body,
+        foto: req.file ? req.file.filename : usuarioAEditar.foto,
+      });
+      return res.redirect(`/userProfile/${req.params.id}`);
+    } else {
+      return res.render("editarUsuario", {
+        old: req.body,
+        errors: errors.mapped(),
+        infoUsuario: usuarioAEditar,
+      });
+    }
+  },
+
+  eliminarUsuario: function (req, res) {
+    const idUsuario = parseInt(req.params.id);
+
+    Usuario.borrarUsuarioPorId(idUsuario);
+
+    return res.redirect("/listaUsuarios");
+  },
+
+  renderFormularioEdicion: function (req, res) {
+    const idUsuarioAEditar = parseInt(req.params.id);
+    const usuarioAEditar = Usuario.encontrarUsuarioPorPK(idUsuarioAEditar);
+
+    return res.render("editarUsuario", {
+      infoUsuario: usuarioAEditar,
+    });
+  },
+
   renderListaUsuarios: function (req, res) {
-    let idCreacion = 
-      Number( 
-        listaUsuarios[listaUsuarios.length-1].id) + 1
+    const listaUsuarios = Usuario.obtenerListaUsuarios();
 
-    res.render("listaUsuarios", {
+    return res.render("listaUsuarios", {
       listaUsuarios,
-      archivosImagen,
-      idCreacion,
     });
   },
 };

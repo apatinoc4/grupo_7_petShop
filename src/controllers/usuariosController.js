@@ -1,15 +1,15 @@
 const e = require("express");
 const { validationResult } = require("express-validator");
-const Usuario = require("../models/Usuario");
+const Usuario = require("../helpers/Usuario");
 const bcrypt = require("bcryptjs");
 
 const { hashSync } = bcrypt;
 
 const usuariosController = {
-  crearUsuario: function (req, res) {
+  crearUsuario: async function (req, res) {
     const errors = validationResult(req);
     const contrasenaHasheada = hashSync(req.body.contrasena, 10);
-    const usuarioEnDB = Usuario.encontrarUsuarioPorCampo(
+    const usuarioEnDB = await Usuario.encontrarUsuarioPorCampo2(
       "email",
       req.body.email
     );
@@ -26,7 +26,7 @@ const usuariosController = {
     }
 
     if (errors.isEmpty()) {
-      Usuario.crearUsuario({
+      Usuario.crearUsuario2({
         ...req.body,
         foto: req.file ? req.file.filename : "default.jpg",
         contrasena: contrasenaHasheada,
@@ -43,14 +43,14 @@ const usuariosController = {
     }
   },
 
-  crearUsuarioDesdeDirectorio: function (req, res) {
+  crearUsuarioDesdeDirectorio: async function (req, res) {
     const errors = validationResult(req);
     const contrasenaHasheada = hashSync(req.body.contrasena, 10);
-    const usuarioEnDB = Usuario.encontrarUsuarioPorCampo(
+    const usuarioEnDB = await Usuario.encontrarUsuarioPorCampo2(
       "email",
       req.body.email
     );
-    const listaUsuarios = Usuario.obtenerListaUsuarios();
+    const listaUsuarios = Usuario.obtenerListaUsuarios2();
 
     if (usuarioEnDB) {
       return res.render("listaUsuarios", {
@@ -65,7 +65,7 @@ const usuariosController = {
     }
 
     if (errors.isEmpty()) {
-      Usuario.crearUsuario({
+      Usuario.crearUsuario2({
         ...req.body,
         foto: req.file ? req.file.filename : "default.jpg",
         contrasena: contrasenaHasheada,
@@ -89,23 +89,23 @@ const usuariosController = {
     });
   },
 
-  renderPerfilDesdeDirectorio: function (req, res) {
-    const listaUsuarios = Usuario.obtenerListaUsuarios();
-    const idUsuario = req.params.id;
-    const infoUsuario = listaUsuarios.find((elem) => elem.id == idUsuario);
+  renderPerfilDesdeDirectorio: async function (req, res) {
+    const idUsuario = parseInt(req.params.id);
+    const infoUsuario = await Usuario.encontrarUsuarioPorPK2(idUsuario);
 
     return res.render("userProfile", {
       infoUsuario,
     });
   },
 
-  editarUsuarioDesdeDirectorio: function (req, res) {
+  editarUsuarioDesdeDirectorio: async function (req, res) {
     const idUsuario = parseInt(req.params.id);
-    const usuarioAEditar = Usuario.encontrarUsuarioPorPK(idUsuario);
+    const usuarioAEditar = await Usuario.encontrarUsuarioPorPK2(idUsuario);
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      Usuario.editarUsuario(usuarioAEditar.email, {
+      await Usuario.editarUsuario2(usuarioAEditar.email, {
+        id: usuarioAEditar.id,
         ...req.body,
         foto: req.file ? req.file.filename : usuarioAEditar.foto,
       });
@@ -119,25 +119,27 @@ const usuariosController = {
     }
   },
 
-  eliminarUsuario: function (req, res) {
+  eliminarUsuario: async function (req, res) {
     const idUsuario = parseInt(req.params.id);
 
-    Usuario.borrarUsuarioPorId(idUsuario);
+    await Usuario.borrarUsuarioPorId2(idUsuario);
 
     return res.redirect("/listaUsuarios");
   },
 
-  renderFormularioEdicion: function (req, res) {
+  renderFormularioEdicion: async function (req, res) {
     const idUsuarioAEditar = parseInt(req.params.id);
-    const usuarioAEditar = Usuario.encontrarUsuarioPorPK(idUsuarioAEditar);
+    const usuarioAEditar = await Usuario.encontrarUsuarioPorPK2(
+      idUsuarioAEditar
+    );
 
     return res.render("editarUsuario", {
       infoUsuario: usuarioAEditar,
     });
   },
 
-  renderListaUsuarios: function (req, res) {
-    const listaUsuarios = Usuario.obtenerListaUsuarios();
+  renderListaUsuarios: async function (req, res) {
+    const listaUsuarios = await Usuario.obtenerListaUsuarios2();
 
     return res.render("listaUsuarios", {
       listaUsuarios,

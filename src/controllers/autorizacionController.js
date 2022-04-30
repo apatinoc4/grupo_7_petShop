@@ -19,7 +19,7 @@ const autorizacionController = {
   },
 
   procesarLogin: async function (req, res) {
-    const usuarioAIngresar = await Usuario.encontrarUsuarioPorCampo2(
+    const usuarioAIngresar = await Usuario.encontrarUsuarioPorCampo(
       "email",
       req.body.email
     );

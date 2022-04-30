@@ -5,7 +5,7 @@ const usuarioLoggeadoMiddleware = async (req, res, next) => {
   const emailEnCookie = req.cookies.emailUsuario
     ? req.cookies.emailUsuario
     : "";
-  const usuarioPorCookie = await Usuario.encontrarUsuarioPorCampo2(
+  const usuarioPorCookie = await Usuario.encontrarUsuarioPorCampo(
     "email",
     emailEnCookie
   );

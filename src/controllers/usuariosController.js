@@ -9,7 +9,7 @@ const usuariosController = {
   crearUsuario: async function (req, res) {
     const errors = validationResult(req);
     const contrasenaHasheada = hashSync(req.body.contrasena, 10);
-    const usuarioEnDB = await Usuario.encontrarUsuarioPorCampo2(
+    const usuarioEnDB = await Usuario.encontrarUsuarioPorCampo(
       "email",
       req.body.email
     );
@@ -26,7 +26,7 @@ const usuariosController = {
     }
 
     if (errors.isEmpty()) {
-      Usuario.crearUsuario2({
+      Usuario.crearUsuario({
         ...req.body,
         foto: req.file ? req.file.filename : "default.jpg",
         contrasena: contrasenaHasheada,
@@ -46,11 +46,11 @@ const usuariosController = {
   crearUsuarioDesdeDirectorio: async function (req, res) {
     const errors = validationResult(req);
     const contrasenaHasheada = hashSync(req.body.contrasena, 10);
-    const usuarioEnDB = await Usuario.encontrarUsuarioPorCampo2(
+    const usuarioEnDB = await Usuario.encontrarUsuarioPorCampo(
       "email",
       req.body.email
     );
-    const listaUsuarios = Usuario.obtenerListaUsuarios2();
+    const listaUsuarios = Usuario.obtenerListaUsuarios();
 
     if (usuarioEnDB) {
       return res.render("listaUsuarios", {
@@ -65,7 +65,7 @@ const usuariosController = {
     }
 
     if (errors.isEmpty()) {
-      Usuario.crearUsuario2({
+      Usuario.crearUsuario({
         ...req.body,
         foto: req.file ? req.file.filename : "default.jpg",
         contrasena: contrasenaHasheada,
@@ -91,7 +91,7 @@ const usuariosController = {
 
   renderPerfilDesdeDirectorio: async function (req, res) {
     const idUsuario = parseInt(req.params.id);
-    const infoUsuario = await Usuario.encontrarUsuarioPorPK2(idUsuario);
+    const infoUsuario = await Usuario.encontrarUsuarioPorPK(idUsuario);
 
     return res.render("userProfile", {
       infoUsuario,
@@ -100,11 +100,11 @@ const usuariosController = {
 
   editarUsuarioDesdeDirectorio: async function (req, res) {
     const idUsuario = parseInt(req.params.id);
-    const usuarioAEditar = await Usuario.encontrarUsuarioPorPK2(idUsuario);
+    const usuarioAEditar = await Usuario.encontrarUsuarioPorPK(idUsuario);
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      await Usuario.editarUsuario2(usuarioAEditar.email, {
+      await Usuario.editarUsuario(usuarioAEditar.email, {
         id: usuarioAEditar.id,
         ...req.body,
         foto: req.file ? req.file.filename : usuarioAEditar.foto,
@@ -122,14 +122,14 @@ const usuariosController = {
   eliminarUsuario: async function (req, res) {
     const idUsuario = parseInt(req.params.id);
 
-    await Usuario.borrarUsuarioPorId2(idUsuario);
+    await Usuario.borrarUsuarioPorId(idUsuario);
 
     return res.redirect("/listaUsuarios");
   },
 
   renderFormularioEdicion: async function (req, res) {
     const idUsuarioAEditar = parseInt(req.params.id);
-    const usuarioAEditar = await Usuario.encontrarUsuarioPorPK2(
+    const usuarioAEditar = await Usuario.encontrarUsuarioPorPK(
       idUsuarioAEditar
     );
 
@@ -139,7 +139,7 @@ const usuariosController = {
   },
 
   renderListaUsuarios: async function (req, res) {
-    const listaUsuarios = await Usuario.obtenerListaUsuarios2();
+    const listaUsuarios = await Usuario.obtenerListaUsuarios();
 
     return res.render("listaUsuarios", {
       listaUsuarios,

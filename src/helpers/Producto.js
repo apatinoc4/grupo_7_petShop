@@ -1,31 +1,67 @@
 const fs = require("fs");
+const db = require("../database/models");
+const { Sequelize } = require("sequelize");
 
 const Producto = {
   nombreArchivo: "./src/data/productosDB.json",
   obtenerListaProductos: function () {
-    return JSON.parse(fs.readFileSync(this.nombreArchivo, "utf-8"));
+    return db.Producto.findAll({
+      include: [{ association: "tipo" }],
+    });
   },
-  generarId: function () {
-    const listaProductos = this.obtenerListaProductos();
-    const ultimoProducto = listaProductos.pop();
+  generarId: async function () {
+    const ultimoProducto = await db.Producto.findAll({
+      attributes: ["id"],
+      order: [["id", "DESC"]],
+      raw: true,
+    });
 
     if (ultimoProducto) {
-      return ultimoProducto.id + 1;
+      return ultimoProducto[0].id + 1;
     }
+
     return 1;
   },
-  borrarProductoPorId: function (id) {
-    const listaProductos = this.obtenerListaProductos();
-    const listaSinProducto = listaProductos.filter(
-      (Producto) => Producto.id !== id
-    );
+  borrarProductoPorId: function (idProducto) {
+    return db.Producto.destroy({ where: { id: idProducto }, force: false });
+  },
+  crearProducto: async function (nuevoProducto) {
+    const idProductoACrear = await this.generarId();
 
-    fs.writeFileSync(
-      this.nombreArchivo,
-      JSON.stringify(listaSinProducto, null, " ")
-    );
+    const productoACrear = {
+      id: idProductoACrear,
+      ...nuevoProducto,
+    };
 
-    return true;
+    return db.Producto.create(productoACrear);
+  },
+  encontrarProductosPorCampo: function (campo, valor) {
+    return db.Producto.findAll({
+      where: {
+        [campo]: valor,
+      },
+    });
+  },
+  encontrarProductoPorPK: function (pk) {
+    const productoEncontrado = db.Producto.findByPk(pk);
+
+    return productoEncontrado;
+  },
+  encontrarProductoPorTipo: function (idTipo) {
+    return db.Producto.findAll({
+      where: { tipo_id: idTipo },
+      include: ["tipo"],
+    });
+  },
+
+  encontrarProductosSimilares: function (tipoId, cantidad) {
+    return db.Producto.findAll({
+      where: {
+        tipo_id: tipoId,
+      },
+      limit: cantidad,
+      order: Sequelize.literal("rand()"),
+    });
   },
 };
 

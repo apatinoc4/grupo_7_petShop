@@ -78,14 +78,8 @@
                   id="precio"
                   value="<%=productoAEditar.precio%>"
                 />
-                <label for="imagen">Archivo imagen</label>
-                <select name="imagen" id="imagen">
-                  <% for(let opcion in archivosImagen){ %>
-                  <option value="<%=archivosImagen[opcion]%>" <%= productoAEditar.imagen == archivosImagen[opcion] ? 'selected' : ''%>>
-                    <%=archivosImagen[opcion]%>
-                  </option>
-                  <%} %>
-                </select>
+                <label for="foto">Archivo Foto</label>
+                <input type="file" name="foto" id="foto" />
                 <input
                   class="no-desktop crear-boton"
                   type="submit"

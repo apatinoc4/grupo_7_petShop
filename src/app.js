@@ -37,6 +37,10 @@ app.use("/", rutasProductos);
 
 app.use("/", rutasUsuarios);
 
+app.use((req, res, next) => {
+  res.status(404).render("notFound");
+});
+
 app.listen(process.env.PORT || 3000, () => {
   console.log("Servidor corriendo en el puerto 3000 🔥🔥");
 });

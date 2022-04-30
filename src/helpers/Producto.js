@@ -1,4 +1,3 @@
-const fs = require("fs");
 const db = require("../database/models");
 const { Sequelize } = require("sequelize");
 
@@ -61,6 +60,17 @@ const Producto = {
       },
       limit: cantidad,
       order: Sequelize.literal("rand()"),
+    });
+  },
+
+  editarProducto: async function (id, datosNuevos) {
+    const datosPreviosProducto = await this.encontrarProductoPorPK(id);
+    const productoEditado = {
+      ...datosPreviosProducto,
+      ...datosNuevos,
+    };
+    return db.Producto.update(productoEditado, {
+      where: { id: productoEditado.id },
     });
   },
 };

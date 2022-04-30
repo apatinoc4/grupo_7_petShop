@@ -5,6 +5,7 @@ const multer = require("multer");
 const path = require("path");
 const proteccionRutasUsuarioMiddleware = require("../middlewares/proteccionRutasUsuarioMiddleware");
 const proteccionRutasAdminMiddleware = require("../middlewares/proteccionRutasAdminMiddleware");
+const validacionesCreacionProducto = require("../middlewares/validacionesCreacionProductoMiddleware");
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -29,7 +30,8 @@ router.get(
 );
 router.post(
   "/listaProductos/crear",
-  upload.single("foto"),
+  upload.single("imagen"),
+  validacionesCreacionProducto,
   productosController.crearProducto
 );
 router.get(
@@ -38,7 +40,8 @@ router.get(
 );
 router.put(
   "/listaProductos/:id/editar/",
-  upload.single("foto"),
+  upload.single("imagen"),
+  validacionesCreacionProducto,
   productosController.editarProducto
 );
 router.delete(

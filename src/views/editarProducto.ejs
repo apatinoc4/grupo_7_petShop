@@ -21,7 +21,7 @@
       <h2>Editar Producto</h2>
       <section>
         <div class="formulario-creacion preview-producto">
-          <div class="imagen-wrapper"><img src="/img/<%=productoAEditar.imagen%>" alt="img"></div>
+          <div class="imagen-wrapper"><img src="/img/productos/<%=productoAEditar.imagen%>" alt="img"></div>
           <div class="info-wrapper">
             <p class="preview-titulo"> <%=productoAEditar.id%>.  <%=productoAEditar.nombre%></p>
             <div class="preview-info">
@@ -33,7 +33,7 @@
           </div>        
         </div>
         <div class="formulario-creacion">
-          <form method="POST" action="/listaProductos/<%=productoAEditar.id%>/editar?_method=PUT">
+          <form method="POST" action="/listaProductos/<%=productoAEditar.id%>/editar?_method=PUT" enctype="multipart/form-data">
             <div class="campos-formulario">
               <div>
                 <label for="id">ID</label>
@@ -46,9 +46,11 @@
                 />
                 <label for="descripcion">Descripción</label>
                 <textarea name="descripcion" id="descripcion">
-<%=productoAEditar.descripcion%>
-              </textarea
-                >
+              <%=productoAEditar.descripcion%>
+              </textarea>
+              <% if(locals.errors && errors.descripcion){%>
+                <div style="color: red"><%= errors.descripcion.msg %></div>
+                <%}%>
               </div>
               <div>
                 <label for="nombre">Nombre</label>
@@ -58,11 +60,13 @@
                   id="nombre"
                   value="<%=productoAEditar.nombre%>"
                 />
-
-                <label for="tipo">Tipo de producto</label>
-                <select name="tipo" id="tipo">
-                  <option value="alimento" <%= productoAEditar.tipo == 'alimento' ? 'selected' : ''%>>alimento</option>
-                  <option value="juguete" <%= productoAEditar.tipo == 'juguete' ? 'selected' : ''%>>juguete</option>
+                <% if(locals.errors && errors.nombre){%>
+                  <div style="color: red"><%= errors.nombre.msg %></div>
+                  <%}%>
+                <label for="tipo_id">Tipo de producto</label>
+                <select name="tipo_id" id="tipo_id">
+                  <option value="1" <%= productoAEditar.tipo_id == '1' ? 'selected' : ''%>>alimento</option>
+                  <option value="2" <%= productoAEditar.tipo_id == '2' ? 'selected' : ''%>>juguete</option>
                 </select>
                 <input
                   class="crear-boton no-mobile"
@@ -78,8 +82,11 @@
                   id="precio"
                   value="<%=productoAEditar.precio%>"
                 />
-                <label for="foto">Archivo Foto</label>
-                <input type="file" name="foto" id="foto" />
+                <% if(locals.errors && errors.precio){%>
+                  <div style="color: red"><%= errors.precio.msg %></div>
+                  <%}%>
+                <label for="imagen">Archivo Foto</label>
+                <input type="file" name="imagen" id="imagen" />
                 <input
                   class="no-desktop crear-boton"
                   type="submit"

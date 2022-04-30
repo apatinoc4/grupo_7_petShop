@@ -21,16 +21,32 @@
       <h2>Crear Nuevo Producto</h2>
       <section>
         <div class="formulario-creacion">
-          <form method="POST" action="/listaProductos/crear">
+          <form
+            method="POST"
+            action="/listaProductos/crear"
+            enctype="multipart/form-data"
+          >
             <div class="campos-formulario">
               <div>
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" />
+                <% if(locals.errors && errors.nombre){%>
+                <div style="color: red"><%= errors.nombre.msg %></div>
+                <%}%>
                 <label for="tipo_id">Tipo de producto</label>
                 <select name="tipo_id" id="tipo">
                   <option value="1">alimento</option>
                   <option value="2">juguete</option>
                 </select>
+              </div>
+              <div>
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" id="precio" />
+                <% if(locals.errors && errors.precio){%>
+                <div style="color: red"><%= errors.precio.msg %></div>
+                <%}%>
+                <label for="imagen">Archivo Foto</label>
+                <input type="file" name="imagen" id="imagen" />
                 <input
                   class="crear-boton no-mobile"
                   type="submit"
@@ -38,20 +54,17 @@
                 />
               </div>
               <div>
-                <label for="precio">Precio</label>
-                <input type="number" name="precio" id="precio" />
-                <label for="foto">Archivo Foto</label>
-                <input type="file" name="foto" id="foto" />
+                <label for="descripcion">Descripción</label>
+                <textarea name="descripcion" id="descripcion"></textarea>
+                <% if(locals.errors && errors.descripcion){%>
+                <div style="color: red"><%= errors.descripcion.msg %></div>
+                <%}%>
                 <input
                   class="no-desktop crear-boton"
                   type="submit"
                   value="Crear Producto"
                 />
                 <button class="no-mobile">Limpiar Campos</button>
-              </div>
-              <div>
-                <label for="descripcion">Descripción</label>
-                <textarea name="descripcion" id="descripcion"></textarea>
               </div>
             </div>
           </form>

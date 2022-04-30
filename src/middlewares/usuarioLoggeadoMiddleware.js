@@ -1,9 +1,11 @@
-const Usuario = require("../models/Usuario");
+const Usuario = require("../helpers/Usuario");
 
-const usuarioLoggeadoMiddleware = (req, res, next) => {
+const usuarioLoggeadoMiddleware = async (req, res, next) => {
   res.locals.hayUsuarioLoggeado = false;
-  const emailEnCookie = req.cookies.emailUsuario;
-  const usuarioPorCookie = Usuario.encontrarUsuarioPorCampo(
+  const emailEnCookie = req.cookies.emailUsuario
+    ? req.cookies.emailUsuario
+    : "";
+  const usuarioPorCookie = await Usuario.encontrarUsuarioPorCampo(
     "email",
     emailEnCookie
   );

@@ -1,6 +1,6 @@
 const e = require("express");
 const bcrypt = require("bcryptjs");
-const Usuario = require("../models/Usuario");
+const Usuario = require("../helpers/Usuario");
 
 const autorizacionController = {
   renderLogin: function (req, res) {
@@ -18,8 +18,8 @@ const autorizacionController = {
     return res.redirect("/");
   },
 
-  procesarLogin: function (req, res) {
-    const usuarioAIngresar = Usuario.encontrarUsuarioPorCampo(
+  procesarLogin: async function (req, res) {
+    const usuarioAIngresar = await Usuario.encontrarUsuarioPorCampo(
       "email",
       req.body.email
     );

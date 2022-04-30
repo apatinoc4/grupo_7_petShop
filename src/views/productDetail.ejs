@@ -21,15 +21,27 @@
       <div class="mainFoto">
         <div class="contenedor-foto">
           <img
-            src="/img/<%=productoADetalle.imagen%>"
+            src="/img/productos/<%=productoADetalle.imagen%>"
             alt="Juguete"
             class="imgMain"
           />
         </div>
         <div class="imgVistas">
-          <img src="/img/juguetePerro6.png" alt="Juguete" class="imgVista" />
-          <img src="/img/juguetePerro5.jpg" alt="Juguete" class="imgVista" />
-          <img src="/img/juguetePerro7.jpg" alt="Juguete" class="imgVista" />
+          <img
+            src="/img/productos/juguetePerro6.png"
+            alt="Juguete"
+            class="imgVista"
+          />
+          <img
+            src="/img/productos/juguetePerro5.jpg"
+            alt="Juguete"
+            class="imgVista"
+          />
+          <img
+            src="/img/productos/juguetePerro7.jpg"
+            alt="Juguete"
+            class="imgVista"
+          />
         </div>
       </div>
 
@@ -76,7 +88,10 @@
           <% for(let producto of productosSimilares){ %>
           <article class="carta-producto">
             <div class="imagen-producto">
-              <img src="/img/<%=producto.imagen%>" alt="Perro de juguete" />
+              <img
+                src="/img/productos/<%=producto.imagen%>"
+                alt="Perro de juguete"
+              />
             </div>
             <div class="info-producto">
               <p class="nombre-producto"><%=producto.nombre%></p>

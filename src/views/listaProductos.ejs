@@ -21,29 +21,32 @@
       <h2>Crear Nuevo Producto</h2>
       <section>
         <div class="formulario-creacion">
-          <form method="POST" action="/listaProductos/crear">
+          <form
+            method="POST"
+            action="/listaProductos/crear"
+            enctype="multipart/form-data"
+          >
             <div class="campos-formulario">
-              <div>
-                <label for="id">ID</label>
-                <input
-                  type="number"
-                  name="id"
-                  readonly
-                  value="<%=idCreacion%>"
-                  id="id"
-                />
-                <label for="descripcion">Descripción</label>
-                <textarea name="descripcion" id="descripcion"></textarea>
-              </div>
               <div>
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" />
-
-                <label for="tipo">Tipo de producto</label>
-                <select name="tipo" id="tipo">
-                  <option value="alimento">alimento</option>
-                  <option value="juguete">juguete</option>
+                <% if(locals.errors && errors.nombre){%>
+                <div style="color: red"><%= errors.nombre.msg %></div>
+                <%}%>
+                <label for="tipo_id">Tipo de producto</label>
+                <select name="tipo_id" id="tipo">
+                  <option value="1">alimento</option>
+                  <option value="2">juguete</option>
                 </select>
+              </div>
+              <div>
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" id="precio" />
+                <% if(locals.errors && errors.precio){%>
+                <div style="color: red"><%= errors.precio.msg %></div>
+                <%}%>
+                <label for="imagen">Archivo Foto</label>
+                <input type="file" name="imagen" id="imagen" />
                 <input
                   class="crear-boton no-mobile"
                   type="submit"
@@ -51,16 +54,11 @@
                 />
               </div>
               <div>
-                <label for="precio">Precio</label>
-                <input type="number" name="precio" id="precio" />
-                <label for="imagen">Archivo imagen</label>
-                <select name="imagen" id="imagen">
-                  <% for(let opcion in archivosImagen){ %>
-                  <option value="<%=archivosImagen[opcion]%>">
-                    <%=archivosImagen[opcion]%>
-                  </option>
-                  <%} %>
-                </select>
+                <label for="descripcion">Descripción</label>
+                <textarea name="descripcion" id="descripcion"></textarea>
+                <% if(locals.errors && errors.descripcion){%>
+                <div style="color: red"><%= errors.descripcion.msg %></div>
+                <%}%>
                 <input
                   class="no-desktop crear-boton"
                   type="submit"
@@ -81,7 +79,6 @@
             <td>Precio</td>
             <td class="no-mobile" width="30%">Descripción</td>
             <td>Tipo</td>
-            <td class="no-mobile">Archivo Imagen</td>
             <td class="no-mobile"></td>
           </thead>
           <tbody>
@@ -91,8 +88,7 @@
               <td><%=producto.nombre%></td>
               <td class="negrita">$<%=producto.precio%></td>
               <td class="descripcion no-mobile"><%=producto.descripcion%></td>
-              <td><%=producto.tipo%></td>
-              <td class="no-mobile"><%=producto.imagen%></td>
+              <td><%=producto.tipo.nombre%></td>
               <td class="botones no-mobile" width="120">
                 <form action="/listaProductos/<%=producto.id%>/editar/">
                   <button type="submit" class="editar">Editar</button>

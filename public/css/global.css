@@ -1,4 +1,5 @@
 /* Variables, para usar en sus archivos de estilos agreguen @import url("./global.css") en la primera linea */
+@import url(https://fonts.googleapis.com/css?family=Righteous);
 
 :root {
   --gris: #f2f2f2;
@@ -6,7 +7,7 @@
   --magenta: #f53049;
   --naranja1: #f29f05;
   --naranja2: #f2a341;
-  --naranja3: #f5bd46;
+  --naranja3: #ffae00ab;
   --negro: #292929;
   --footerHeight: 10vh;
 }
@@ -55,7 +56,9 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: 'Righteous', serif;;
 }
+
 
 .nombre-logo img {
   height: 50px;

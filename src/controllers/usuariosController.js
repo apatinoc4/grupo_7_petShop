@@ -50,7 +50,8 @@ const usuariosController = {
       "email",
       req.body.email
     );
-    const listaUsuarios = Usuario.obtenerListaUsuarios();
+
+    const listaUsuarios = await Usuario.obtenerListaUsuarios();
 
     if (usuarioEnDB) {
       return res.render("listaUsuarios", {

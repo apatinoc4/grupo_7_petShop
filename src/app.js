@@ -4,6 +4,8 @@ const methodOverride = require("method-override");
 const path = require("path");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+// const bootstrap = require("bootstrap");
+// const Swal = require("sweetalert2");
 
 const usuarioLoggeadoMiddleware = require("./middlewares/usuarioLoggeadoMiddleware");
 const rutasAutorizacion = require("./routes/autorizacion");

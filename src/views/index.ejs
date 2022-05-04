@@ -23,7 +23,7 @@
           Porque ellos merecen...<br />
           lo mejor y lo más bonito, a los mejores precios
         </h3>
-        <h1>PetShop Grupo 7</h1>
+        <h1 data-shadow="PetShop">PetShop</h1>
         <button><p>Conoce mas</p></button>
       </div>
     </div>
@@ -51,19 +51,23 @@
                 </button>
                 <div class="agregar">
                   <div class="botones-agregar">
-                    <button>-</button>
+                    <button class="boton-menos" id="menos<%=alimento.id%>">
+                      -
+                    </button>
                     <p>Agregar</p>
-                    <button>+</button>
+                    <button class="boton-mas" id="mas<%=alimento.id%>">
+                      +
+                    </button>
                   </div>
                   <div class="cantidad-agregada">
-                    <p>1</p>
+                    <p id="num<%=alimento.id%>" class="num">1</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="boton-comprar">
-              <button onclick="window.location.href='/productCart'">
-                Comprar
+              <button class="comprar" id="<%=alimento.id%>">
+                <span id="<%=alimento.id%>">Comprar </span>
               </button>
             </div>
           </article>
@@ -90,19 +94,28 @@
                 </button>
                 <div class="agregar">
                   <div class="botones-agregar">
-                    <button>-</button>
+                    <button class="boton-menos" id="menos<%=juguete.id%>">
+                      -
+                    </button>
                     <p>Agregar</p>
-                    <button>+</button>
+                    <button class="boton-mas" id="mas<%=juguete.id%>">+</button>
                   </div>
                   <div class="cantidad-agregada">
-                    <p>1</p>
+                    <p id="num<%=juguete.id%>" class="num">1</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="boton-comprar">
-              <button onclick="window.location.href='/productCart'">
-                Comprar
+              <button
+                id="<%=juguete.id%>"
+                class="comprar"
+                <!--
+                onclick="window.location.href='/productCart'"
+                --
+              >
+                >
+                <span class="selComprar" id="<%=juguete.id%>">Comprar </span>
               </button>
             </div>
           </article>
@@ -113,3 +126,6 @@
     <%- include('../partials/footer') %>
   </body>
 </html>
+<script src="./events/searchBar.js"></script>
+<script src="./events/carrito.js"></script>
+<script src="./events/compraAlerta.js"></script>

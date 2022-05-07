@@ -55,6 +55,12 @@
         </form>
       </div>
     </div>
+    <h1><%= typeof alertaExitosa %></h1>
     <%- include('../partials/footer') %>
   </body>
+  <% if (typeof alertaExitosa !=="undefined" && alertaExitosa ==true ){%>
+  <script src="/events/alertaExitosa.js"></script>
+  <% alertaExitosa = false%> <%}%>
 </html>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

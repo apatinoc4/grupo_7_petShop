@@ -20,6 +20,7 @@
   </head>
   <body>
     <%- include('../partials/header') %>
+
     <div class="banner">
       <img src="img/assets/perroHome.png" alt="" />
       <div class="slogan">
@@ -55,13 +56,9 @@
                 </button>
                 <div class="agregar">
                   <div class="botones-agregar">
-                    <button class="boton-menos" id="menos<%=alimento.id%>">
-                      -
-                    </button>
+                    <button class="boton-menos" id="<%=alimento.id%>">-</button>
                     <p>Agregar</p>
-                    <button class="boton-mas" id="mas<%=alimento.id%>">
-                      +
-                    </button>
+                    <button class="boton-mas" id="<%=alimento.id%>">+</button>
                   </div>
                   <div class="cantidad-agregada">
                     <p id="num<%=alimento.id%>" class="num">1</p>
@@ -129,7 +126,13 @@
     </div>
     <%- include('../partials/footer') %>
   </body>
+
+  <% if (typeof alertaExitosa !=="undefined" && alertaExitosa ==true ){%>
+  <script src="/events/alertaExitosa.js"></script>
+  <% alertaExitosa = false%> <%}%>
 </html>
 <script src="./events/searchBar.js"></script>
-<script src="./events/carrito.js"></script>
 <script src="./events/compraAlerta.js"></script>
+<script src="./events/carrito.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

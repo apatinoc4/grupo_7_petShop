@@ -5,9 +5,16 @@
       <div class="headerSuperior">
       <%}%>
       <div class="nombre-logo">
-        <p>PetShop  </p>
+        <a href="/" style="text-decoration: none;"><p>PetShop  </p></a>
         
         <img src="/img/assets/LogoPetShop.png" alt="">
+        <% if(locals.hayUsuarioLoggeado){%>
+          <%if(locals.infoUsuarioLoggeado){%>
+           <h4>
+              ¡Hola! <%= locals.infoUsuarioLoggeado.nombre%>
+            </h4>
+          <%}%>
+        <%}%>
       </div> 
     <div class="buscador-nav">
       <div class="buscador">
@@ -20,7 +27,8 @@
       </div>
       <nav>
         <a href="/">Home</a>
-        <% if(locals.hayUsuarioLoggeado){%>
+         <% if(locals.hayUsuarioLoggeado){%>
+         
         <a href="/userProfile">Perfil</a>
         <a href="/productCart">Carrito</a>
         <%if(locals.infoUsuarioLoggeado.admin){%>

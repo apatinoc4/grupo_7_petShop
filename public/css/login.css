@@ -61,3 +61,10 @@
     width: 80%;
   }
 }
+
+/* Alertas */
+.swal2-confirm{
+  background-color: var(--naranja1) !important;
+  border-color: var(--naranja2);
+  border: yellow;
+}

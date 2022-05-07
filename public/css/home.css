@@ -92,6 +92,7 @@ button.comprar:hover:after{
   overflow: hidden;
   width: 230px;
   margin: 15px;
+  transition: 0.5s;
 }
 
 .carta-producto .imagen-producto {
@@ -309,4 +310,15 @@ button.comprar:hover:after{
     justify-content: center;
     width: 100%;
   }
+}
+
+.carta-producto:hover{
+  box-shadow:  0 0 0.5em 0 var(--naranja1);
+}
+
+/* Alertas */
+.swal2-confirm{
+  background-color: var(--naranja1) !important;
+  border-color: var(--naranja2);
+  border: yellow;
 }

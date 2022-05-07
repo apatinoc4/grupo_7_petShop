@@ -9,6 +9,7 @@ const usuariosController = {
   crearUsuario: async function (req, res) {
     const errors = validationResult(req);
     const contrasenaHasheada = hashSync(req.body.contrasena, 10);
+    var alertaExitosa = false;
     const usuarioEnDB = await Usuario.encontrarUsuarioPorCampo(
       "email",
       req.body.email
@@ -34,7 +35,10 @@ const usuariosController = {
         admin: false,
       });
 
-      return res.redirect("/login");
+      alertaExitosa = true;
+      return res.render("login", {
+        alertaExitosa,
+      });
     } else {
       return res.render("register", {
         old: req.body,

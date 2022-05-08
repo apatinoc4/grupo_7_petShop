@@ -9,7 +9,7 @@
   --naranja2: #f2a341;
   --naranja3: #ffae00ab;
   --negro: #292929;
-  --footerHeight: 10vh;
+  --footerHeight: 300px;
 }
 
 * {
@@ -17,6 +17,10 @@
   margin: 0px;
   padding: 0px;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
   -webkit-box-sizing: border-box;
@@ -83,7 +87,6 @@ footer {
   background-color: var(--negro);
   color: white;
   display: flex;
-  flex-direction: column;
   height: var(--footerHeight);
   justify-content: center;
   padding: 1rem 0;
@@ -98,6 +101,8 @@ footer a {
 }
 
 header {
+   z-index:10 ;
+  position: fixed;
   background-color: var(--naranja2);
   display: flex;
   justify-content: center;
@@ -106,6 +111,18 @@ header {
   height: 10vh;
   margin-bottom: 20px;
   width: 100%;
+}
+#site-header {
+  position: fixed;
+  height:   100px;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all .3s ease;
+  box-shadow: 0 1px 25px rgba(0,0,0, .1);
+}
+#site-header.hide {
+  top: -101px;
 }
 
 #admin {
@@ -159,6 +176,7 @@ header h4{
   color: #f2f2f2;
   font-family: "Montserrat", sans-serif;
 }
+
 section {
   margin: 20px 0;
 }
@@ -193,6 +211,7 @@ section {
     justify-content: center;
     flex-direction: column;
   }
+
 }
 
 h2 {
@@ -201,18 +220,33 @@ h2 {
 }
 
 /* Footer -------------------------------*/
+.barraSuscribir {
+  font-size: 1rem;
+  color: gray;
+  padding: 15px;
+  border-radius: 5px;
+  border: white solid 0.2px;
+  margin-top: 12px;
+  width: 100%;
+  height: 20px;
+}
+
 .contenedorPerfiles{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  
 }
 .nombreFooter{
   text-align: center;
 }
-.contenedorFooter{
+.contenedorPerfil{
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 10px;
 }
 .imgFooter{
   border-radius: 50%;
@@ -303,3 +337,52 @@ h2 {
 }
 
 /* Alertas */
+.checkbox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs
+{
+    z-index: 2;
+}
+
+.layer
+{
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 15;
+}
+
+
+#button-3 .checkbox:active + .knobs:before
+{
+    width: 46px;
+    border-radius: 100px;
+}
+
+#button-3 .checkbox:checked:active + .knobs:before
+{
+    margin-left: -26px;
+}
+
+#button-3 .checkbox:checked + .knobs:before
+{
+    content: 'NO';
+    left: 42px;
+    background-color: #F44336;
+}
+
+#button-3 .checkbox:checked ~ .layer
+{
+    background-color: #fcebeb;
+}
+

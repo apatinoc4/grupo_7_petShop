@@ -123,6 +123,35 @@ button.comprar:hover:after{
   object-fit: cover;
   width: 100%;
 }
+.categorias{
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+.categorias .categoria {
+  background-color: #fff;
+  font-size: 15px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px 3px rgb(68 68 68 / 30%);
+}
+.categoria img{
+ width: 200px;
+ height: 200px;
+
+}
+.categoria a{
+  color: #333;
+  text-decoration: none;
+}
+.categoria:hover{
+  /* filter: invert(100%) sepia(6%) saturate(643%) hue-rotate(161deg) brightness(121%) contrast(100%); */
+  background-color: #ff6a00;
+}
 
 .detalles-agregar {
   margin-top: 10px;
@@ -184,14 +213,31 @@ button.comprar:hover:after{
 }
 
 .banner {
+  top: 80px;
+  margin-bottom: 80px;
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   text-align: center;
   width: 100%;
   max-width: 100vw;
-  background: linear-gradient(to right, #ee0979, #ff6a00);
+  /* background: linear-gradient(to right, #ee0979, #ff6a00); */
   padding: 2% 0 2% 10%;
+  background: linear-gradient(-45deg, #ee0979, #ff6a00, #ee0979, #ff6a00);
+  background-size: 400% 400%;
+  animation: gradient 15s ease-out infinite;
+}
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
 }
 
 .slogan button {
@@ -261,6 +307,7 @@ button.comprar:hover:after{
     0% {background-position: 100% -100%}
   }
 
+
 .wrapper-productos {
   align-items: center;
   display: flex;
@@ -270,12 +317,20 @@ button.comprar:hover:after{
 
 @media (max-width: 769px) {
   .banner {
+    top: 100px;
+    margin-bottom: 100px;
+    position: relative;
     overflow: hidden;
     align-items: center;
     font-size: 18px;
   }
   .banner img {
     height: 200px;
+
+  }
+  .categoria img{
+    width: 100px;
+    height: 100px;
   }
   .index-wrapper {
     padding: 0 5%;

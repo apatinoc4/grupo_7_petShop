@@ -1,4 +1,4 @@
-<header>
+<header id="site-header" >
   <%if(locals.hayUsuarioLoggeado && locals.infoUsuarioLoggeado.admin){%>
   <div class="headerSuperior" id="admin">
     <%} else {%>
@@ -40,6 +40,15 @@
         <a href="/login">Ingreso</a>
         <a href="/register">Registro</a>
         <%}%>
+        <div class="toggle-button-cover">
+          <div class="button-cover">
+            <div class="button r" id="button-3">
+              <input type="checkbox" class="checkbox">
+              <div class="knobs"></div>
+              <div class="layer"></div>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </div>

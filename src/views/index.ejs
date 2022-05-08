@@ -36,9 +36,25 @@
       <!-- <section id="productos-destacados">
         <div class="pd-slider">PRODUCTOS DESTACADOS</div>
       </section> -->
+      <h2>Categorias</h2>
+      <div class="categorias">
+        <div class="categoria">
+          <a href="#alimentos">
+            <img src="./img/assets/logoComida.png" alt="" srcset="" />
+            <p>Alimentos</p>
+          </a>
+        </div>
+        <div class="categoria">
+          <a href="#juguetes">
+            <img src="./img/assets/logoJuguete.png" alt="" srcset="" />
+            <p>Juguetes</p>
+          </a>
+        </div>
+      </div>
+
       <section id="alimentos">
         <h2>Alimentos</h2>
-        <div class="wrapper-productos">
+        <div class="wrapper-productos" id="alimentos">
           <% for(let alimento of alimentos){ %>
           <article class="carta-producto">
             <div class="imagen-producto">
@@ -77,7 +93,7 @@
       </section>
       <section id="juguetes">
         <h2>Juguetes</h2>
-        <div class="wrapper-productos">
+        <div class="wrapper-productos" id="juguetes">
           <% for(let juguete of juguetes){ %>
           <article class="carta-producto">
             <div class="imagen-producto">
@@ -134,5 +150,6 @@
 <script src="./events/searchBar.js"></script>
 <script src="./events/compraAlerta.js"></script>
 <script src="./events/carrito.js"></script>
+<script src="./events/headerFijo.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

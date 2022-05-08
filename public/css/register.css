@@ -32,6 +32,9 @@
   padding: 20px;
   border: 0.2px solid rgba(255, 255, 255, 0.726);
   border-radius: 20px;
+  position: relative;
+  top: 100px;
+  margin-bottom: 100px;
 }
 
 .tituloLogin,

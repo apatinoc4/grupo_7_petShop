@@ -13,6 +13,9 @@
   font-weight: 800;
   font-size: 18px;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .enviarLogin {
   background-color: rgb(255, 115, 0);
@@ -36,6 +39,9 @@
   padding: 20px;
   border: 0.2px solid rgba(255, 255, 255, 0.726);
   border-radius: 20px;
+  position: relative;
+  top: 100px;
+  margin-bottom: 100px;
 }
 
 .tituloLogin,

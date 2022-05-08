@@ -124,7 +124,7 @@ button.comprar:hover:after{
   width: 100%;
 }
 .categorias{
-  justify-content: space-evenly;
+  justify-content: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -138,6 +138,11 @@ button.comprar:hover:after{
   display: flex;
   border-radius: 10px;
   box-shadow: 0px 0px 6px 3px rgb(68 68 68 / 30%);
+  transition: 1s;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .categoria img{
  width: 200px;
@@ -148,10 +153,22 @@ button.comprar:hover:after{
   color: #333;
   text-decoration: none;
 }
+.categoria .imgAlimentoTop,.categoria .imgJugueteTop{
+  display: none;
+  /* position: relative; */
+}
 .categoria:hover{
   /* filter: invert(100%) sepia(6%) saturate(643%) hue-rotate(161deg) brightness(121%) contrast(100%); */
   background-color: #ff6a00;
 }
+.categoria:hover .imgAlimentoTop,.categoria:hover .imgJugueteTop{
+  display: flex;
+}
+.categoria:hover .imgAlimentoBack,
+  .categoria:hover .imgJugueteBack{
+display: none;
+}
+
 
 .detalles-agregar {
   margin-top: 10px;
@@ -214,7 +231,7 @@ button.comprar:hover:after{
 
 .banner {
   top: 80px;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -369,6 +386,7 @@ button.comprar:hover:after{
 
 .carta-producto:hover{
   box-shadow:  0 0 0.5em 0 var(--naranja1);
+
 }
 
 /* Alertas */

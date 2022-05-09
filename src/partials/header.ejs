@@ -17,14 +17,15 @@
         <%}%>
       </div> 
     <div class="buscador-nav">
-      <div class="buscador">
+      <form class="buscador" method="get"  name="buscador">
         <input
           name="buscador-header"
           placeholder="Qué quieres buscar hoy?"
           type="search"
+          class="barrabuscar"
         />
-        <button type="button">Buscar</button>
-      </div>
+        <button type="submit" class="botonBuscar">Buscar</button>
+      </form>
       <nav>
         <a href="/">Home</a>
          <% if(locals.hayUsuarioLoggeado){%>

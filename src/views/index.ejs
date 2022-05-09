@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script
-      src="https://kit.fontawesome.com/1998716f67.js"
-      crossorigin="anonymous"
-    ></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300&display=swap"
       rel="stylesheet"
@@ -22,7 +19,41 @@
     <%- include('../partials/header') %>
 
     <div class="banner">
-      <img src="img/assets/perroHome.png" alt="" />
+      <!-- slider start -->
+      <div class="slider">
+        <div class="slides">
+          <input type="radio" name="radio-btn" id="radio1" />
+          <input type="radio" name="radio-btn" id="radio2" />
+          <input type="radio" name="radio-btn" id="radio3" />
+          <input type="radio" name="radio-btn" id="radio4" />
+          <div class="slide first">
+            <img src="img/assets/bannerImg1.png" alt="" />
+          </div>
+          <div class="slide">
+            <img src="img/assets/bannerImg2.png" alt="" />
+          </div>
+          <div class="slide">
+            <img src="img/assets/bannerImg3.png" alt="" />
+          </div>
+          <div class="slide">
+            <img src="img/assets/bannerImg4.png" alt="" />
+          </div>
+          <div class="navigation-auto">
+            <div class="aito-btn-1"></div>
+            <div class="aito-btn-2"></div>
+            <div class="aito-btn-3"></div>
+            <div class="aito-btn-4"></div>
+          </div>
+        </div>
+        <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+        </div>
+      </div>
+      <!-- slider end -->
+
       <div class="slogan">
         <h3>
           Porque ellos merecen...<br />
@@ -171,9 +202,13 @@
   <script src="/events/alertaExitosa.js"></script>
   <% alertaExitosa = false%> <%}%>
 </html>
-<script src="./events/searchBar.js"></script>
+<script src="./events/buscador.js"></script>
 <script src="./events/compraAlerta.js"></script>
 <script src="./events/carrito.js"></script>
 <script src="./events/headerFijo.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script
+  src="https://kit.fontawesome.com/1998716f67.js"
+  crossorigin="anonymous"
+></script>

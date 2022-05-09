@@ -1,0 +1,391 @@
+/* Variables, para usar en sus archivos de estilos agreguen @import url("./global.css") en la primera linea */
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
+:root {
+  --gris: #f2f2f2;
+  --grisOscuro: #a6a6a6;
+  --magenta: #f53049;
+  --naranja1: #f29f05;
+  --naranja2: #f2a341;
+  --naranja3: #ffae00ab;
+  --negro: #292929;
+  --footerHeight: 300px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 100vh - var(--footerHeight);
+}
+
+.buscador {
+  margin-right: 5px;
+  position: relative;
+  width: 50%;
+  display: flex;
+}
+
+.buscador button:hover {
+  background: var(--grisOscuro);
+}
+.buscador input {
+  width: 100%;
+}
+
+.nombre-logo {
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Righteous', serif;;
+}
+
+
+.nombre-logo img {
+  height: 50px;
+}
+
+.buscador-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 800px;
+}
+
+body {
+  background-color: var(--gris);
+  color: var(--negro);
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+footer {
+  align-items: center;
+  background-color: var(--negro);
+  color: white;
+  display: flex;
+  height: var(--footerHeight);
+  justify-content: center;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+
+footer a {
+  color: rgb(8, 8, 8);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+header {
+   z-index:10 ;
+  position: fixed;
+  background-color: var(--naranja2);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  height: 10vh;
+  margin-bottom: 20px;
+  width: 100%;
+}
+#site-header {
+  position: fixed;
+  height:   100px;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all .3s ease;
+  box-shadow: 0 1px 25px rgba(0,0,0, .1);
+}
+#site-header.hide {
+  top: -101px;
+}
+
+#admin {
+  background-color: var(--negro);
+}
+
+.headerSuperior {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 80%;
+  padding: 0 2%;
+}
+
+.headerInferior {
+  background-color: var(--magenta);
+  color: white;
+  display: flex;
+  height: 30%;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.headerInferior p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+header nav {
+  width: 100%;
+}
+
+header p {
+  color: white;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+header nav > a {
+  color: white;
+  margin: 0 3px;
+  text-decoration: none;
+}
+
+header nav > a:hover {
+  color: var(--gris);
+  font-weight: 800;
+}
+header h4{
+  color: #f2f2f2;
+  font-family: "Montserrat", sans-serif;
+}
+
+section {
+  margin: 20px 0;
+}
+
+@media (max-width: 769px) {
+  .buscador {
+    margin: 10px 0;
+    width: 75%;
+  }
+  .buscador-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+  nav {
+    text-align: center;
+  }
+
+  .nombre-logo {
+    margin-bottom: 10px;
+  }
+
+  header {
+    max-width: 100vh;
+    height: 15vh;
+  }
+  .headerInferior {
+    display: none;
+  }
+  .headerSuperior {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+}
+
+h2 {
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+/* Footer -------------------------------*/
+.barraSuscribir, .barraBuscar {
+  font-size: 1rem;
+  color: gray;
+  padding: 15px;
+  border-radius: 5px;
+  border: white solid 0.2px;
+  margin-top: 12px;
+  width: 100%;
+  height: 20px;
+}
+.botonBuscar{
+  background-color: var(--magenta);
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border: none;
+  height: 100%;
+  font: inherit;
+  font-size: 12px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25%;
+} */
+
+.contenedorPerfiles{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  
+}
+.nombreFooter{
+  text-align: center;
+}
+.contenedorPerfil{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+.imgFooter{
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+
+}
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+}
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  color: black ;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .linkedin:hover,
+.wrapper .linkedin:hover .tooltip,
+.wrapper .linkedin:hover .tooltip::before {
+  background: #1DA1F2;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #E4405F;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333333;
+  color: #ffffff;
+}
+
+/* Alertas */
+.checkbox
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs
+{
+    z-index: 2;
+}
+
+.layer
+{
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 15;
+}
+
+
+#button-3 .checkbox:active + .knobs:before
+{
+    width: 46px;
+    border-radius: 100px;
+}
+
+#button-3 .checkbox:checked:active + .knobs:before
+{
+    margin-left: -26px;
+}
+
+#button-3 .checkbox:checked + .knobs:before
+{
+    content: 'NO';
+    left: 42px;
+    background-color: #F44336;
+}
+
+#button-3 .checkbox:checked ~ .layer
+{
+    background-color: #fcebeb;
+}
+

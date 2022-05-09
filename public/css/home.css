@@ -164,6 +164,9 @@ button.comprar:hover:after{
 .categoria:hover .imgAlimentoTop,.categoria:hover .imgJugueteTop{
   display: flex;
 }
+.categoria:hover h3{
+  color: white;
+}
 .categoria:hover .imgAlimentoBack,
   .categoria:hover .imgJugueteBack{
 display: none;
@@ -231,6 +234,7 @@ display: none;
 
 .banner {
   top: 80px;
+  overflow: hidden;
   margin-bottom: 100px;
   position: relative;
   box-sizing: border-box;
@@ -244,6 +248,74 @@ display: none;
   background: linear-gradient(-45deg, #ee0979, #ff6a00, #ee0979, #ff6a00);
   background-size: 400% 400%;
   animation: gradient 15s ease-out infinite;
+}
+/* .banner .slider img{
+  height: 500px;
+  width: 500px;
+  position: relative;
+  object-fit: contain;
+} */
+/* .slider div div{
+  position: relative;
+  height: 100%;
+  float: left;
+} */
+.slider{
+  transition: all 750ms ease;
+  overflow: hidden;
+  width: 100%;
+  height: 500px;
+}
+.slide{
+  width: 20%;
+  transition: 2s;
+}
+.slide img{
+width: 100%;
+height: 500px;
+object-fit: contain;
+}
+.slides{
+  display: flex;
+  width: 600%;
+  height: 500px;
+
+}
+.slides input{
+  display: none;
+}
+.navigation-manual{
+  position: absolute;
+  width: 100%;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  left: 0;
+}
+.manual-btn{
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+.manual-btn:hover{
+  background-color: #ccc ;
+}
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+#radio4:checked ~ .first{
+  margin-left: -60%;
 }
 @keyframes gradient {
   0% {

@@ -10,7 +10,7 @@ function App() {
     <React.Fragment>
       <div className="App">
         <header className="App-header">
-          <h2> Hola</h2>
+          <h2> Productos</h2>
         </header>
         <ListaProductos />
       </div>

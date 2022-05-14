@@ -28,12 +28,20 @@ article:last-child {
   border-radius: 5px;
   min-width: 800px;
   padding: 2%;
-  width: 60%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .confirmacion-compra {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .confirmacion-compra button {
@@ -42,8 +50,8 @@ article:last-child {
   border-radius: 10px;
   color: white;
   cursor: pointer;
-  font-size: 16px;
-  height: 35px;
+  font-size: 22px;
+  height: 50px;
   margin: 5px 0;
   width: 100%;
 }
@@ -68,13 +76,14 @@ article:last-child {
   align-items: flex-start;
   display: flex;
   flex-direction: row;
-  height: 150px;
+  height: 200px;
   justify-content: center;
   padding: 1% 0;
 }
 
 .detalles-producto p {
   color: var(--negro);
+  overflow: hidden;
 }
 
 .imagen-producto {
@@ -117,6 +126,7 @@ article:last-child {
   font-weight: 800;
   margin-bottom: 5px;
 }
+
 
 section {
   display: flex;

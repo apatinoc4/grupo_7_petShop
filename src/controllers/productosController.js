@@ -85,6 +85,9 @@ const productosController = {
     });
   },
   renderCarrito: function (req, res) {
+    // let productosCarrito = localStorage.getItem("productos");
+
+    // res.send(window.Object);
     res.render("productCart");
   },
 };

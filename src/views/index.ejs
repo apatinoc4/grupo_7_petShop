@@ -127,9 +127,13 @@
                 </button>
                 <div class="agregar">
                   <div class="botones-agregar">
-                    <button class="boton-menos" id="<%=alimento.id%>">-</button>
+                    <button class="boton-menos" id="menos<%=alimento.id%>">
+                      -
+                    </button>
                     <p>Agregar</p>
-                    <button class="boton-mas" id="<%=alimento.id%>">+</button>
+                    <button class="boton-mas" id="mas<%=alimento.id%>">
+                      +
+                    </button>
                   </div>
                   <div class="cantidad-agregada">
                     <p id="num<%=alimento.id%>" class="num">1</p>
@@ -166,11 +170,9 @@
                 </button>
                 <div class="agregar">
                   <div class="botones-agregar">
-                    <button class="boton-menos" id="menos<%=juguete.id%>">
-                      -
-                    </button>
+                    <button class="boton-menos" id="<%=juguete.id%>">-</button>
                     <p>Agregar</p>
-                    <button class="boton-mas" id="mas<%=juguete.id%>">+</button>
+                    <button class="boton-mas" id="<%=juguete.id%>">+</button>
                   </div>
                   <div class="cantidad-agregada">
                     <p id="num<%=juguete.id%>" class="num">1</p>
@@ -204,7 +206,7 @@
 </html>
 <script src="./events/buscador.js"></script>
 <script src="./events/compraAlerta.js"></script>
-<script src="./events/carrito.js"></script>
+<script src="./events/agregarProducto.js"></script>
 <script src="./events/headerFijo.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

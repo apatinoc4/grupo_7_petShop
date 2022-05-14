@@ -4,8 +4,8 @@ const Usuario = require("../helpers/Usuario");
 
 const apiController = {
   productos: async function (req, res) {
-    const productos = await Producto.obtenerListaProductos();
-    const response = {
+    let productos = await Producto.obtenerListaProductos();
+    let response = {
       meta: {
         status: 200,
         total: productos.length,
@@ -16,14 +16,27 @@ const apiController = {
     res.json(response);
   },
   usuarios: async function (req, res) {
-    const usuarios = await Usuario.obtenerListaUsuarios();
-    const response = {
+    let usuarios = await Usuario.obtenerListaUsuarios();
+    let response = {
       meta: {
         status: 200,
         total: usuarios.length,
         url: "/api/usuarios",
       },
       data: usuarios,
+    };
+    res.json(response);
+  },
+  detail: async (req, res) => {
+    let id = req.params.id;
+    let producto = await Producto.encontrarProductoPorPK(id);
+    let response = {
+      meta: {
+        status: 200,
+        total: producto.length,
+        url: "/api/producto/:id",
+      },
+      data: producto,
     };
     res.json(response);
   },

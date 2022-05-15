@@ -1,0 +1,13 @@
+@import "../../App.scss";
+
+.a-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-weight: 800;
+  }
+}

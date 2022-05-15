@@ -195,20 +195,19 @@
         </div>
       </section>
     </div>
-    <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %> <% if (typeof alertaExitosa
+    !=="undefined" && alertaExitosa ==true ){%>
+    <script src="/events/alertaExitosa.js"></script>
+    <% alertaExitosa = false%> <%}%>
+    <script src="./events/buscador.js"></script>
+    <script src="./events/compraAlerta.js"></script>
+    <script src="./events/carrito.js"></script>
+    <script src="./events/headerFijo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://kit.fontawesome.com/1998716f67.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
-
-  <% if (typeof alertaExitosa !=="undefined" && alertaExitosa ==true ){%>
-  <script src="/events/alertaExitosa.js"></script>
-  <% alertaExitosa = false%> <%}%>
 </html>
-<script src="./events/buscador.js"></script>
-<script src="./events/compraAlerta.js"></script>
-<script src="./events/carrito.js"></script>
-<script src="./events/headerFijo.js"></script>
-
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script
-  src="https://kit.fontawesome.com/1998716f67.js"
-  crossorigin="anonymous"
-></script>

@@ -15,6 +15,21 @@ const apiController = {
     };
     res.json(response);
   },
+  buscarProductos: async function (req, res) {
+    const productos = await Producto.encontrarProductoPorNombre(
+      req.query.productoBuscado
+    );
+    const response = {
+      meta: {
+        status: 200,
+        total: productos.length,
+        url: "/api/filtrados",
+      },
+      data: productos,
+    };
+    console.log(req.query, productos);
+    res.json(response);
+  },
   usuarios: async function (req, res) {
     const usuarios = await Usuario.obtenerListaUsuarios();
     const response = {

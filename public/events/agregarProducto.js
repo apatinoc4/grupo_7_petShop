@@ -40,7 +40,7 @@ function seleccionar(id, cantidad) {
 
   let productosEnCarro = localStorage.getItem("productosEnCarro");
 
-  if (productosEnCarro !== null) {
+  if (productosEnCarro !== null && productosEnCarro !== "") {
     let arrProductos = productosEnCarro.split(",");
     arrProductos.push(JSON.stringify(productos));
     localStorage.setItem("productosEnCarro", arrProductos);

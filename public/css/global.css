@@ -55,6 +55,7 @@ body {
 
 .nombre-logo img {
   height: 50px;
+  margin-top: 20px;
 }
 
 .buscador-nav {
@@ -105,7 +106,7 @@ header {
 }
 #site-header {
   position: fixed;
-  height:   100px;
+  height:100px;
   top: 0;
   width: 100%;
   z-index: 100;
@@ -124,7 +125,7 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  height: 80%;
+  height: 100%;
   padding: 0 2%;
 }
 
@@ -146,12 +147,14 @@ header {
 header nav {
   width: 100%;
   display: flex;
+  justify-content: center;
 }
 
 header p {
   color: white;
   font-weight: 800;
   font-size: 32px;
+  margin-top: 20px;
 }
 
 header nav > a {

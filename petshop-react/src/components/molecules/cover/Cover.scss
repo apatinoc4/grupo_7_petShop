@@ -1,10 +1,120 @@
 @import "../../App.scss";
 
+$height: 100vh;
+$cornerSize: 80px;
+
 .m-cover {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 0 2% 10%;
+  background: linear-gradient(-45deg, #ee0979, #ff6a00, #ee0979, #ff6a00);
+  background-size: 400% 400%;
+  animation: gradient 15s ease-out infinite;
+  padding: 25px;
+  height: $height;
+  position: relative;
+
+  &-opaquebg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $height;
+    width: 100%;
+    background-color: black;
+    opacity: 0.3;
+  }
+
+  &-coverimg {
+    width: 100%;
+    height: $height;
+    position: relative;
+    img {
+      max-width: 560px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30%;
+    }
+  }
+
+  &-clipbg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $height;
+    width: 100%;
+    background: linear-gradient(-45deg, #ee0979, #ff6a00, #ee0979, #ff6a00);
+    background-size: 400% 400%;
+    animation: gradient 15s ease-out infinite;
+    clip-path: circle(20%);
+  }
+
+  &-cornerbox {
+    height: calc(100vh - 40px);
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:after {
+      display: block;
+      content: "";
+      width: $cornerSize;
+      height: $cornerSize;
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      border-top: 3px solid white;
+      border-left: 3px solid white;
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      width: $cornerSize;
+      height: $cornerSize;
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      border-bottom: 3px solid white;
+      border-right: 3px solid white;
+    }
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
   &-slogan {
-    // color: white;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    color: white;
+    p {
+      margin-bottom: -20px;
+      font-weight: 800;
+    }
+    p:last-child {
+      margin-top: 5px;
+      text-align: right;
+    }
     h2 {
       font-family: "Righteous", serif;
+      font-size: 8rem;
+      text-shadow: 0.03em 0.03em 0 rgb(255, 16, 32);
+      margin: 0;
     }
   }
 }

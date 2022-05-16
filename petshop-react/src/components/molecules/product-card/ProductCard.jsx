@@ -68,10 +68,16 @@ const ProductCard = (props) => {
               alt="img"
             />
           </div>
-          <Typography sx={{ width: "60%", flexShrink: 0 }}>
+          <Typography
+            className="MuiAccordionSummary-name"
+            sx={{ width: "60%", flexShrink: 0 }}
+          >
             {product.nombre}
           </Typography>
-          <Typography sx={{ color: "text.secondary" }}>
+          <Typography
+            className="MuiAccordionSummary-price"
+            sx={{ color: "text.secondary" }}
+          >
             ${product.precio}
           </Typography>
         </AccordionSummary>

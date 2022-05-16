@@ -6,13 +6,19 @@ const theme = createTheme({
     MuiAccordion: {
       styleOverrides: {
         root: {
+          margin: "20px 0",
           ".MuiAccordionSummary-content": {
             display: "flex",
             alignItems: "center",
           },
+          ".MuiAccordionSummary-name": {
+            marginLeft: "20px",
+          },
+          ".MuiAccordionSummary-price": {
+            fontSize: 20,
+          },
           ".MuiAccordionSummary-root.Mui-expanded": {
-            borderBottom: "1px solid rgb(0, 0, 0)",
-            borderOpacity: "0.7",
+            borderBottom: "1px solid #0000001f",
           },
           ".MuiAccordionDetails-root": {
             ".MuiBox-root": {
@@ -47,9 +53,9 @@ const theme = createTheme({
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-
             backgroundColor: "white",
-            border: "2px solid #000",
+            borderRadius: 20,
+            padding: 24,
             boxShadow: 24,
             p: 4,
           },

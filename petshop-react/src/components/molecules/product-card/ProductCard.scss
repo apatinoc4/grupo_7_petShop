@@ -1,5 +1,11 @@
 @import "../../App.scss";
 .a-productcard {
+  .MuiAccordionSummary-name {
+    p {
+      font-family: "Righteous", serif !important;
+    }
+  }
+
   &-productimage {
     width: 60px;
     height: 60px;

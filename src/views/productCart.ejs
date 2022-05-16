@@ -17,7 +17,7 @@
   <body>
     <%- include('../partials/header') %>
     <div class="carrito-wrapper">
-      <h2>Carrito de compras</h2>
+      <h2 style="margin-top: 100px">Carrito de compras</h2>
       <!-- <section>
         <div class="contenedor">
           <article class="detalles-producto">
@@ -127,16 +127,18 @@
       <article class="confirmacion-compra">
         <p class="precio-total">TOTAL: $350.000</p>
         <div class="botones-compra">
-          <button onclick="window.location.href='/'">Regresar</button>
+          <button onclick="window.location.href='/'">Seguir Comprando</button>
           <button>Finalizar compra</button>
         </div>
       </article>
     </div>
     <%- include('../partials/footer') %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script
       src="https://kit.fontawesome.com/1998716f67.js"
       crossorigin="anonymous"
     ></script>
     <script src="./events/listaCarro.js"></script>
+    <script src="./events/headerFijo.js"></script>
   </body>
 </html>

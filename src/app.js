@@ -13,6 +13,7 @@ const usuarioLoggeadoMiddleware = require("./middlewares/usuarioLoggeadoMiddlewa
 const rutasAutorizacion = require("./routes/autorizacion");
 const rutasProductos = require("./routes/productos");
 const rutasUsuarios = require("./routes/usuarios");
+const rutasCarrito = require("./routes/carrito");
 const rutasApi = require("./routes/apiRoutes");
 
 app.use(methodOverride("_method"));
@@ -39,6 +40,7 @@ app.set("views", path.resolve(__dirname, "./views"));
 app.use("/", rutasAutorizacion);
 app.use("/", rutasProductos);
 app.use("/", rutasUsuarios);
+app.use("/", rutasCarrito);
 app.use("/api", rutasApi);
 
 app.use((req, res, next) => {

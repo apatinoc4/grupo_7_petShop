@@ -1,3 +1,5 @@
+// const e = require("express");
+
 window.addEventListener("load", function () {
   localStorage.removeItem("listaCarro");
 
@@ -14,8 +16,13 @@ window.addEventListener("load", function () {
   var productosUnicos = productos.filter(
     (value, index, self) => index === self.findIndex((t) => t.id === value.id)
   );
-  //   console.log(productos);
-  //   console.log(productosUnicos);
+
+  let productosString = JSON.stringify(productosUnicos);
+  productosString = productosString.replace(/[[\]]/g, "");
+  localStorage.setItem("productosEnCarro", productosString);
+
+  console.log(productos);
+  console.log(productosUnicos);
 
   productosUnicos.forEach((productos, index) => {
     fetch(`http://localhost:3000/api/producto/${productos.id}/`)
@@ -33,7 +40,12 @@ window.addEventListener("load", function () {
         const name = document.createElement("p");
         const desc = document.createElement("p");
         const cant = document.createElement("input");
+        const cantText = document.createElement("p");
+
         const priceContainer = document.createElement("div");
+
+        const formEliminar = document.createElement("form");
+        const botonEliminar = document.createElement("button");
 
         const price = document.createElement("p");
 
@@ -44,27 +56,58 @@ window.addEventListener("load", function () {
         name.setAttribute("class", "nombre-producto");
         desc.setAttribute("class", "descripcion-producto");
         cant.setAttribute("class", "cantidad-producto");
+        cantText.setAttribute("class", "cantidad-texto");
+
         priceContainer.setAttribute("class", "precio-producto");
 
+        // formEliminar.setAttribute("action", "eliminar");
+        formEliminar.setAttribute("class", "form-eliminar");
+        botonEliminar.setAttribute("type", "submit");
+        botonEliminar.setAttribute("class", "eliminar");
+        botonEliminar.setAttribute("id", id);
+        botonEliminar.innerHTML = "Eliminar";
+
         name.innerHTML = nombre;
-        price.innerHTML = precio;
+        price.innerHTML = "$" + precio;
         desc.innerHTML = descripcion;
         cant.setAttribute("value", productosUnicos[index].cantidad);
+        cantText.innerHTML = "Cantidad: ";
 
         container.appendChild(article);
         article.appendChild(imgContainer);
         article.appendChild(info);
         article.appendChild(priceContainer);
         priceContainer.appendChild(price);
+        priceContainer.appendChild(cantText);
+
+        priceContainer.appendChild(cant);
+        priceContainer.appendChild(formEliminar);
 
         info.appendChild(name);
         info.appendChild(desc);
-        info.appendChild(cant);
 
         imgContainer.appendChild(img);
         img.setAttribute("src", "/img/productos/" + imagen);
+
+        formEliminar.appendChild(botonEliminar);
       });
   });
-});
 
-// image1.setAttribute("src", "/images/products/" + image)
+  window.addEventListener("click", function (e) {
+    if (e.target.classList.value == "eliminar") {
+      let id = e.target.id;
+
+      let productosFiltro = productosUnicos.filter(
+        (productosUnicos) => productosUnicos.id != id
+      );
+
+      productosFiltro = JSON.stringify(productosFiltro);
+      console.log(productosFiltro);
+      productosFiltro = productosFiltro.replace(/[[\]]/g, "");
+      console.log(productosFiltro);
+
+      localStorage.setItem("productosEnCarro", productosFiltro);
+      // e.preventDefault();
+    }
+  });
+});

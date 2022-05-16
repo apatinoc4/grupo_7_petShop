@@ -1,5 +1,7 @@
 @import url("./global.css");
 
+
+
 article {
   border-bottom: 1px solid var(--grisOscuro);
   margin: 2px 0;
@@ -11,8 +13,15 @@ article:last-child {
 
 .botones-compra {
   width: 60%;
+  flex-direction: row;
 }
-
+.cantidad-texto{
+  font-size: medium;
+}
+.cantidad-producto{
+  width: 70px;
+  text-align: center;
+}
 .carrito-wrapper {
   display: flex;
   flex-direction: column;
@@ -54,6 +63,10 @@ article:last-child {
   height: 50px;
   margin: 5px 0;
   width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+
+
 }
 
 .confirmacion-compra button:hover {
@@ -67,9 +80,9 @@ article:last-child {
 .confirmacion-compra > div {
   align-items: flex-end;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding-top: 2%;
-  width: 25%;
+  width: 45%;
 }
 
 .detalles-producto {
@@ -102,7 +115,6 @@ article:last-child {
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-between;
   margin-left: 40px;
   width: 50%;
 }
@@ -114,17 +126,27 @@ article:last-child {
 
 .precio-producto {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   font-size: 28px;
   font-weight: 800;
   width: 25%;
+  flex-direction: column;
+  height: auto;
+
 }
 
 .precio-total {
   font-family: "Montserrat", sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 800;
   margin-bottom: 5px;
+  background-color: var(--naranja1);
+  display: block;
+  color: rgb(240, 248, 255);
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  text-shadow:1px 1px 3px rgba(0,0,0,0.15) ;
 }
 
 
@@ -132,6 +154,79 @@ section {
   display: flex;
   justify-content: center;
 }
+
+button.eliminar{
+  width: 100px;
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	background: var(--magenta);
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  height: 35px;
+  margin: 5px 0;
+}
+
+button, button span {
+	transition: 200ms;
+}
+button .text {
+	transform: translateX(-8px);
+  text-align: center;
+	color: white;
+	font-weight: bold;
+}
+button .icon {
+	position: absolute;
+	border-left: 1px solid #bd838300;
+	transform: translateX(35px);
+	height: 35px;
+	width: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  
+}
+
+button svg {
+	width: 15px;
+	fill: #eee;
+}
+
+button.eliminar:hover {
+	background: #d6d6d6;
+}
+button.editar:hover {
+	background: var(--naranja2);
+} 
+button:hover .text {
+	color: rgb(255, 0, 0);
+
+}
+
+button:hover .icon {
+	width: 150px;
+	border-left: none;
+  border-color: rgba(238, 238, 238, 0);
+	transform: translatex(0);
+}
+
+button:focus {
+	outline: none;
+}
+
+form {
+  width: 100%;
+}
+.eliminar {
+  background-color: var(--magenta);
+
+}
+
 
 @media (max-width: 769px) {
   .botones-compra {
@@ -145,6 +240,7 @@ section {
   .confirmacion-compra > div {
     align-items: center;
     width: 100%;
+    flex-direction: column;
   }
   .confirmacion-compra button {
     width: 40%;
@@ -159,6 +255,7 @@ section {
     flex-direction: column;
     min-height: 300px;
     width: 100%;
+    height: auto;
   }
 
   .informacion {

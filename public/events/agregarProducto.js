@@ -21,13 +21,18 @@ window.addEventListener("load", function () {
       num[index].innerHTML = cont[index];
     });
   });
-
+  let nombreUsuario = document.querySelector("#nombreUsuario");
   botonComprar.forEach((button, index) => {
     button.addEventListener("click", function (e) {
-      let id = e.target.id;
-      let numSel = document.querySelector("#num" + id);
-      let cantidad = numSel.innerHTML;
-      seleccionar(id, cantidad);
+      if (nombreUsuario != null) {
+        let id = e.target.id;
+        let numSel = document.querySelector("#num" + id);
+        let cantidad = numSel.innerHTML;
+        seleccionar(id, cantidad);
+      } else {
+        e.preventDefault();
+        location.href = "/login";
+      }
     });
   });
 });

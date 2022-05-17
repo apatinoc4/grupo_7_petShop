@@ -10,7 +10,7 @@
         <img src="/img/assets/LogoPetShop.png" alt="">
         <% if(locals.hayUsuarioLoggeado){%>
           <%if(locals.infoUsuarioLoggeado){%>
-           <h4>
+           <h4 id="nombreUsuario">
               ¡Hola! <%= locals.infoUsuarioLoggeado.nombre%>
             </h4>
           <%}%>
@@ -32,7 +32,7 @@
         <a href="/listaProductos">Inventario</a>
         <a href="/listaUsuarios">Directorio</a>
         <%}%>
-        <a href="/logout">Salir</a>
+        <a href="/logout" id="logout">Salir</a>
         <%} else {%>
         <a href="/login">Ingreso</a>
         <a href="/register">Registro</a>

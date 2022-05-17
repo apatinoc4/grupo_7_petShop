@@ -8,6 +8,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 // const bootstrap = require("bootstrap");
 // const Swal = require("sweetalert2");
+var bodyParser = require("body-parser");
 
 const usuarioLoggeadoMiddleware = require("./middlewares/usuarioLoggeadoMiddleware");
 const rutasAutorizacion = require("./routes/autorizacion");

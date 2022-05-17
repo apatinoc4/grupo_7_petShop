@@ -1,9 +1,10 @@
 window.addEventListener("load", function () {
-  let formBuscador = document.querySelector(".buscador");
+  const botonBuscar = document.querySelector(".test2");
+  const barrabuscar = document.querySelector(".test");
 
-  formBuscador.addEventListener("submit", function (e, res) {
-    // e.preventDefault();
-    const query = e.target[0].value;
-    formBuscador.action = "http://localhost:3001/search?" + query;
+  botonBuscar.addEventListener("click", function (e, res) {
+    const query = barrabuscar.value;
+
+    window.location.href = `http://localhost:3001?query=${query}`;
   });
 });

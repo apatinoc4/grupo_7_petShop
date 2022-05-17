@@ -1,0 +1,44 @@
+@import "../../App.scss";
+
+.m-productlist {
+  &-title {
+    font-family: "Righteous", serif;
+    text-align: start;
+    width: 100%;
+    font-size: 36px;
+  }
+  &-container {
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+  &-tabbox {
+    min-height: 700px;
+    position: relative;
+    width: 100%;
+  }
+
+  &-paginationcontainer {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    a {
+      padding: 10px;
+      margin: 8px;
+      border-radius: 5px;
+      border: 1px solid cyan;
+      color: cyan;
+      cursor: pointer;
+    }
+  }
+}

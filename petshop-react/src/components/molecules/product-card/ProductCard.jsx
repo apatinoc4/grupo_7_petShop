@@ -55,13 +55,21 @@ const ProductCard = (props) => {
   };
   return (
     <div className="a-productcard-container">
-      <Accordion expanded={expanded} onChange={() => handleExpanded(!expanded)}>
+      <Accordion
+        className={
+          product.tipo_id === 1 ? "MuiAccordion-food" : "MuiAccordion-toy"
+        }
+        expanded={expanded}
+        onChange={() => handleExpanded(!expanded)}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <p className="a-productcard-index">{number + 1}</p>
+          <Box className="MuiAccordionIndex">
+            <p className="a-productcard-index">{number + 1}</p>
+          </Box>
           <div className="a-productcard-productimage">
             <img
               src={require(`../../../../../public/img/productos/${product.imagen}`)}
@@ -82,14 +90,19 @@ const ProductCard = (props) => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Box>
-            <Typography sx={{ width: "50%", flexShrink: 0 }}>
-              {product.descripcion}
-            </Typography>
+          <Box sx={{ width: "100%" }}>
+            <div className="MuiAccordionDetails-description">
+              <Typography>
+                <span>Categoria: </span>
+                {product.tipo_id === 1 ? "Alimento" : "Juguete"}
+              </Typography>
+              <Typography>{product.descripcion}</Typography>
+            </div>
             <Divider orientation="vertical" flexItem />
             <Box className="MuiAccordionDetails-buyBox">
               <QuantityInput quantity={quantity} setQuantity={setQuantity} />
               <Button
+                className="MuiButton-add"
                 onClick={() => handleShoppingCartEdit(product)}
                 startIcon={<AddShoppingCartIcon />}
                 variant="contained"
@@ -97,6 +110,7 @@ const ProductCard = (props) => {
                 Agregar
               </Button>
               <Button
+                className="MuiButton-buy"
                 onClick={() => setShoppingCartExpanded(true)}
                 variant="contained"
               >

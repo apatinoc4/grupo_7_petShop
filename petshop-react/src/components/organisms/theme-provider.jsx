@@ -1,15 +1,29 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+const magenta = "#f53049";
+const orange = "#f2a341";
+
 const theme = createTheme({
   components: {
     MuiAccordion: {
       styleOverrides: {
         root: {
           margin: "20px 0",
+          position: "relative",
+          "&.MuiAccordion-food": {
+            borderLeft: "15px solid #f2a341",
+          },
+          "&.MuiAccordion-toy": {
+            borderLeft: "15px solid #f53049",
+          },
           ".MuiAccordionSummary-content": {
             display: "flex",
             alignItems: "center",
+            position: "relative",
+          },
+          ".MuiAccordionIndex": {
+            margin: "0 30px 0 15px",
           },
           ".MuiAccordionSummary-name": {
             marginLeft: "20px",
@@ -17,20 +31,42 @@ const theme = createTheme({
           ".MuiAccordionSummary-price": {
             fontSize: 20,
           },
+
           ".MuiAccordionSummary-root.Mui-expanded": {
             borderBottom: "1px solid #0000001f",
           },
           ".MuiAccordionDetails-root": {
+            padding: "30px 20px",
+
             ".MuiBox-root": {
               alignItems: "center",
               display: "flex",
               flexDirection: "row",
 
+              "div > .MuiTypography-root": {
+                margin: "10px 0",
+                span: {
+                  fontWeight: 600,
+                },
+              },
+
+              ".MuiAccordionDetails-description": {
+                width: "60%",
+              },
               ".MuiAccordionDetails-buyBox": {
                 display: "flex",
                 flexDirection: "row",
                 width: "50%",
                 justifyContent: "center",
+
+                ".MuiButton-root": {
+                  "&.MuiButton-add": {
+                    backgroundColor: orange,
+                  },
+                  "&.MuiButton-buy": {
+                    backgroundColor: magenta,
+                  },
+                },
               },
             },
           },
@@ -58,6 +94,24 @@ const theme = createTheme({
             padding: 24,
             boxShadow: 24,
             p: 4,
+          },
+        },
+      },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          marginBottom: "20px",
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          fontSize: 20,
+          "&.Mui-selected": {
+            color: orange,
           },
         },
       },

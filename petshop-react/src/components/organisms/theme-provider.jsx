@@ -9,6 +9,7 @@ const theme = createTheme({
     MuiAccordion: {
       styleOverrides: {
         root: {
+          zIndex: 1,
           margin: "20px 0",
           position: "relative",
           "&.MuiAccordion-food": {
@@ -90,10 +91,23 @@ const theme = createTheme({
             left: "50%",
             transform: "translate(-50%, -50%)",
             backgroundColor: "white",
-            borderRadius: 20,
+            width: "70%",
+            borderLeft: "10px solid #f53049",
+            borderRadius: 10,
             padding: 24,
             boxShadow: 24,
             p: 4,
+
+            div: {
+              width: "100%",
+              marginTop: 10,
+              display: "flex",
+              justifyContent: "flex-end",
+            },
+            ".MuiButton-root": {
+              backgroundColor: magenta,
+              width: "20%",
+            },
           },
         },
       },
@@ -102,6 +116,19 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           marginBottom: "20px",
+        },
+      },
+    },
+
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          backgroundColor: orange,
+          ".MuiTableRow-head": {
+            ".MuiTableCell-root": {
+              color: "white",
+            },
+          },
         },
       },
     },

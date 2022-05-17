@@ -7,6 +7,7 @@ import ShoppingCart from "../shopping-cart/ShoppingCart";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import Fade from "react-reveal/Fade";
 
 const ProductList = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -89,7 +90,10 @@ const ProductList = () => {
 
   return (
     <div className="m-productlist-container">
-      <h2 className="m-productlist-title">Productos</h2>
+      <Fade right>
+        <div className="test"></div>
+      </Fade>
+      <h2 className="m-productlist-title">Nuestros Productos</h2>
       <Box sx={{ width: "100%" }}>
         <Tabs
           TabIndicatorProps={{
@@ -155,6 +159,9 @@ const ProductList = () => {
         shoppingCartExpanded={shoppingCartExpanded}
         setShoppingCartExpanded={setShoppingCartExpanded}
       />
+      <Fade left>
+        <div className="test2"></div>
+      </Fade>
     </div>
   );
 };

@@ -11,6 +11,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
+import "./ShoppingCart.scss";
 
 const ShoppingCart = (props) => {
   const { shoppingCartExpanded, setShoppingCartExpanded, shoppingCart } = props;
@@ -27,7 +28,7 @@ const ShoppingCart = (props) => {
     setTransaction(false);
   };
   return (
-    <div>
+    <div className="m-shoppingcart-container">
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -40,10 +41,13 @@ const ShoppingCart = (props) => {
         }}
       >
         <Fade in={shoppingCartExpanded}>
-          <Box>
+          <Box className="MuiBox-shoppingCart">
             {!transaction ? (
               <>
-                <p>Estos son los detalles de tu compra:</p>
+                <p className="m-shoppingcart-title">Carrito de compras</p>
+                <p className="m-shoppingcart-cartinfo">
+                  Aquí estan los detalles de tu compra:
+                </p>
                 <TableContainer component={Paper}>
                   <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -102,12 +106,14 @@ const ShoppingCart = (props) => {
                     </TableBody>
                   </Table>
                 </TableContainer>
-                <Button
-                  onClick={() => setTransaction(true)}
-                  variant="contained"
-                >
-                  Comprar
-                </Button>
+                <div>
+                  <Button
+                    onClick={() => setTransaction(true)}
+                    variant="contained"
+                  >
+                    Comprar
+                  </Button>
+                </div>
               </>
             ) : (
               <>

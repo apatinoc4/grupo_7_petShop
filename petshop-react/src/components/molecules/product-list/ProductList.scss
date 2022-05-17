@@ -5,7 +5,8 @@
     font-family: "Righteous", serif;
     text-align: start;
     width: 100%;
-    font-size: 36px;
+    font-size: 50px;
+    color: $negro;
   }
   &-container {
     min-height: 100vh;
@@ -16,6 +17,27 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
+
+    .test {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 150px;
+      width: 50%;
+      background-color: aqua;
+      z-index: 0;
+    }
+
+    .test2 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 150px;
+      width: 500px;
+      background-color: aqua;
+      z-index: 0;
+    }
   }
   &-tabbox {
     min-height: 700px;
@@ -30,7 +52,6 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
 
     a {
       padding: 10px;

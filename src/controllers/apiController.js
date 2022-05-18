@@ -42,6 +42,27 @@ const apiController = {
     };
     res.json(response);
   },
+  usuarioLoggeado: async function (req, res) {
+    let usuarioLoggeado;
+    const invitado = {
+      nombre: "Invitado",
+      admin: 0,
+    };
+    if (req.session.usuarioLoggeado) {
+      usuarioLoggeado = req.session.usuarioLoggeado;
+    } else {
+      usuarioLoggeado = invitado;
+    }
+    const response = {
+      meta: {
+        status: 200,
+        total: 1,
+        url: "/api/usuariologgeado",
+      },
+      data: usuarioLoggeado,
+    };
+    res.json(response);
+  },
 };
 
 module.exports = apiController;

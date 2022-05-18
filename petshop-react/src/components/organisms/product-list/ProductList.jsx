@@ -1,9 +1,9 @@
 import { React, useState, useEffect } from "react";
 import "./ProductList.scss";
 import ReactPaginate from "react-paginate";
-import ProductCard from "../product-card/ProductCard";
+import ProductCard from "../../molecules/product-card/ProductCard";
 import SearchField from "../../atoms/search-field/SearchField";
-import ShoppingCart from "../shopping-cart/ShoppingCart";
+import ShoppingCart from "../../molecules/shopping-cart/ShoppingCart";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -86,14 +86,14 @@ const ProductList = () => {
     }
     fetchFilteredProductList(searchQuery);
     fetchProductList();
-  }, []);
+  }, [searchQuery]);
 
   return (
-    <div className="m-productlist-container">
+    <div className="o-productlist-container">
       <Fade right>
         <div className="test"></div>
       </Fade>
-      <h2 className="m-productlist-title">Nuestros Productos</h2>
+      <h2 className="o-productlist-title">Nuestros Productos</h2>
       <Box sx={{ width: "100%" }}>
         <Tabs
           TabIndicatorProps={{
@@ -103,7 +103,7 @@ const ProductList = () => {
           onChange={handleTabChange}
         >
           <Tab value={0} label="Productos" wrapped />
-          <Tab value={1} label="Resultados Busqueda" wrapped />
+          <Tab value={1} label="Resultados Búsqueda" wrapped />
         </Tabs>
       </Box>
       <Box sx={{ width: "100%" }}>
@@ -115,7 +115,7 @@ const ProductList = () => {
       </Box>
       {tabValue === 0 ? (
         <>
-          <Box className="m-productlist-tabbox">
+          <Box className="o-productlist-tabbox">
             {displayPaginatedProducts(products)}
           </Box>
           <ReactPaginate
@@ -123,17 +123,17 @@ const ProductList = () => {
             nextLabel={"Siguiente"}
             pageCount={pageCount(products)}
             onPageChange={changePage}
-            containerClassName={"m-productlist-paginationcontainer"}
-            previousLinkClassName={"m-productlist-previousbttn"}
-            nextLinkClassName={"m-productlist-nextbttn"}
-            disabledLinkClassName={"m-productlist-paginationdisabled"}
-            activeClassName={"m-productlist-paginationactive"}
+            containerClassName={"o-productlist-paginationcontainer"}
+            previousLinkClassName={"o-productlist-previousbttn"}
+            nextLinkClassName={"o-productlist-nextbttn"}
+            disabledLinkClassName={"o-productlist-paginationdisabled"}
+            activeClassName={"o-productlist-paginationactive"}
           />
         </>
       ) : (
         <>
           {filteredProducts.length !== 0 ? (
-            <Box className="m-productlist-tabbox">
+            <Box className="o-productlist-tabbox">
               {filteredProducts.map((elem, i) => {
                 return (
                   <ProductCard
@@ -149,7 +149,16 @@ const ProductList = () => {
             </Box>
           ) : (
             <>
-              <p>Hola</p>
+              <div className="o-productlist-emptysearch">
+                <img
+                  src={require("../../../assets/img/logoComidaNar.png")}
+                  alt=""
+                />
+                <div>
+                  <h3>Aquí estarán los resultados de tu búsqueda</h3>
+                  <p>Busquemos juntos nuestro próximo producto favorito</p>
+                </div>
+              </div>
             </>
           )}
         </>

@@ -1,0 +1,58 @@
+@import "../../App.scss";
+
+$height: 600px;
+
+.a-devcard {
+  color: white;
+  display: flex;
+  margin: 0 20px;
+  width: 780px;
+  height: $height;
+  box-sizing: border-box;
+
+  &-title {
+    margin: 0;
+  }
+
+  h3 {
+    font-family: "Righteous", serif;
+    margin: 0;
+    font-size: 25px;
+  }
+
+  &.left {
+    flex-direction: row;
+  }
+
+  &.right {
+    flex-direction: row-reverse;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 30px;
+  }
+
+  &-description {
+    text-align: justify;
+  }
+
+  &-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-picture {
+    img {
+      height: $height;
+      filter: grayscale(100%);
+
+      &:hover {
+        filter: none;
+      }
+    }
+  }
+}

@@ -74,6 +74,21 @@ const theme = createTheme({
         },
       },
     },
+
+    MuiButtonBase: {
+      styleOverrides: {
+        root: {
+          "&.MuiSocialMedia": {
+            svg: {
+              color: "white",
+              "&:hover": {
+                color: orange,
+              },
+            },
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

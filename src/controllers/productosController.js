@@ -68,7 +68,7 @@ const productosController = {
     const idProducto = parseInt(req.params.id);
     const productoADetalle = await Producto.encontrarProductoPorPK(idProducto);
     const productosSimilares = await Producto.encontrarProductosSimilares(
-      productoADetalle.tipo_id,
+      parseInt(productoADetalle.tipo_id),
       4
     );
 
@@ -83,9 +83,6 @@ const productosController = {
     res.render("listaProductos", {
       listaProductos,
     });
-  },
-  renderCarrito: function (req, res) {
-    res.render("productCart");
   },
 };
 

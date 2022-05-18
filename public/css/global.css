@@ -55,6 +55,7 @@ body {
 
 .nombre-logo img {
   height: 50px;
+  margin-top: -6px;
 }
 
 .buscador-nav {
@@ -105,7 +106,7 @@ header {
 }
 #site-header {
   position: fixed;
-  height:   100px;
+  height:100px;
   top: 0;
   width: 100%;
   z-index: 100;
@@ -124,7 +125,7 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  height: 80%;
+  height: 100%;
   padding: 0 2%;
 }
 
@@ -136,22 +137,28 @@ header {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  position: relative;
+  top: 0px;
 }
 
 .headerInferior p {
   font-size: 16px;
   font-weight: 500;
+  position: relative;
+  top: 4px;
 }
 
 header nav {
   width: 100%;
   display: flex;
+  justify-content: center;
 }
 
 header p {
   color: white;
   font-weight: 800;
   font-size: 32px;
+  margin-top: -6px;
 }
 
 header nav > a {
@@ -191,6 +198,9 @@ section {
   .nombre-logo {
     margin-bottom: 10px;
   }
+  .nombre-logo img{
+    margin-top: 18px;
+  }
 
   header {
     max-width: 100vh;
@@ -205,6 +215,9 @@ section {
   }
   footer{
     height: 500;
+  }
+  header p{
+    margin-top: 20px;
   }
 
 }

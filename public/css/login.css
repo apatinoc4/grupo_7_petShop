@@ -8,6 +8,11 @@
   margin-top: 5vh;
   width: 100%;
 }
+.checkboxCaja{
+  margin-right: 5px;
+  width: 21px;
+  height: 21px;
+}
 .recordarCheckbox {
   color: var(--negro);
   font-weight: 800;

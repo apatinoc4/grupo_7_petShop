@@ -13,12 +13,15 @@
     />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/alerta.css" />
+
     <title>PetShop Grupo 7</title>
   </head>
   <body>
     <%- include('../partials/header') %>
 
     <div class="banner">
+      <div class="bannerCirculo"></div>
       <!-- slider start -->
       <div class="slider">
         <div class="slides">
@@ -127,9 +130,13 @@
                 </button>
                 <div class="agregar">
                   <div class="botones-agregar">
-                    <button class="boton-menos" id="<%=alimento.id%>">-</button>
+                    <button class="boton-menos" id="menos<%=alimento.id%>">
+                      -
+                    </button>
                     <p>Agregar</p>
-                    <button class="boton-mas" id="<%=alimento.id%>">+</button>
+                    <button class="boton-mas" id="mas<%=alimento.id%>">
+                      +
+                    </button>
                   </div>
                   <div class="cantidad-agregada">
                     <p id="num<%=alimento.id%>" class="num">1</p>
@@ -138,9 +145,11 @@
               </div>
             </div>
             <div class="boton-comprar">
-              <button class="comprar" id="<%=alimento.id%>">
-                <span id="<%=alimento.id%>">Comprar </span>
-              </button>
+              <form action="/productCart" class="formCompra">
+                <button type="submit" class="comprar" id="<%=alimento.id%>">
+                  <span id="<%=alimento.id%>">Comprar </span>
+                </button>
+              </form>
             </div>
           </article>
           <%} %>
@@ -179,16 +188,11 @@
               </div>
             </div>
             <div class="boton-comprar">
-              <button
-                id="<%=juguete.id%>"
-                class="comprar"
-                <!--
-                onclick="window.location.href='/productCart'"
-                --
-              >
-                >
-                <span class="selComprar" id="<%=juguete.id%>">Comprar </span>
-              </button>
+              <form action="/productCart" class="formCompra">
+                <button id="<%=juguete.id%>" class="comprar" type="submit">
+                  <span id="<%=juguete.id%>">Comprar </span>
+                </button>
+              </form>
             </div>
           </article>
           <%} %>
@@ -197,8 +201,10 @@
     </div>
     <%- include('../partials/footer') %>
     <script src="./events/buscador.js"></script>
-    <script src="./events/compraAlerta.js"></script>
-    <script src="./events/carrito.js"></script>
+    <script src="./events/agregarProducto.js"></script>
+    <script src="./events/alertaAgregar.js"></script>
+    <script src="./events/borrarStorage.js"></script>
+
     <script src="./events/headerFijo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

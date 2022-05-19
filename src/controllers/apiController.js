@@ -23,11 +23,10 @@ const apiController = {
       meta: {
         status: 200,
         total: productos.length,
-        url: "/api/filtrados",
+        url: "/api/productosfiltrados",
       },
       data: productos,
     };
-    console.log(req.query, productos);
     res.json(response);
   },
   usuarios: async function (req, res) {
@@ -40,6 +39,21 @@ const apiController = {
       },
       data: usuarios,
     };
+    res.json(response);
+  },
+  buscarUsuarios: async function (req, res) {
+    const usuarios = await Usuario.encontrarUsuariosPorEmail(
+      req.query.usuarioBuscado
+    );
+    const response = {
+      meta: {
+        status: 200,
+        total: usuarios.length,
+        url: "/api/usuariosfiltrados",
+      },
+      data: usuarios,
+    };
+    console.log(usuarios, req.query.usuarioBuscado, "OEOOWOWOWOWO");
     res.json(response);
   },
   usuarioLoggeado: async function (req, res) {

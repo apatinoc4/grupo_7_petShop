@@ -6,16 +6,16 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 
 const SearchField = (props) => {
-  const { fetchProductList, setTabValue } = props;
+  const { fetchFunction, setTabValue } = props;
   const [searchValue, setSearchValue] = useState("");
   const handleSearch = (searchValue) => {
-    fetchProductList(searchValue);
+    fetchFunction(searchValue);
     setTabValue(1);
   };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      fetchProductList(searchValue);
+      fetchFunction(searchValue);
       setTabValue(1);
     }
   };

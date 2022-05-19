@@ -7,6 +7,7 @@ import PageThemeProvider from "./organisms/theme-provider";
 import AboutUs from "./organisms/about-us/AboutUs";
 import UserPanel from "./organisms/user-panel/UserPanel";
 import PetShopContextProvider from "./context/PetShopContextProvider";
+import UserList from "./organisms/user-list/UserList";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
             <Template>
               <Cover />
               <UserPanel />
+              <UserList />
               <ProductList />
               <AboutUs />
             </Template>

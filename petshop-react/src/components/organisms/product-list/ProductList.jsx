@@ -58,7 +58,9 @@ const ProductList = () => {
   // Product Fetching
 
   const fetchFilteredProductList = async (query) => {
-    const response = await fetch(`/api/filtrados?productoBuscado=${query}`);
+    const response = await fetch(
+      `/api/productosfiltrados?productoBuscado=${query}`
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -110,8 +112,7 @@ const ProductList = () => {
       <Box sx={{ width: "100%" }}>
         <SearchField
           setTabValue={setTabValue}
-          fetchProductList={fetchFilteredProductList}
-          setProducts={setFilteredProducts}
+          fetchFunction={fetchFilteredProductList}
         />
       </Box>
       {tabValue === 0 ? (

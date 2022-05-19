@@ -8,15 +8,15 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 
 const AdminCard = (props) => {
   const { option } = props;
-  const { title, description } = option;
+  const { title, description, img } = option;
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
-          image="../../../assets/img/bannerImg1.png"
-          alt="green iguana"
+          height="200"
+          image={require(`../../../assets/img/${img}`)}
+          alt="bannerImage"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -27,9 +27,9 @@ const AdminCard = (props) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className={title}>
         <Button size="small" color="primary">
-          Share
+          Comencemos
         </Button>
       </CardActions>
     </Card>

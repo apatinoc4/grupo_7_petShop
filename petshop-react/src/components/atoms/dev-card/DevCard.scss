@@ -49,6 +49,7 @@ $height: 600px;
     img {
       height: $height;
       filter: grayscale(100%);
+      border-radius: 5px;
 
       &:hover {
         filter: none;

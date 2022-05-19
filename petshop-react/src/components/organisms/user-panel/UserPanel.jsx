@@ -1,13 +1,14 @@
-import { React, useState, useEffect } from "react";
+import { React, useEffect, useContext, useCallback } from "react";
 import "./UserPanel.scss";
 import UserAvatar from "../../atoms/user-avatar/UserAvatar";
 import Box from "@mui/material/Box";
-import AdminCard from "../../atoms/admin-card/AdminCard";
+import { PetShopContext } from "../../context/PetShopContextProvider";
+import AdminOptions from "../../molecules/admin-options/AdminOptions";
 
 const UserPanel = () => {
-  const [userInfo, setUserInfo] = useState({});
+  const { loggedUserInfo, setLoggedUserInfo } = useContext(PetShopContext);
 
-  const fetchUserInfo = async () => {
+  const fetchUserInfo = useCallback(async () => {
     const response = await fetch("/api/usuariologgeado");
 
     if (!response.ok) {
@@ -16,37 +17,21 @@ const UserPanel = () => {
 
     const jsonResponse = await response.json();
 
-    setUserInfo(jsonResponse.data);
-  };
-
-  const adminOptions = [
-    {
-      title: "Productos",
-      description: "test",
-    },
-    {
-      title: "Usuarios",
-      description: "test",
-    },
-  ];
+    setLoggedUserInfo(jsonResponse.data);
+  }, [setLoggedUserInfo]);
 
   useEffect(() => {
     fetchUserInfo();
-    console.log(userInfo);
-  }, []);
+  }, [fetchUserInfo]);
 
   return (
     <div className="o-userpanel">
       <div className="o-userpanel-userinfo">
-        <UserAvatar user={userInfo} />
+        <UserAvatar user={loggedUserInfo} />
       </div>
-      <div className="o-userpanel-useroptions">
-        {userInfo.admin === 1 ? (
-          <>
-            {adminOptions.map((elem, i) => {
-              return <AdminCard key={i} option={elem} />;
-            })}
-          </>
+      <div className="o-userpanel-actionpanel">
+        {loggedUserInfo.admin === 1 ? (
+          <AdminOptions />
         ) : (
           <>
             <Box>

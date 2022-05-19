@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const magenta = "#f53049";
 const orange = "#f2a341";
+const darkGrey = "#292929";
 
 const theme = createTheme({
   components: {
@@ -94,6 +95,12 @@ const theme = createTheme({
         root: {
           textTransform: "none",
           margin: "10px",
+
+          "&.MuiButton-logout": {
+            backgroundColor: darkGrey,
+            height: 50,
+            width: 200,
+          },
         },
       },
     },
@@ -154,6 +161,34 @@ const theme = createTheme({
           fontSize: 20,
           "&.Mui-selected": {
             color: orange,
+          },
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          "MuiCardContent-root": {
+            padding: 25,
+          },
+          ".MuiCardActions-root": {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 30,
+            padding: 0,
+
+            "&.Usuarios": {
+              backgroundColor: magenta,
+            },
+            "&.Productos": {
+              backgroundColor: orange,
+            },
+
+            ".MuiButton-root": {
+              width: "100%",
+              color: "white",
+            },
           },
         },
       },

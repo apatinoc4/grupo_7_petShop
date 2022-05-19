@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import "./ProductList.scss";
 import ReactPaginate from "react-paginate";
 import ProductCard from "../../molecules/product-card/ProductCard";
@@ -8,6 +8,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Fade from "react-reveal/Fade";
+import { PetShopContext } from "../../context/PetShopContextProvider";
 
 const ProductList = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -18,7 +19,7 @@ const ProductList = () => {
   const [shoppingCart, setShoppingCart] = useState([]);
   const [shoppingCartExpanded, setShoppingCartExpanded] = useState(false);
   const [tabValue, setTabValue] = useState(0);
-
+  const { loggedUserInfo } = useContext(PetShopContext);
   const searchQuery = decodeURI(window.location.search.split("=")[1]);
 
   //Paginator Logic

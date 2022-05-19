@@ -46,7 +46,7 @@ const apiController = {
     let usuarioLoggeado;
     const invitado = {
       nombre: "Invitado",
-      admin: 0,
+      admin: 2,
     };
     if (req.session.usuarioLoggeado) {
       usuarioLoggeado = req.session.usuarioLoggeado;

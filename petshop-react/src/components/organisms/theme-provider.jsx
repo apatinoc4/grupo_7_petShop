@@ -95,7 +95,18 @@ const theme = createTheme({
         root: {
           textTransform: "none",
           margin: "10px",
-
+          "&.MuiButton-edit": {
+            backgroundColor: magenta,
+            svg: {
+              fill: "white",
+            },
+          },
+          "&.MuiButton-delete": {
+            backgroundColor: darkGrey,
+            svg: {
+              fill: "white",
+            },
+          },
           "&.MuiButton-logout": {
             backgroundColor: darkGrey,
             height: 50,
@@ -138,6 +149,11 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           marginBottom: "20px",
+          // "&.MuiTabs-users": {
+          //   ".MuiTabs-flexContainer": {
+          //     justifyContent: "flex-end",
+          //   },
+          // },
         },
       },
     },
@@ -157,6 +173,11 @@ const theme = createTheme({
     MuiTab: {
       styleOverrides: {
         root: {
+          "&.MuiTab-user": {
+            "&.Mui-selected": {
+              color: magenta,
+            },
+          },
           textTransform: "none",
           fontSize: 20,
           "&.Mui-selected": {
@@ -168,6 +189,11 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
+          "&.MuiCard-user": {
+            height: 550,
+            width: 370,
+            position: "relative",
+          },
           "MuiCardContent-root": {
             padding: 25,
           },
@@ -177,6 +203,21 @@ const theme = createTheme({
             justifyContent: "center",
             height: 30,
             padding: 0,
+
+            "&.MuiCard-admin": {
+              position: "absolute",
+              bottom: 0,
+              width: "100%",
+              height: 20,
+              backgroundColor: magenta,
+            },
+            "&.MuiCard-user": {
+              position: "absolute",
+              bottom: 0,
+              width: "100%",
+              height: 25,
+              backgroundColor: orange,
+            },
 
             "&.Usuarios": {
               backgroundColor: magenta,

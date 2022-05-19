@@ -1,0 +1,15 @@
+@import "../../App.scss";
+
+.m-usercard {
+  &-cardindex {
+    color: $negro;
+    font-family: "Righteous", serif;
+    font-size: 30px;
+  }
+
+  span {
+    color: black;
+    font-weight: 800;
+    margin-right: 5px;
+  }
+}

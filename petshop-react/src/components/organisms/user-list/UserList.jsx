@@ -97,14 +97,20 @@ const UserList = () => {
           <h2 className="o-userlist-title">Directorio Usuarios</h2>
           <Box sx={{ width: "100%" }}>
             <Tabs
+              className="MuiTabs-users"
               TabIndicatorProps={{
-                style: { backgroundColor: "#f2a341", height: "3px" },
+                style: { backgroundColor: "#f53049", height: "3px" },
               }}
               value={tabValue}
               onChange={handleTabChange}
             >
-              <Tab value={0} label="Usuarios" wrapped />
-              <Tab value={1} label="Resultados Búsqueda" wrapped />
+              <Tab className="MuiTab-user" value={0} label="Usuarios" wrapped />
+              <Tab
+                className="MuiTab-user"
+                value={1}
+                label="Resultados Búsqueda"
+                wrapped
+              />
             </Tabs>
           </Box>
           <Box sx={{ width: "100%" }}>
@@ -124,7 +130,7 @@ const UserList = () => {
                 className="o-userlist-tabbox"
               >
                 {users.map((elem, i) => {
-                  return <UserCard user={elem} key={i} />;
+                  return <UserCard number={i} user={elem} key={i} />;
                 })}
                 {/* {displayPaginatedProducts(products)} */}
               </Box>
@@ -151,7 +157,7 @@ const UserList = () => {
                   }}
                 >
                   {filteredUsers.map((elem, i) => {
-                    return <UserCard user={elem} key={i} />;
+                    return <UserCard number={i} user={elem} key={i} />;
                   })}
                 </Box>
               ) : (

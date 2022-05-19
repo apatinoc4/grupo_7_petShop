@@ -3,12 +3,17 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import "./UserCard.scss";
 
 const UserCard = (props) => {
-  const { user } = props;
+  const { user, number } = props;
   const {
+    id,
     nombre,
     email,
     fecha,
@@ -20,7 +25,7 @@ const UserCard = (props) => {
     foto,
   } = user;
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card className="MuiCard-user m-usercard" sx={{ maxWidth: 370 }}>
       <CardMedia
         component="img"
         height="200"
@@ -29,7 +34,16 @@ const UserCard = (props) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
+          <span className="m-usercard-cardindex">{number + 1} </span>
           {nombre}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          <span>Id:</span>
+          {id}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          <span>Rol:</span>
+          {admin === 1 ? "Administrador" : "Usuario"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <span>Email:</span>
@@ -57,9 +71,26 @@ const UserCard = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button
+          className="MuiButton-edit"
+          // onClick={() => handleShoppingCartEdit(product)}
+          startIcon={<EditIcon />}
+          variant="contained"
+        >
+          Editar
+        </Button>
+        <Button
+          className="MuiButton-delete"
+          // onClick={() => handleShoppingCartEdit(product)}
+          startIcon={<DeleteIcon />}
+          variant="contained"
+        >
+          Eliminar
+        </Button>
       </CardActions>
+      <CardActions
+        className={`MuiCard-${admin === 1 ? "admin" : "user"}`}
+      ></CardActions>
     </Card>
   );
 };

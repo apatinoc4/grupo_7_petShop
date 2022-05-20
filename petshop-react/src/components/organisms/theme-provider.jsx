@@ -149,11 +149,15 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           marginBottom: "20px",
-          // "&.MuiTabs-users": {
-          //   ".MuiTabs-flexContainer": {
-          //     justifyContent: "flex-end",
-          //   },
-          // },
+          "&.MuiTabs-login": {
+            marginTop: 20,
+            width: "100%",
+            // ".MuiTabs-flexContainer": {
+            //   width: "100%",
+            //   justifyContent: "flex-end",
+            //   backgroundColor: "red",
+            // },
+          },
         },
       },
     },

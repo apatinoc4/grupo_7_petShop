@@ -10,9 +10,12 @@ import Button from "@mui/material/Button";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./ProductCard.scss";
 import QuantityInput from "../../atoms/quantity-input/QuantityInput";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const ProductCard = (props) => {
   const {
+    currentUser,
     product,
     number,
     setShoppingCartExpanded,
@@ -116,6 +119,30 @@ const ProductCard = (props) => {
               >
                 Comprar
               </Button>
+
+              {currentUser.admin === 1 ? (
+                <>
+                  <Divider orientation="vertical" flexItem />
+                  <Button
+                    className="MuiButton-edit"
+                    // onClick={() => handleShoppingCartEdit(product)}
+                    startIcon={<EditIcon />}
+                    variant="contained"
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    className="MuiButton-delete"
+                    // onClick={() => handleShoppingCartEdit(product)}
+                    startIcon={<DeleteIcon />}
+                    variant="contained"
+                  >
+                    Eliminar
+                  </Button>
+                </>
+              ) : (
+                <></>
+              )}
             </Box>
           </Box>
         </AccordionDetails>

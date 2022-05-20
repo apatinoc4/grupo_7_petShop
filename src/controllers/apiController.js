@@ -77,6 +77,27 @@ const apiController = {
     };
     res.json(response);
   },
+
+  cerrarSesion: function (req, res) {
+    res.clearCookie("emailUsuario");
+    req.session.destroy();
+
+    const invitado = {
+      nombre: "Invitado",
+      admin: 2,
+    };
+
+    const response = {
+      meta: {
+        status: 200,
+        total: 1,
+        url: "/api/usuariologgeado",
+      },
+      data: invitado,
+    };
+
+    res.json(response);
+  },
 };
 
 module.exports = apiController;

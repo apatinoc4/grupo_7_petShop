@@ -4,7 +4,9 @@ import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import AdminCard from "../../atoms/admin-card/AdminCard";
 import "./AdminOptions.scss";
 
-const AdminOptions = () => {
+const AdminOptions = (props) => {
+  const { logout } = props;
+
   const adminOptions = [
     {
       title: "Productos",
@@ -31,7 +33,7 @@ const AdminOptions = () => {
       <div>
         <Button
           className="MuiButton-logout"
-          // onClick={() => handleShoppingCartEdit(product)}
+          onClick={() => logout()}
           startIcon={<PowerSettingsNewIcon />}
           variant="contained"
         >

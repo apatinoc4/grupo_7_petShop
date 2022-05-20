@@ -31,6 +31,7 @@ const ProductList = () => {
         return (
           <ProductCard
             key={i}
+            currentUser={loggedUserInfo}
             number={i}
             product={elem}
             shoppingCart={shoppingCart}
@@ -107,6 +108,7 @@ const ProductList = () => {
         >
           <Tab value={0} label="Productos" wrapped />
           <Tab value={1} label="Resultados Búsqueda" wrapped />
+          <Tab value={2} label="Crear Producto" wrapped />
         </Tabs>
       </Box>
       <Box sx={{ width: "100%" }}>
@@ -141,6 +143,7 @@ const ProductList = () => {
                   <ProductCard
                     key={i}
                     number={i}
+                    currentUser={loggedUserInfo}
                     product={elem}
                     shoppingCart={shoppingCart}
                     setShoppingCart={setShoppingCart}

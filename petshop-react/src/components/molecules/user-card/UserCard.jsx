@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useContext } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -6,8 +6,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
+import { PetShopContext } from "../../context/PetShopContextProvider";
 import "./UserCard.scss";
 
 const UserCard = (props) => {
@@ -24,6 +24,7 @@ const UserCard = (props) => {
     autoriza,
     foto,
   } = user;
+  const { loggedUserInfo } = useContext(PetShopContext);
   return (
     <Card className="MuiCard-user m-usercard" sx={{ maxWidth: 370 }}>
       <CardMedia
@@ -79,14 +80,18 @@ const UserCard = (props) => {
         >
           Editar
         </Button>
-        <Button
-          className="MuiButton-delete"
-          // onClick={() => handleShoppingCartEdit(product)}
-          startIcon={<DeleteIcon />}
-          variant="contained"
-        >
-          Eliminar
-        </Button>
+        {loggedUserInfo.id !== id ? (
+          <Button
+            className="MuiButton-delete"
+            // onClick={() => handleShoppingCartEdit(product)}
+            startIcon={<DeleteIcon />}
+            variant="contained"
+          >
+            Eliminar
+          </Button>
+        ) : (
+          <></>
+        )}
       </CardActions>
       <CardActions
         className={`MuiCard-${admin === 1 ? "admin" : "user"}`}

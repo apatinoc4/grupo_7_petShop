@@ -23,26 +23,6 @@ const ProductList = () => {
   const { loggedUserInfo } = useContext(PetShopContext);
   const searchQuery = decodeURI(window.location.search.split("=")[1]);
 
-  //Paginator Logic
-
-  const displayPaginatedProducts = (data) => {
-    const productsToDisplay = data
-      .slice(pagesVisited, pagesVisited + productsPerPage)
-      .map((elem, i) => {
-        return (
-          <ProductCard
-            key={i}
-            currentUser={loggedUserInfo}
-            number={i}
-            product={elem}
-            shoppingCart={shoppingCart}
-            setShoppingCart={setShoppingCart}
-            setShoppingCartExpanded={setShoppingCartExpanded}
-          />
-        );
-      });
-    return productsToDisplay;
-  };
   const pageCount = (data) => {
     const pageCount = Math.ceil(data.length / productsPerPage);
     return pageCount;
@@ -83,6 +63,28 @@ const ProductList = () => {
     const jsonResponse = await response.json();
 
     setProducts(jsonResponse.data);
+  };
+
+  //Paginator Logic
+
+  const displayPaginatedProducts = (data) => {
+    const productsToDisplay = data
+      .slice(pagesVisited, pagesVisited + productsPerPage)
+      .map((elem, i) => {
+        return (
+          <ProductCard
+            key={i}
+            currentUser={loggedUserInfo}
+            number={i}
+            product={elem}
+            shoppingCart={shoppingCart}
+            setShoppingCart={setShoppingCart}
+            setShoppingCartExpanded={setShoppingCartExpanded}
+            updater={fetchProductList}
+          />
+        );
+      });
+    return productsToDisplay;
   };
 
   useEffect(() => {
@@ -150,6 +152,7 @@ const ProductList = () => {
                     shoppingCart={shoppingCart}
                     setShoppingCart={setShoppingCart}
                     setShoppingCartExpanded={setShoppingCartExpanded}
+                    updater={fetchProductList}
                   />
                 );
               })}
@@ -169,7 +172,7 @@ const ProductList = () => {
             </>
           ) : (
             <>
-              <CreationForm creating="product" />
+              <CreationForm creating="product" updater={fetchProductList} />
             </>
           )}
         </>

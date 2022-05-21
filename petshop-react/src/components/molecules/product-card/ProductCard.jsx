@@ -12,6 +12,7 @@ import "./ProductCard.scss";
 import QuantityInput from "../../atoms/quantity-input/QuantityInput";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import UpdateFormModal from "../update-form/UpdateForm";
 
 const ProductCard = (props) => {
   const {
@@ -21,8 +22,10 @@ const ProductCard = (props) => {
     setShoppingCartExpanded,
     shoppingCart,
     setShoppingCart,
+    updater,
   } = props;
   const [expanded, setExpanded] = useState(false);
+  const [updateModalExpanded, setUpdateModalExpanded] = useState(false);
   const handleExpanded = () => {
     setExpanded(!expanded);
   };
@@ -125,7 +128,7 @@ const ProductCard = (props) => {
                   <Divider orientation="vertical" flexItem />
                   <Button
                     className="MuiButton-edit"
-                    // onClick={() => handleShoppingCartEdit(product)}
+                    onClick={() => setUpdateModalExpanded(true)}
                     startIcon={<EditIcon />}
                     variant="contained"
                   >
@@ -147,6 +150,13 @@ const ProductCard = (props) => {
           </Box>
         </AccordionDetails>
       </Accordion>
+      <UpdateFormModal
+        updateModalExpanded={updateModalExpanded}
+        setUpdateModalExpanded={setUpdateModalExpanded}
+        updating={"product"}
+        object={product}
+        updater={updater}
+      />
     </div>
   );
 };

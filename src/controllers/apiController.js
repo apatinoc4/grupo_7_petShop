@@ -163,6 +163,21 @@ const apiController = {
       res.status(400).send("error de validacion");
     }
   },
+  editarUsuario: async function (req, res) {
+    const idUsuario = parseInt(req.params.id);
+    const usuarioAEditar = await Usuario.encontrarUsuarioPorPK(idUsuario);
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+      await Usuario.editarUsuario(usuarioAEditar.email, {
+        id: usuarioAEditar.id,
+        ...req.body,
+        foto: req.file ? req.file.filename : usuarioAEditar.foto,
+      });
+      res.status(200).send("Usuario editado exitosamente");
+    } else {
+      res.status(400).send("error de validacion");
+    }
+  },
   crearProducto: async function (req, res) {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -173,6 +188,24 @@ const apiController = {
       });
 
       res.status(200).send("Producto creado exitosamente");
+    } else {
+      res.status(400).send("error de validacion");
+    }
+  },
+  editarProducto: async function (req, res) {
+    const errors = validationResult(req);
+    const idProducto = parseInt(req.params.id);
+    const productoAEditar = await Producto.encontrarProductoPorPK(idProducto);
+
+    console.log(errors);
+
+    if (errors.isEmpty()) {
+      await Producto.editarProducto(idProducto, {
+        id: productoAEditar.id,
+        ...req.body,
+        imagen: req.file ? req.file.filename : productoAEditar.imagen,
+      });
+      res.status(200).send("Producto editado exitosamente");
     } else {
       res.status(400).send("error de validacion");
     }

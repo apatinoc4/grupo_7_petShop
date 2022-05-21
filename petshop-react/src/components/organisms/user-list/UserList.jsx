@@ -2,7 +2,6 @@ import { React, useState, useEffect, useContext } from "react";
 import "./UserList.scss";
 import ReactPaginate from "react-paginate";
 import SearchField from "../../atoms/search-field/SearchField";
-import ShoppingCart from "../../molecules/shopping-cart/ShoppingCart";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -16,8 +15,6 @@ const UserList = () => {
   const usersPerPage = 4;
   const pagesVisited = pageNumber * usersPerPage;
   const [users, setUsers] = useState([]);
-  const [shoppingCart, setShoppingCart] = useState([]);
-  const [shoppingCartExpanded, setShoppingCartExpanded] = useState(false);
   const [tabValue, setTabValue] = useState(0);
   const { loggedUserInfo } = useContext(PetShopContext);
 
@@ -26,14 +23,6 @@ const UserList = () => {
 
   //Paginator Logic
 
-  const displayPaginatedUsers = (data) => {
-    const usersToDisplay = data
-      .slice(pagesVisited, pagesVisited + usersPerPage)
-      .map((elem, i) => {
-        return <UserCard number={i} user={elem} key={i} />;
-      });
-    return usersToDisplay;
-  };
   const pageCount = (data) => {
     const pageCount = Math.ceil(data.length / usersPerPage);
     return pageCount;
@@ -74,6 +63,17 @@ const UserList = () => {
     const jsonResponse = await response.json();
 
     setUsers(jsonResponse.data);
+  };
+
+  const displayPaginatedUsers = (data) => {
+    const usersToDisplay = data
+      .slice(pagesVisited, pagesVisited + usersPerPage)
+      .map((elem, i) => {
+        return (
+          <UserCard updater={fetchUserList} number={i} user={elem} key={i} />
+        );
+      });
+    return usersToDisplay;
   };
 
   useEffect(() => {
@@ -151,7 +151,14 @@ const UserList = () => {
                   }}
                 >
                   {filteredUsers.map((elem, i) => {
-                    return <UserCard number={i} user={elem} key={i} />;
+                    return (
+                      <UserCard
+                        updater={fetchUserList}
+                        number={i}
+                        user={elem}
+                        key={i}
+                      />
+                    );
                   })}
                 </Box>
               ) : (
@@ -174,14 +181,9 @@ const UserList = () => {
             </>
           ) : (
             <>
-              <CreationForm creating="user" />
+              <CreationForm creating="user" updater={fetchUserList} />
             </>
           )}
-          <ShoppingCart
-            shoppingCart={shoppingCart}
-            shoppingCartExpanded={shoppingCartExpanded}
-            setShoppingCartExpanded={setShoppingCartExpanded}
-          />
         </div>
       ) : (
         <></>

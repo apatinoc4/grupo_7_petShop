@@ -4,6 +4,7 @@ const apiController = require("../controllers/apiController");
 const path = require("path");
 const validacionesRegistro = require("../middlewares/validacionesRegistroMiddleware");
 const validacionesCreacionProducto = require("../middlewares/validacionesCreacionProductoMiddleware");
+const validacionesEdicion = require("../middlewares/validacionesEdicionUsuarioMiddleware");
 
 //obtener info usuarios-productos
 
@@ -25,6 +26,12 @@ router.post(
   apiController.registrarUsuario
 );
 
+router.put(
+  "/usuario/:id/editar/",
+  validacionesEdicion,
+  apiController.editarUsuario
+);
+
 //creacion productos
 
 router.post(
@@ -32,5 +39,7 @@ router.post(
   validacionesCreacionProducto,
   apiController.crearProducto
 );
+
+router.put("/producto/:id/editar/", apiController.editarProducto);
 
 module.exports = router;

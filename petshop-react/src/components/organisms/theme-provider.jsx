@@ -4,6 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 const magenta = "#f53049";
 const orange = "#f2a341";
 const darkGrey = "#292929";
+const grey = "#a6a6a6";
 
 const theme = createTheme({
   components: {
@@ -112,7 +113,7 @@ const theme = createTheme({
           textTransform: "none",
           margin: "10px",
           "&.MuiButton-edit": {
-            backgroundColor: magenta,
+            backgroundColor: grey,
             svg: {
               fill: "white",
             },

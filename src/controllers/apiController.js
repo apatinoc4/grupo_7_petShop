@@ -155,10 +155,24 @@ const apiController = {
         foto: req.file ? req.file.filename : "default.jpg",
         contrasena: contrasenaHasheada,
         autoriza: req.body.autorizacion ? true : false,
-        admin: false,
+        admin: req.body.admin ? Boolean(req.body.admin) : false,
       });
 
       res.status(200).send("Usuario creado exitosamente");
+    } else {
+      res.status(400).send("error de validacion");
+    }
+  },
+  crearProducto: async function (req, res) {
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+      await Producto.crearProducto({
+        ...req.body,
+        imagen: req.file ? req.file.filename : "default.jpg",
+        tipo_id: parseInt(req.body.tipo_id),
+      });
+
+      res.status(200).send("Producto creado exitosamente");
     } else {
       res.status(400).send("error de validacion");
     }

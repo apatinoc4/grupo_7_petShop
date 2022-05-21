@@ -1,21 +1,20 @@
 import { React, useState, useEffect, useContext } from "react";
 import "./UserList.scss";
 import ReactPaginate from "react-paginate";
-import ProductCard from "../../molecules/product-card/ProductCard";
 import SearchField from "../../atoms/search-field/SearchField";
 import ShoppingCart from "../../molecules/shopping-cart/ShoppingCart";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Fade from "react-reveal/Fade";
 import UserCard from "../../molecules/user-card/UserCard";
 import { PetShopContext } from "../../context/PetShopContextProvider";
+import CreationForm from "../../molecules/creation-form/CreationForm";
 
 const UserList = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const productsPerPage = 5;
-  const pagesVisited = pageNumber * productsPerPage;
+  const usersPerPage = 4;
+  const pagesVisited = pageNumber * usersPerPage;
   const [users, setUsers] = useState([]);
   const [shoppingCart, setShoppingCart] = useState([]);
   const [shoppingCartExpanded, setShoppingCartExpanded] = useState(false);
@@ -27,25 +26,16 @@ const UserList = () => {
 
   //Paginator Logic
 
-  const displayPaginatedProducts = (data) => {
-    const productsToDisplay = data
-      .slice(pagesVisited, pagesVisited + productsPerPage)
+  const displayPaginatedUsers = (data) => {
+    const usersToDisplay = data
+      .slice(pagesVisited, pagesVisited + usersPerPage)
       .map((elem, i) => {
-        return (
-          <ProductCard
-            key={i}
-            number={i}
-            product={elem}
-            shoppingCart={shoppingCart}
-            setShoppingCart={setShoppingCart}
-            setShoppingCartExpanded={setShoppingCartExpanded}
-          />
-        );
+        return <UserCard number={i} user={elem} key={i} />;
       });
-    return productsToDisplay;
+    return usersToDisplay;
   };
   const pageCount = (data) => {
-    const pageCount = Math.ceil(data.length / productsPerPage);
+    const pageCount = Math.ceil(data.length / usersPerPage);
     return pageCount;
   };
   const changePage = ({ selected }) => {
@@ -111,12 +101,19 @@ const UserList = () => {
                 label="Resultados Búsqueda"
                 wrapped
               />
+              <Tab
+                value={2}
+                className="MuiTab-user"
+                label="Crear Usuario"
+                wrapped
+              />
             </Tabs>
           </Box>
           <Box sx={{ width: "100%" }}>
             <SearchField
               setTabValue={setTabValue}
               fetchFunction={fetchFilteredUserList}
+              searchsFor={"users"}
             />
           </Box>
           {tabValue === 0 ? (
@@ -129,24 +126,21 @@ const UserList = () => {
                 }}
                 className="o-userlist-tabbox"
               >
-                {users.map((elem, i) => {
-                  return <UserCard number={i} user={elem} key={i} />;
-                })}
-                {/* {displayPaginatedProducts(products)} */}
+                {displayPaginatedUsers(users)}
               </Box>
-              {/* <ReactPaginate
+              <ReactPaginate
                 previousLabel={"Anterior"}
                 nextLabel={"Siguiente"}
-                pageCount={pageCount(products)}
+                pageCount={pageCount(users)}
                 onPageChange={changePage}
                 containerClassName={"o-userlist-paginationcontainer"}
                 previousLinkClassName={"o-userlist-previousbttn"}
                 nextLinkClassName={"o-userlist-nextbttn"}
                 disabledLinkClassName={"o-userlist-paginationdisabled"}
                 activeClassName={"o-userlist-paginationactive"}
-              /> */}
+              />
             </>
-          ) : (
+          ) : tabValue === 1 ? (
             <>
               {filteredUsers.length !== 0 ? (
                 <Box
@@ -177,6 +171,10 @@ const UserList = () => {
                   </div>
                 </>
               )}
+            </>
+          ) : (
+            <>
+              <CreationForm creating="user" />
             </>
           )}
           <ShoppingCart

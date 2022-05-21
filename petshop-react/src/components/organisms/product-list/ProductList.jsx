@@ -9,6 +9,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Fade from "react-reveal/Fade";
 import { PetShopContext } from "../../context/PetShopContextProvider";
+import CreationForm from "../../molecules/creation-form/CreationForm";
 
 const ProductList = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -115,6 +116,7 @@ const ProductList = () => {
         <SearchField
           setTabValue={setTabValue}
           fetchFunction={fetchFilteredProductList}
+          searchsFor={"products"}
         />
       </Box>
       {tabValue === 0 ? (
@@ -152,7 +154,7 @@ const ProductList = () => {
                 );
               })}
             </Box>
-          ) : (
+          ) : tabValue === 1 ? (
             <>
               <div className="o-productlist-emptysearch">
                 <img
@@ -164,6 +166,10 @@ const ProductList = () => {
                   <p>Busquemos juntos nuestro próximo producto favorito</p>
                 </div>
               </div>
+            </>
+          ) : (
+            <>
+              <CreationForm creating="product" />
             </>
           )}
         </>

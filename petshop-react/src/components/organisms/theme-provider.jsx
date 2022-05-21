@@ -7,6 +7,22 @@ const darkGrey = "#292929";
 
 const theme = createTheme({
   components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          "&.search-products": {
+            "&.Mui-focused fieldset": {
+              borderColor: orange,
+            },
+          },
+          "&.search-users": {
+            "&.Mui-focused fieldset": {
+              borderColor: magenta,
+            },
+          },
+        },
+      },
+    },
     MuiAccordion: {
       styleOverrides: {
         root: {

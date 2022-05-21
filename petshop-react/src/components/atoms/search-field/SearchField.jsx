@@ -6,7 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 
 const SearchField = (props) => {
-  const { fetchFunction, setTabValue } = props;
+  const { fetchFunction, setTabValue, searchsFor } = props;
   const [searchValue, setSearchValue] = useState("");
   const handleSearch = (searchValue) => {
     fetchFunction(searchValue);
@@ -24,6 +24,7 @@ const SearchField = (props) => {
     <div>
       <FormControl sx={{ m: 1, width: "25ch" }}>
         <OutlinedInput
+          className={`search-${searchsFor}`}
           type="text"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}

@@ -3,6 +3,7 @@ const router = express.Router();
 const apiController = require("../controllers/apiController");
 const path = require("path");
 const validacionesRegistro = require("../middlewares/validacionesRegistroMiddleware");
+const validacionesCreacionProducto = require("../middlewares/validacionesCreacionProductoMiddleware");
 
 //obtener info usuarios-productos
 
@@ -16,12 +17,20 @@ router.get("/usuariologgeado", apiController.usuarioLoggeado);
 router.get("/logout", apiController.cerrarSesion);
 router.post("/login", apiController.procesarLogin);
 
-//registro
+//registro y creacion usuario
 
 router.post(
   "/crearusuario",
   validacionesRegistro,
   apiController.registrarUsuario
+);
+
+//creacion productos
+
+router.post(
+  "/crearproducto",
+  validacionesCreacionProducto,
+  apiController.crearProducto
 );
 
 module.exports = router;

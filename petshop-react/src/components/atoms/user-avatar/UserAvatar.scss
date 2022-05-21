@@ -26,6 +26,20 @@
     }
   }
 
+  &-guestpic {
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+
+    img {
+      width: 100%;
+    }
+  }
+
   &-profilepic {
     overflow: hidden;
     border-radius: 50%;

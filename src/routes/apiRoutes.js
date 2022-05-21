@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const apiController = require("../controllers/apiController");
 const path = require("path");
+const validacionesRegistro = require("../middlewares/validacionesRegistroMiddleware");
 
 //obtener info usuarios-productos
 
@@ -12,7 +13,15 @@ router.get("/usuariosfiltrados", apiController.buscarUsuarios);
 router.get("/usuariologgeado", apiController.usuarioLoggeado);
 
 // autorizacion
-
 router.get("/logout", apiController.cerrarSesion);
+router.post("/login", apiController.procesarLogin);
+
+//registro
+
+router.post(
+  "/crearusuario",
+  validacionesRegistro,
+  apiController.registrarUsuario
+);
 
 module.exports = router;

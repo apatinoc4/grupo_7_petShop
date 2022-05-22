@@ -32,6 +32,8 @@ router.put(
   apiController.editarUsuario
 );
 
+router.delete("/usuario/:id/eliminar/", apiController.eliminarUsuario);
+
 //creacion productos
 
 router.post(
@@ -41,5 +43,7 @@ router.post(
 );
 
 router.put("/producto/:id/editar/", apiController.editarProducto);
+
+router.delete("/producto/:id/eliminar/", apiController.eliminarProducto);
 
 module.exports = router;

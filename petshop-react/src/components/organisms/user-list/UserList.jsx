@@ -18,9 +18,6 @@ const UserList = () => {
   const [tabValue, setTabValue] = useState(0);
   const { loggedUserInfo } = useContext(PetShopContext);
 
-  console.log(filteredUsers, "JAJAJAJ");
-  console.log(loggedUserInfo, "OEWO");
-
   //Paginator Logic
 
   const pageCount = (data) => {
@@ -101,12 +98,16 @@ const UserList = () => {
                 label="Resultados Búsqueda"
                 wrapped
               />
-              <Tab
-                value={2}
-                className="MuiTab-user"
-                label="Crear Usuario"
-                wrapped
-              />
+              {loggedUserInfo.admin === 1 ? (
+                <Tab
+                  value={2}
+                  className="MuiTab-user"
+                  label="Crear Usuario"
+                  wrapped
+                />
+              ) : (
+                <></>
+              )}
             </Tabs>
           </Box>
           <Box sx={{ width: "100%" }}>

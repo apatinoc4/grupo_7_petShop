@@ -8,9 +8,40 @@ const grey = "#a6a6a6";
 
 const theme = createTheme({
   components: {
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          "&.magenta-field": {
+            ".MuiInputLabel-root": {
+              "&.Mui-focused": {
+                color: magenta,
+              },
+            },
+            ".MuiOutlinedInput-root": {
+              "&.Mui-focused fieldset": {
+                borderColor: magenta,
+              },
+            },
+          },
+          "&.orange-field": {
+            ".MuiInputLabel-root": {
+              "&.Mui-focused": {
+                color: orange,
+              },
+            },
+            ".MuiOutlinedInput-root": {
+              "&.Mui-focused fieldset": {
+                borderColor: orange,
+              },
+            },
+          },
+        },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
+          margin: "10px 0",
           "&.search-products": {
             "&.Mui-focused fieldset": {
               borderColor: orange,

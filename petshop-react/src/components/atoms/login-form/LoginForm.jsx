@@ -42,6 +42,7 @@ const LoginForm = () => {
     <form className="a-loginform-form" onSubmit={handleSubmit(onSubmit)}>
       <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
         <TextField
+          className="magenta-field"
           autoComplete="email"
           autoFocus
           type="email"
@@ -57,7 +58,7 @@ const LoginForm = () => {
           helperText={errors?.email ? errors.email.message : null}
           label="Email"
         />
-        <FormControl variant="outlined">
+        <FormControl className="magenta-field" variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">
             Contraseña
           </InputLabel>

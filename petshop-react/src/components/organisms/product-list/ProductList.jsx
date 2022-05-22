@@ -111,7 +111,11 @@ const ProductList = () => {
         >
           <Tab value={0} label="Productos" wrapped />
           <Tab value={1} label="Resultados Búsqueda" wrapped />
-          <Tab value={2} label="Crear Producto" wrapped />
+          {loggedUserInfo.admin === 1 ? (
+            <Tab value={2} label="Crear Producto" wrapped />
+          ) : (
+            <></>
+          )}
         </Tabs>
       </Box>
       <Box sx={{ width: "100%" }}>

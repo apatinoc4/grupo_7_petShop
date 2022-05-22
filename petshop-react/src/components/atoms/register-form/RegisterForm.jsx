@@ -61,127 +61,140 @@ const RegisterForm = () => {
   return (
     <form className="a-register-form" onSubmit={handleSubmit(onSubmit)}>
       <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
-        <TextField
-          autoComplete="nombre"
-          autoFocus
-          type="text"
-          fullWidth
-          {...register("nombre", {
-            required: "Ingresa un nombre",
-          })}
-          error={!!errors?.nombre}
-          helperText={errors?.nombre ? errors.nombre.message : null}
-          label="Nombre"
-        />
-        <TextField
-          autoComplete="email"
-          type="email"
-          fullWidth
-          {...register("email", {
-            required: "Ingresa un email",
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "Email inválido",
-            },
-          })}
-          error={!!errors?.email}
-          helperText={errors?.email ? errors.email.message : null}
-          label="Email"
-        />
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
-            Contraseña
-          </InputLabel>
-          <OutlinedInput
-            fullWidth
-            type={passwordVisibility === true ? "text" : "password"}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={() => setPasswordVisibility(!passwordVisibility)}
-                  edge="end"
-                >
-                  {passwordVisibility === false ? (
-                    <VisibilityOff />
-                  ) : (
-                    <Visibility />
-                  )}
-                </IconButton>
-              </InputAdornment>
-            }
-            {...register("contrasena", {
-              required: "Campo requerido",
-              minLength: 5,
-              maxLength: 12,
-            })}
-            error={!!errors?.contrasena}
-            label="Contraseña"
-          />
-          {!!errors?.contrasena && (
-            <FormHelperText error id="accountId-error">
-              La contraseña debe tener entre 5 y 12 caracteres
-            </FormHelperText>
-          )}
-        </FormControl>
-        <TextField
-          type="date"
-          InputProps={{ inputProps: { max: "2004-05-24" } }}
-          fullWidth
-          {...register("fecha", {
-            required: "Ingresa tu fecha de nacimiento",
-          })}
-          error={!!errors?.fecha}
-          helperText={errors?.fecha ? errors.fecha.message : null}
-        />
-        <TextField
-          select
-          defaultValue="colombia"
-          fullWidth
-          {...register("pais")}
-          label="Pais"
-        >
-          {countries.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          select
-          defaultValue="medellin"
-          fullWidth
-          {...register("ciudad")}
-          label="Ciudad"
-        >
-          {cities.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          autoComplete="direccion"
-          type="text"
-          fullWidth
-          {...register("direccion", {
-            required: "Ingresa tu dirección",
-          })}
-          error={!!errors?.direccion}
-          helperText={errors?.direccion ? errors.direccion.message : null}
-          label="Dirección"
-        />
-
-        <Controller
-          name="autorizacion"
-          control={control}
-          render={({ field }) => (
-            <FormControlLabel
-              control={<Checkbox {...field} />}
-              label="¿Deseas recibir contenido de promociones y novedades de nuestra tienda?"
+        <div className="a-register-columns">
+          <div className="a-register-column">
+            <TextField
+              className="magenta-field"
+              autoComplete="nombre"
+              autoFocus
+              type="text"
+              fullWidth
+              {...register("nombre", {
+                required: "Ingresa un nombre",
+              })}
+              error={!!errors?.nombre}
+              helperText={errors?.nombre ? errors.nombre.message : null}
+              label="Nombre"
             />
-          )}
-        />
+            <TextField
+              className="magenta-field"
+              autoComplete="email"
+              type="email"
+              fullWidth
+              {...register("email", {
+                required: "Ingresa un email",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Email inválido",
+                },
+              })}
+              error={!!errors?.email}
+              helperText={errors?.email ? errors.email.message : null}
+              label="Email"
+            />
+            <FormControl className="magenta-field" fullWidth variant="outlined">
+              <InputLabel htmlFor="outlined-adornment-password">
+                Contraseña
+              </InputLabel>
+              <OutlinedInput
+                fullWidth
+                type={passwordVisibility === true ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setPasswordVisibility(!passwordVisibility)}
+                      edge="end"
+                    >
+                      {passwordVisibility === false ? (
+                        <VisibilityOff />
+                      ) : (
+                        <Visibility />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                {...register("contrasena", {
+                  required: "Campo requerido",
+                  minLength: 5,
+                  maxLength: 12,
+                })}
+                error={!!errors?.contrasena}
+                label="Contraseña"
+              />
+              {!!errors?.contrasena && (
+                <FormHelperText error id="accountId-error">
+                  La contraseña debe tener entre 5 y 12 caracteres
+                </FormHelperText>
+              )}
+            </FormControl>
+            <TextField
+              className="magenta-field"
+              type="date"
+              InputProps={{ inputProps: { max: "2004-05-24" } }}
+              fullWidth
+              {...register("fecha", {
+                required: "Ingresa tu fecha de nacimiento",
+              })}
+              error={!!errors?.fecha}
+              helperText={errors?.fecha ? errors.fecha.message : null}
+            />
+          </div>
+          <div className="a-register-column">
+            <TextField
+              className="magenta-field"
+              select
+              defaultValue="colombia"
+              fullWidth
+              {...register("pais")}
+              label="Pais"
+            >
+              {countries.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              className="magenta-field"
+              select
+              defaultValue="medellin"
+              fullWidth
+              {...register("ciudad")}
+              label="Ciudad"
+            >
+              {cities.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              className="magenta-field"
+              autoComplete="direccion"
+              type="text"
+              fullWidth
+              {...register("direccion", {
+                required: "Ingresa tu dirección",
+              })}
+              error={!!errors?.direccion}
+              helperText={errors?.direccion ? errors.direccion.message : null}
+              label="Dirección"
+            />
+
+            <Controller
+              name="autorizacion"
+              control={control}
+              render={({ field }) => (
+                <FormControlLabel
+                  control={<Checkbox {...field} />}
+                  label="¿Deseas recibir contenido de promociones y novedades de nuestra tienda?"
+                />
+              )}
+            />
+          </div>
+        </div>
+
         <Button
           type="submit"
           className="MuiButton-logout"

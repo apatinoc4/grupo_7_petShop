@@ -178,6 +178,13 @@ const apiController = {
       res.status(400).send("error de validacion");
     }
   },
+  eliminarUsuario: async function (req, res) {
+    const idUsuario = parseInt(req.params.id);
+
+    await Usuario.borrarUsuarioPorId(idUsuario);
+
+    res.status(200).send("Usuario eliminado exitosamente");
+  },
   crearProducto: async function (req, res) {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -209,6 +216,13 @@ const apiController = {
     } else {
       res.status(400).send("error de validacion");
     }
+  },
+  eliminarProducto: async function (req, res) {
+    const idProducto = parseInt(req.params.id);
+
+    await Producto.borrarProductoPorId(idProducto);
+
+    res.status(200).send("Producto eliminado exitosamente");
   },
 };
 

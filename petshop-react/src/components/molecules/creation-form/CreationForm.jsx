@@ -93,6 +93,7 @@ const CreationForm = (props) => {
           {creating === "user" ? (
             <>
               <TextField
+                className="magenta-field"
                 autoComplete="nombre"
                 autoFocus
                 type="text"
@@ -105,6 +106,7 @@ const CreationForm = (props) => {
                 label="Nombre"
               />
               <TextField
+                className="magenta-field"
                 autoComplete="email"
                 type="email"
                 fullWidth
@@ -119,7 +121,7 @@ const CreationForm = (props) => {
                 helperText={errors?.email ? errors.email.message : null}
                 label="Email"
               />
-              <FormControl variant="outlined">
+              <FormControl className="magenta-field" variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Contraseña
                 </InputLabel>
@@ -158,6 +160,7 @@ const CreationForm = (props) => {
                 )}
               </FormControl>
               <TextField
+                className="magenta-field"
                 type="date"
                 InputProps={{ inputProps: { max: "2004-05-24" } }}
                 fullWidth
@@ -168,6 +171,7 @@ const CreationForm = (props) => {
                 helperText={errors?.fecha ? errors.fecha.message : null}
               />
               <TextField
+                className="magenta-field"
                 select
                 defaultValue="colombia"
                 fullWidth
@@ -181,6 +185,7 @@ const CreationForm = (props) => {
                 ))}
               </TextField>
               <TextField
+                className="magenta-field"
                 select
                 defaultValue="medellin"
                 fullWidth
@@ -194,6 +199,7 @@ const CreationForm = (props) => {
                 ))}
               </TextField>
               <TextField
+                className="magenta-field"
                 autoComplete="direccion"
                 type="text"
                 fullWidth
@@ -206,6 +212,7 @@ const CreationForm = (props) => {
               />
 
               <TextField
+                className="magenta-field"
                 select
                 defaultValue="false"
                 fullWidth
@@ -238,6 +245,7 @@ const CreationForm = (props) => {
           ) : (
             <>
               <TextField
+                className="orange-field"
                 autoComplete="nombre"
                 autoFocus
                 type="text"
@@ -250,6 +258,7 @@ const CreationForm = (props) => {
                 label="Nombre"
               />
               <TextField
+                className="orange-field"
                 autoComplete="precio"
                 autoFocus
                 type="tel"
@@ -262,6 +271,7 @@ const CreationForm = (props) => {
                 label="Precio"
               />
               <TextField
+                className="orange-field"
                 select
                 defaultValue="1"
                 fullWidth
@@ -273,6 +283,7 @@ const CreationForm = (props) => {
               </TextField>
               <TextField
                 autoComplete="descripcion"
+                className="orange-field"
                 type="text"
                 multiline
                 fullWidth

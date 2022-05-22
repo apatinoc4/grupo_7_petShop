@@ -111,6 +111,7 @@ const UpdateFormModal = (props) => {
               {updating === "user" ? (
                 <>
                   <TextField
+                    className="magenta-field"
                     autoComplete="nombre"
                     autoFocus
                     type="text"
@@ -125,6 +126,7 @@ const UpdateFormModal = (props) => {
                   />
                   <TextField
                     type="date"
+                    className="magenta-field"
                     defaultValue={fecha}
                     InputProps={{ inputProps: { max: "2004-05-24" } }}
                     fullWidth
@@ -135,6 +137,7 @@ const UpdateFormModal = (props) => {
                     helperText={errors?.fecha ? errors.fecha.message : null}
                   />
                   <TextField
+                    className="magenta-field"
                     select
                     defaultValue={pais}
                     fullWidth
@@ -148,6 +151,7 @@ const UpdateFormModal = (props) => {
                     ))}
                   </TextField>
                   <TextField
+                    className="magenta-field"
                     select
                     defaultValue={ciudad}
                     fullWidth
@@ -161,6 +165,7 @@ const UpdateFormModal = (props) => {
                     ))}
                   </TextField>
                   <TextField
+                    className="magenta-field"
                     autoComplete="direccion"
                     defaultValue={direccion}
                     type="text"
@@ -178,6 +183,7 @@ const UpdateFormModal = (props) => {
                   {!admin ? (
                     <>
                       <TextField
+                        className="magenta-field"
                         select
                         defaultValue="false"
                         fullWidth
@@ -214,6 +220,7 @@ const UpdateFormModal = (props) => {
               ) : (
                 <>
                   <TextField
+                    className="orange-field"
                     autoComplete="nombre"
                     autoFocus
                     defaultValue={nombre}
@@ -227,6 +234,7 @@ const UpdateFormModal = (props) => {
                     label="Nombre"
                   />
                   <TextField
+                    className="orange-field"
                     defaultValue={precio}
                     autoComplete="precio"
                     autoFocus
@@ -240,6 +248,7 @@ const UpdateFormModal = (props) => {
                     label="Precio"
                   />
                   <TextField
+                    className="orange-field"
                     select
                     defaultValue={tipo_id}
                     fullWidth
@@ -250,6 +259,7 @@ const UpdateFormModal = (props) => {
                     <MenuItem value="2">Juguete</MenuItem>
                   </TextField>
                   <TextField
+                    className="orange-field"
                     autoComplete="descripcion"
                     type="text"
                     multiline

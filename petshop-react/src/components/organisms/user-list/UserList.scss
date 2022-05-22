@@ -75,8 +75,19 @@ $ringPosition: -$ringHeight;
       padding: 10px;
       margin: 8px;
       border-radius: 5px;
-      border: 1px solid cyan;
-      color: cyan;
+      color: white;
+      background-color: $grisOscuro;
+      cursor: pointer;
+    }
+  }
+
+  &-paginationactive {
+    a {
+      padding: 10px;
+      margin: 8px;
+      border-radius: 5px;
+      color: white;
+      background-color: $magenta;
       cursor: pointer;
     }
   }

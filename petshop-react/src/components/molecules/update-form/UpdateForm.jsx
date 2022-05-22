@@ -87,6 +87,7 @@ const UpdateFormModal = (props) => {
   return (
     <div>
       <Modal
+        className={`MuiModal-${updating === "user" ? "magenta" : "orange"}`}
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={updateModalExpanded}
@@ -108,6 +109,11 @@ const UpdateFormModal = (props) => {
             <Box
               sx={{ width: "100%", display: "flex", flexDirection: "column" }}
             >
+              <p className="m-shoppingcart-title">
+                {updating === "user"
+                  ? "Edición de Usuario"
+                  : "Edición de Producto"}
+              </p>
               {updating === "user" ? (
                 <>
                   <TextField
@@ -208,14 +214,11 @@ const UpdateFormModal = (props) => {
                       />
                     )}
                   />
-                  <Button
-                    type="submit"
-                    className="MuiButton-logout"
-                    fullWidth
-                    variant="contained"
-                  >
-                    Actualizar Usuario
-                  </Button>
+                  <div>
+                    <Button type="submit" fullWidth variant="contained">
+                      Actualizar Usuario
+                    </Button>
+                  </div>
                 </>
               ) : (
                 <>
@@ -273,14 +276,11 @@ const UpdateFormModal = (props) => {
                     }
                     label="Descripcion"
                   />
-                  <Button
-                    type="submit"
-                    className="MuiButton-logout"
-                    fullWidth
-                    variant="contained"
-                  >
-                    Actualizar Producto
-                  </Button>
+                  <div>
+                    <Button type="submit" fullWidth variant="contained">
+                      Actualizar Producto
+                    </Button>
+                  </div>
                 </>
               )}
             </Box>

@@ -166,6 +166,22 @@ const theme = createTheme({
     MuiModal: {
       styleOverrides: {
         root: {
+          "&.MuiModal-magenta": {
+            ".MuiBox-root": {
+              borderLeft: "10px solid #f53049",
+              ".MuiButton-root": {
+                backgroundColor: magenta,
+              },
+            },
+          },
+          "&.MuiModal-orange": {
+            ".MuiBox-root": {
+              borderLeft: "10px solid #f2a341",
+              ".MuiButton-root": {
+                backgroundColor: orange,
+              },
+            },
+          },
           ".MuiBox-root": {
             position: "absolute",
             top: "50%",
@@ -173,7 +189,6 @@ const theme = createTheme({
             transform: "translate(-50%, -50%)",
             backgroundColor: "white",
             width: "70%",
-            borderLeft: "10px solid #f53049",
             borderRadius: 10,
             padding: 24,
             boxShadow: 24,
@@ -186,7 +201,6 @@ const theme = createTheme({
               justifyContent: "flex-end",
             },
             ".MuiButton-root": {
-              backgroundColor: magenta,
               width: "20%",
             },
           },

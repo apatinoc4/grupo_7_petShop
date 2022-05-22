@@ -32,6 +32,7 @@ const ShoppingCart = (props) => {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
+        className="MuiModal-magenta"
         open={shoppingCartExpanded}
         onClose={() => handleCloseModal()}
         closeAfterTransition

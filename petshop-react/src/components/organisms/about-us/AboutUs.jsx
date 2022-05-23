@@ -9,6 +9,9 @@ const AboutUs = () => {
     pictureName: "Mazo.PNG",
     description:
       'Ingeniero de sonido, director de proyectos de audio y acústica arquitectónica, Lider de su propia banda "Gorangutan" y combate el crimen por las noches.',
+    linkedin: "https://www.linkedin.com/in/andrezmazo/",
+    ig: "https://www.instagram.com/andrezmazo/",
+    gh: "https://github.com/andrezmazo",
   };
   const patino = {
     name: "Andrés Patiño",
@@ -16,6 +19,9 @@ const AboutUs = () => {
     pictureName: "Patino.PNG",
     description:
       "Ingeniero de diseño de producto, desarrollador front-end, amante de las hamburguesas, se sabe los primeros 151 Pokemones de memoria.",
+    linkedin: "https://www.linkedin.com/in/andrespatino1993/",
+    ig: "https://www.instagram.com/apatinoc4/",
+    gh: "https://github.com/apatinoc4",
   };
   return (
     <div className="m-aboutus">

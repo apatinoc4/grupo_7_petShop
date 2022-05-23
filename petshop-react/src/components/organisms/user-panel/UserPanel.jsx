@@ -39,6 +39,11 @@ const UserPanel = () => {
 
   return (
     <div id="user-panel" className="o-userpanel">
+      <img
+        className="o-userpanel-imgbg"
+        src={require("../../../assets/img/panelBG.png")}
+        alt=""
+      />
       <div className="o-userpanel-userinfo">
         <UserAvatar user={loggedUserInfo} />
       </div>

@@ -26,7 +26,9 @@ const AdminOptions = (props) => {
   return (
     <div className="m-adminOptions">
       <h2>Panel de control</h2>
-      <p>Accede a información de usuarios o productos</p>
+      <p className="m-adminOptions-description">
+        Accede a información de usuarios o productos
+      </p>
       <div className="m-adminOptions-optioncards">
         {adminOptions.map((elem, i) => {
           return <AdminCard key={i} option={elem} />;
@@ -34,7 +36,7 @@ const AdminOptions = (props) => {
       </div>
       <div>
         <Button
-          className="MuiButton-logout"
+          className="MuiButton-magenta"
           onClick={() => logout()}
           startIcon={<PowerSettingsNewIcon />}
           variant="contained"

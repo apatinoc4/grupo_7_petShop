@@ -7,8 +7,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   &-userinfo {
+    z-index: 2;
     width: 50%;
     box-sizing: border-box;
     display: flex;
@@ -16,7 +18,30 @@
     align-items: center;
   }
 
+  &-imgbg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    max-width: 100%;
+  }
+
+  &::before {
+    z-index: 1;
+    position: absolute;
+    background-color: black;
+    top: 0;
+    left: 0;
+    content: "";
+    bottom: 0;
+    right: 0;
+    opacity: 0.9;
+  }
+
   &-actionpanel {
+    z-index: 2;
     width: 50%;
     box-sizing: border-box;
     padding-right: 10%;

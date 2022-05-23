@@ -168,6 +168,20 @@ const theme = createTheme({
               fill: "white",
             },
           },
+          "&.MuiButton-orange": {
+            backgroundColor: orange,
+            height: 50,
+            width: 200,
+          },
+
+          "&.MuiButton-magenta": {
+            backgroundColor: magenta,
+            height: 50,
+            width: 200,
+          },
+          "&.MuiButton-guestForm": {
+            marginTop: 25,
+          },
           "&.MuiButton-logout": {
             backgroundColor: darkGrey,
             height: 50,
@@ -254,7 +268,7 @@ const theme = createTheme({
         root: {
           marginBottom: "20px",
           "&.MuiTabs-login": {
-            marginTop: 20,
+            margin: "20px 0",
             width: "100%",
           },
         },

@@ -106,7 +106,7 @@ const LoginForm = () => {
         />
         <Button
           type="submit"
-          className="MuiButton-logout"
+          className="MuiButton-magenta MuiButton-guestForm"
           fullWidth
           variant="contained"
         >

@@ -11,26 +11,11 @@ article:last-child {
   border: none;
 }
 
-.num-container{
-display: flex;
-}
-.boton-mas, .boton-menos{
-  aspect-ratio: 1/1;
-  background-color: var(--naranja2);
-  border: 1px solid var(--naranja2);
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-weight: 800;
-  margin: 0 2px;
-  width: 20px;
-}
-
 .botones-compra {
   width: 60%;
   flex-direction: row;
 }
-.cantidad-texto, .sub-texto{
+.cantidad-texto{
   font-size: medium;
 }
 .cantidad-producto{
@@ -40,9 +25,7 @@ display: flex;
 .carrito-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin-bottom: 50px;
-  height: 80vh;
   max-width: 100vw;
   min-height: 100vh - var(--footerHeight);
   padding: 0 1%;
@@ -101,16 +84,6 @@ display: flex;
   padding-top: 2%;
   width: 45%;
 }
-.contenedorAviso{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.contenedorAviso div{
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-}
 
 .detalles-producto {
   align-items: flex-start;
@@ -123,7 +96,7 @@ display: flex;
 
 .detalles-producto p {
   color: var(--negro);
-  overflow: hidden ;
+  overflow: hidden;
 }
 
 .imagen-producto {
@@ -142,7 +115,7 @@ display: flex;
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin-left: 10px;
+  margin-left: 40px;
   width: 50%;
 }
 .nombre-producto {
@@ -171,7 +144,7 @@ display: flex;
   display: block;
   color: rgb(240, 248, 255);
   text-align: center;
-  width: 80%;
+  width: 100%;
   border-radius: 10px;
   text-shadow:1px 1px 3px rgba(0,0,0,0.15) ;
 }
@@ -299,13 +272,4 @@ form {
   .precio-total {
     margin: 5px 0;
   }
-
-.contenedorAviso {
-  flex-direction: column;
-}
-.contenedorAviso div h1,
-.contenedorAviso div h3{
-  font-size: large;
-  font-weight: 800;
-}
 }

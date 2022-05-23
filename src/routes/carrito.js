@@ -11,6 +11,5 @@ router.get(
   proteccionRutasUsuarioMiddleware,
   carritoController.renderCarrito
 );
-router.post("/productCart/crearPedido", carritoController.crearPedido);
 
 module.exports = router;

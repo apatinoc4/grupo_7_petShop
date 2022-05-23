@@ -58,5 +58,15 @@ module.exports = (sequelize, dataTypes) => {
 
   const Usuario = sequelize.define(alias, cols, config);
 
+  Usuario.associate = function (models) {
+    Usuario.belongsToMany(models.Pedido, {
+      as: "pedido",
+      through: "usuario_pedido",
+      foreignKey: "usuario_id",
+      otherKey: "pedido_id",
+      timestamps: false,
+    });
+  };
+
   return Usuario;
 };

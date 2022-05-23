@@ -5,20 +5,19 @@ window.addEventListener("load", function () {
   // const body = document.querySelector("body");
   const root = document.getElementById("root");
   const container = document.createElement("div");
-
   container.setAttribute("class", "contenedor");
-
   root.appendChild(container);
 
   let productosEnCarro = localStorage.getItem("productosEnCarro");
 
+  //Se verifica si hay contenido en carro
   if (
     productosEnCarro != undefined &&
     productosEnCarro != null &&
     productosEnCarro != ""
   ) {
+    //Se cargan los productos existentes en carro y se filtran duplicados
     let productos = JSON.parse("[" + productosEnCarro + "]");
-
     var productosUnicos = productos.filter(
       (value, index, self) => index === self.findIndex((t) => t.id === value.id)
     );
@@ -27,13 +26,16 @@ window.addEventListener("load", function () {
     productosString = productosString.replace(/[[\]]/g, "");
     localStorage.setItem("productosEnCarro", productosString);
 
+    //elementos para suma total de carro
     let sumaTotal = 0;
     let totalContenedor = document.createElement("article");
     let precioTotal = document.createElement("p");
     let botonesComprar = document.createElement("div");
     let botonSeguir = document.createElement("button");
     let botonFinalizar = document.createElement("button");
+    let formCompra = document.createElement("form");
 
+    //por cada elemento en carro se realiza el elemento en html
     productosUnicos.forEach((productos, index) => {
       fetch(`http://localhost:3000/api/producto/${productos.id}/`)
         .then(function (response) {
@@ -84,7 +86,6 @@ window.addEventListener("load", function () {
           botonMenos.innerHTML = "-";
           botonMas.innerHTML = "+";
 
-          // formEliminar.setAttribute("action", "eliminar");
           formEliminar.setAttribute("class", "form-eliminar");
           botonEliminar.setAttribute("type", "submit");
           botonEliminar.setAttribute("class", "eliminar");
@@ -134,20 +135,27 @@ window.addEventListener("load", function () {
     });
 
     totalContenedor.setAttribute("class", "confirmacion-compra");
+    formCompra.setAttribute("class", "formCompra");
+    formCompra.setAttribute("method", "POST");
+    formCompra.setAttribute("action", "/productCart/crearPedido");
     precioTotal.setAttribute("class", "precio-total");
     botonesComprar.setAttribute("class", "botones-compra");
     botonSeguir.setAttribute("onclick", "window.location.href='/'");
     botonFinalizar.setAttribute("class", "precio-total");
+    botonFinalizar.setAttribute("type", "submit");
+
     botonSeguir.innerHTML = "Seguir Comprando";
     botonFinalizar.innerHTML = "Finalizar compra";
 
-    root.appendChild(totalContenedor);
+    root.appendChild(formCompra);
+    formCompra.appendChild(totalContenedor);
     totalContenedor.appendChild(precioTotal);
     totalContenedor.appendChild(botonesComprar);
     botonesComprar.appendChild(botonSeguir);
     botonesComprar.appendChild(botonFinalizar);
 
     window.addEventListener("click", function (e) {
+      /// Cada que se haga click en eliminar un producto
       if (e.target.classList.value == "eliminar") {
         let id = e.target.id;
 
@@ -160,6 +168,8 @@ window.addEventListener("load", function () {
         localStorage.setItem("productosEnCarro", productosFiltro);
         // e.preventDefault();
       }
+
+      /// Cada que se haga click en sumar un producto con total
       if (e.target.classList.value == "boton-mas") {
         let id = e.target.id;
         let idNum = id.slice(3);
@@ -190,6 +200,8 @@ window.addEventListener("load", function () {
         productosCantidades = productosCantidades.replace(/[[\]]/g, "");
         localStorage.setItem("productosEnCarro", productosCantidades);
       }
+
+      /// Cada que se haga click en restar un producto con total
       if (e.target.classList.value == "boton-menos") {
         let id = e.target.id;
         let idNum = id.slice(5);
@@ -220,8 +232,35 @@ window.addEventListener("load", function () {
           localStorage.setItem("productosEnCarro", productosCantidades);
         }
       }
+
+      /// Cada que se haga submit en el formulario
+      botonFinalizar.addEventListener("click", function (e) {
+        // e.preventDefault();
+        // let input = document.createElement("input");
+        // input.setAttribute("name", "local");
+        // input.setAttribute("class", "inputInvisible");
+        // input.setAttribute("value", localStorage.getItem("productosEnCarro"));
+        // formCompra.appendChild(input);
+        // console.log(input.value);
+        const onSubmitProduct = async () => {
+          console.log(localStorage.getItem("productosEnCarro"));
+          let requestBody = localStorage.getItem("productosEnCarro").split(",");
+          console.log(requestBody);
+          const requestOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(requestBody),
+          };
+          const response = await fetch(
+            `/producCart/crearPedido`,
+            requestOptions
+          );
+        };
+        onSubmitProduct();
+      });
     });
   } else {
+    //Vista que se carga si no hay elementos en carro
     let contenedorAviso = document.createElement("div");
     let contenedorTexto = document.createElement("div");
     let h1 = this.document.createElement("h1");
@@ -241,3 +280,29 @@ window.addEventListener("load", function () {
     contenedorAviso.appendChild(imagenLogo);
   }
 });
+
+// def buy_product(db: Session, producto: object, usuario: UserSchema):
+//     lista_productos_id_ob = db.query(HistorialPedidos).filter(
+//         HistorialPedidos.id_user_comprador == usuario.id).first()
+//     print(lista_productos_id_ob._dict_)
+
+//     db_factura = Factura(
+//         historial_factura_id=lista_productos_id_ob.id,
+//         fecha_compra=datetime.now()
+//     )
+//     db.add(db_factura)
+//     db.commit()
+//     lista_factura_actual = db.query(Factura).filter(
+//         Factura.historial_factura_id == lista_productos_id_ob.id).first()
+//     print(lista_factura_actual._dict_)
+
+//     db_factura_has_producto = FacturaTieneProducto(
+//         factura_id=lista_factura_actual.id,
+//         producto_id=producto.id
+//     )
+
+//     db.add(db_factura_has_producto)
+//     db.commit()
+//     db.refresh(db_factura_has_producto)
+
+//     return db_factura_has_producto

@@ -250,8 +250,8 @@ display: none;
   animation: gradient 15s ease-out infinite;
 }
 .bannerCirculo {
-  top: 117px;
-  left: 264px;
+  top: 95px;
+  left: 16vw;
   overflow: hidden;
   position: absolute;
   /* box-sizing: border-box; */
@@ -376,6 +376,7 @@ object-fit: contain;
   width: 50%;
   color: white;
   text-align: center;
+  z-index: 6;
 }
 
 .slogan h1 {
@@ -433,6 +434,11 @@ object-fit: contain;
     font-size: 18px;
     flex-direction: column-reverse;
   }
+  .bannerCirculo{
+    left: 27vw;
+    width: 220px;
+    height: 220px;
+  }
   .slides{
     height: 242px;
   }
@@ -441,7 +447,8 @@ object-fit: contain;
   }
   .banner img {
     height: 200px;
-
+    left: -9vw;
+    position: relative;
   }
   .categoria img{
     width: 100px;

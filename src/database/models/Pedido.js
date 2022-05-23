@@ -8,13 +8,13 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true,
     },
     producto_id: {
-      type: dataTypes.INTERGER,
+      type: dataTypes.INTEGER(11),
     },
     cantidad: {
-      type: dataTypes.INTERGER,
+      type: dataTypes.INTEGER(11),
     },
     estado: {
-      type: dataTypes.INTERGER,
+      type: dataTypes.INTEGER(11),
     },
   };
 
@@ -28,10 +28,20 @@ module.exports = (sequelize, dataTypes) => {
   const Pedido = sequelize.define(alias, cols, config);
 
   Pedido.associate = (models) => {
-    Pedido.belongsTo(models.Pedido, {
-      as: "pedido",
+    Pedido.belongsToMany(models.Usuario, {
+      as: "usuario",
+      through: "usuario_pedido",
       foreignKey: "pedido_id",
+      otherKey: "usuario_id",
+      timestamps: false,
+    });
+    Pedido.belongsToMany(models.Producto, {
+      as: "producto",
+      through: "pedido_producto",
+      foreignKey: "pedido_id",
+      otherKey: "producto_id",
+      timestamps: false,
     });
   };
-  return UsuarioPedido;
+  return Pedido;
 };

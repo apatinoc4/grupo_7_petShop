@@ -107,7 +107,7 @@ const ShoppingCart = (props) => {
                     </TableBody>
                   </Table>
                 </TableContainer>
-                <div>
+                <div className="MuiModal-buttonContainer">
                   <Button
                     onClick={() => setTransaction(true)}
                     variant="contained"

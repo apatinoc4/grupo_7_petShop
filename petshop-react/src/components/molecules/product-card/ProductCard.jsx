@@ -13,6 +13,7 @@ import QuantityInput from "../../atoms/quantity-input/QuantityInput";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import UpdateFormModal from "../update-form/UpdateForm";
+import WarningModal from "../../atoms/warning-modal/WarningModal";
 
 const ProductCard = (props) => {
   const {
@@ -29,6 +30,7 @@ const ProductCard = (props) => {
   const handleExpanded = () => {
     setExpanded(!expanded);
   };
+  const [warningModalExpanded, setWarningModalExpanded] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const handleShoppingCartEdit = (item) => {
     if (quantity > 0 && !shoppingCart.find((elem) => elem.id === item.id)) {
@@ -136,7 +138,7 @@ const ProductCard = (props) => {
                   </Button>
                   <Button
                     className="MuiButton-delete"
-                    // onClick={() => handleShoppingCartEdit(product)}
+                    onClick={() => setWarningModalExpanded(true)}
                     startIcon={<DeleteIcon />}
                     variant="contained"
                   >
@@ -150,6 +152,13 @@ const ProductCard = (props) => {
           </Box>
         </AccordionDetails>
       </Accordion>
+      <WarningModal
+        warningModalExpanded={warningModalExpanded}
+        setWarningModalExpanded={setWarningModalExpanded}
+        updater={updater}
+        id={product.id}
+        deleting="product"
+      />
       <UpdateFormModal
         updateModalExpanded={updateModalExpanded}
         setUpdateModalExpanded={setUpdateModalExpanded}

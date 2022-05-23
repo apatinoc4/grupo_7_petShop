@@ -20,8 +20,18 @@ const UpdateFormModal = (props) => {
     object,
     updater,
   } = props;
-  const { id, nombre, fecha, pais, ciudad, direccion, admin, precio, tipo_id } =
-    object;
+  const {
+    id,
+    nombre,
+    fecha,
+    pais,
+    ciudad,
+    direccion,
+    admin,
+    precio,
+    tipo_id,
+    descripcion,
+  } = object;
   const [successModalExpanded, setSuccessModalExpanded] = useState(false);
   const countries = [
     {
@@ -214,7 +224,7 @@ const UpdateFormModal = (props) => {
                       />
                     )}
                   />
-                  <div>
+                  <div className="MuiModal-buttonContainer">
                     <Button type="submit" fullWidth variant="contained">
                       Actualizar Usuario
                     </Button>
@@ -264,7 +274,9 @@ const UpdateFormModal = (props) => {
                   <TextField
                     className="orange-field"
                     autoComplete="descripcion"
+                    defaultValue={descripcion}
                     type="text"
+                    rows={4}
                     multiline
                     fullWidth
                     {...register("descripcion", {
@@ -276,7 +288,7 @@ const UpdateFormModal = (props) => {
                     }
                     label="Descripcion"
                   />
-                  <div>
+                  <div className="MuiModal-buttonContainer">
                     <Button type="submit" fullWidth variant="contained">
                       Actualizar Producto
                     </Button>
@@ -288,6 +300,7 @@ const UpdateFormModal = (props) => {
         </Fade>
       </Modal>
       <SuccessModal
+        setParentModalExpanded={setUpdateModalExpanded}
         successModalExpanded={successModalExpanded}
         setSuccessModalExpanded={setSuccessModalExpanded}
       />

@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import { PetShopContext } from "../../context/PetShopContextProvider";
 import "./UserCard.scss";
 import UpdateFormModal from "../update-form/UpdateForm";
+import WarningModal from "../../atoms/warning-modal/WarningModal";
 
 const UserCard = (props) => {
   const { user, number, updater } = props;
@@ -27,6 +28,7 @@ const UserCard = (props) => {
     foto,
   } = user;
   const { loggedUserInfo } = useContext(PetShopContext);
+  const [warningModalExpanded, setWarningModalExpanded] = useState(false);
   return (
     <div>
       <Card className="MuiCard-user m-usercard" sx={{ maxWidth: 370 }}>
@@ -86,6 +88,7 @@ const UserCard = (props) => {
           {loggedUserInfo.id !== id ? (
             <Button
               className="MuiButton-delete"
+              onClick={() => setWarningModalExpanded(true)}
               startIcon={<DeleteIcon />}
               variant="contained"
             >
@@ -99,6 +102,13 @@ const UserCard = (props) => {
           className={`MuiCard-${admin === 1 ? "admin" : "user"}`}
         ></CardActions>
       </Card>
+      <WarningModal
+        warningModalExpanded={warningModalExpanded}
+        setWarningModalExpanded={setWarningModalExpanded}
+        updater={updater}
+        id={id}
+        deleting="user"
+      />
       <UpdateFormModal
         updateModalExpanded={updateModalExpanded}
         setUpdateModalExpanded={setUpdateModalExpanded}

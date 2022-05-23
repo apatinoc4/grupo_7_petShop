@@ -7,11 +7,15 @@ const AboutUs = () => {
     name: "Andrés Mazo",
     title: "Don Gorangutan",
     pictureName: "Mazo.PNG",
+    description:
+      'Ingeniero de sonido, director de proyectos de audio y acústica arquitectónica, Lider de su propia banda "Gorangutan" y combate el crimen por las noches.',
   };
   const patino = {
     name: "Andrés Patiño",
     title: "El Andy",
     pictureName: "Patino.PNG",
+    description:
+      "Ingeniero de diseño de producto, desarrollador front-end, amante de las hamburguesas, se sabe los primeros 151 Pokemones de memoria.",
   };
   return (
     <div className="m-aboutus">

@@ -7,7 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 
 const DevCard = (props) => {
   const { orientation, dev } = props;
-  const { pictureName, name, title } = dev;
+  const { pictureName, name, title, description } = dev;
   const iconSize = "65px";
 
   return (
@@ -15,12 +15,7 @@ const DevCard = (props) => {
       <div className="a-devcard-info">
         <h3>{name}</h3>
         <p className="a-devcard-title">{title}</p>
-        <p className="a-devcard-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-          imperdiet ante dolor, nec lobortis ipsum tristique vel. Donec vel orci
-          diam. Nunc sollicitudin metus leo, at fermentum libero porta id. Nulla
-          a auctor sem, in tristique elit.
-        </p>
+        <p className="a-devcard-description">{description}</p>
         <div className="a-devcard-buttons">
           <IconButton className="MuiSocialMedia">
             <LinkedInIcon sx={{ fontSize: iconSize }} />

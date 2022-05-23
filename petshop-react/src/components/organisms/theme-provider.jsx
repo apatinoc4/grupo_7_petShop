@@ -166,6 +166,35 @@ const theme = createTheme({
     MuiModal: {
       styleOverrides: {
         root: {
+          ".MuiBox-warningModal": {
+            width: "30% !important",
+            height: "200px",
+            borderLeft: "10px solid red",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            p: {
+              margin: 0,
+            },
+
+            ".MuiSvgIcon-root": {
+              fill: "red",
+              fontSize: 100,
+              marginRight: 25,
+            },
+
+            ".MuiButton-agreecontinue": {
+              width: "100% !important",
+              backgroundColor: magenta,
+              marginTop: 20,
+            },
+          },
+          ".MuiBox-successModal": {
+            width: "30% !important",
+            height: "200px",
+            borderLeft: "10px solid #00FF00",
+          },
           "&.MuiModal-magenta": {
             ".MuiBox-root": {
               borderLeft: "10px solid #f53049",
@@ -194,7 +223,7 @@ const theme = createTheme({
             boxShadow: 24,
             p: 4,
 
-            div: {
+            ".MuiModal-buttonContainer": {
               width: "100%",
               marginTop: 10,
               display: "flex",

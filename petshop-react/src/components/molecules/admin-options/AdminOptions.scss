@@ -1,0 +1,39 @@
+@import "../../App.scss";
+
+.m-adminOptions {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  box-sizing: border-box;
+
+  &-description {
+    color: white;
+  }
+
+  h2 {
+    font-family: "Righteous", serif;
+    text-align: start;
+    width: 100%;
+    margin: 0;
+    font-size: 50px;
+    color: white;
+    text-shadow: 0.03em 0.03em 0 rgba(242, 163, 65, 0.7);
+  }
+
+  p {
+    text-align: start;
+    width: 100%;
+    margin: 0;
+  }
+
+  &-optioncards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 40px 0;
+  }
+}

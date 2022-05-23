@@ -9,6 +9,7 @@ const usuariosController = {
   crearUsuario: async function (req, res) {
     const errors = validationResult(req);
     const contrasenaHasheada = hashSync(req.body.contrasena, 10);
+
     const usuarioEnDB = await Usuario.encontrarUsuarioPorCampo(
       "email",
       req.body.email
@@ -50,7 +51,8 @@ const usuariosController = {
       "email",
       req.body.email
     );
-    const listaUsuarios = Usuario.obtenerListaUsuarios();
+
+    const listaUsuarios = await Usuario.obtenerListaUsuarios();
 
     if (usuarioEnDB) {
       return res.render("listaUsuarios", {

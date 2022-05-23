@@ -8,11 +8,19 @@
   margin-top: 5vh;
   width: 100%;
 }
+.checkboxCaja{
+  margin-right: 5px;
+  width: 21px;
+  height: 21px;
+}
 .recordarCheckbox {
   color: var(--negro);
   font-weight: 800;
   font-size: 18px;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .enviarLogin {
   background-color: rgb(255, 115, 0);
@@ -36,6 +44,9 @@
   padding: 20px;
   border: 0.2px solid rgba(255, 255, 255, 0.726);
   border-radius: 20px;
+  position: relative;
+  top: 100px;
+  margin-bottom: 100px;
 }
 
 .tituloLogin,
@@ -60,4 +71,11 @@
   .cajaRegister {
     width: 80%;
   }
+}
+
+/* Alertas */
+.swal2-confirm{
+  background-color: var(--naranja1) !important;
+  border-color: var(--naranja2);
+  border: yellow;
 }

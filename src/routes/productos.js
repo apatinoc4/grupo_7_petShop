@@ -48,10 +48,5 @@ router.delete(
   "/listaProductos/:id/eliminar/",
   productosController.eliminarProducto
 );
-router.get(
-  "/productCart",
-  proteccionRutasUsuarioMiddleware,
-  productosController.renderCarrito
-);
 
 module.exports = router;

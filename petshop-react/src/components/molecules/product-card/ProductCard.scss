@@ -1,0 +1,23 @@
+@import "../../App.scss";
+.a-productcard {
+  &-productimage {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 10px;
+    border-radius: 10px;
+    // border: 1px solid red;
+
+    img {
+      max-width: 100%;
+    }
+  }
+  &-index {
+    font-family: "Righteous", serif;
+    font-size: 35px;
+    margin: 0;
+  }
+}

@@ -69,11 +69,12 @@
                 <label>Autorizacion</label>
                 <label class="autorizacion"
                   ><input
-                    class="checkbox"
+                    class=""
                     type="checkbox"
                     name="autorizacion"
                     id="autorizacion"
                   />
+
                   Envio de Contenido</label
                 >
               </div>
@@ -156,8 +157,25 @@
                 <form
                   method="POST"
                   action="/listaUsuarios/<%=usuario.id%>/eliminar?_method=DELETE"
+                  class="form-eliminar"
+                  id="<%=usuario.nombre%>"
                 >
-                  <button type="submit" class="eliminar">Eliminar</button>
+                  <button type="submit" class="eliminar">
+                    <span class="text"> Eliminar </span>
+                    <span id="<%=usuario.nombre%>" class="icon"
+                      ><svg
+                        id="<%=usuario.nombre%>"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          id="<%=usuario.nombre%>"
+                          d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+                        /></svg
+                    ></span>
+                  </button>
                 </form>
               </td>
             </tr>
@@ -177,6 +195,8 @@
                   <form
                     method="POST"
                     action="/listaUsuarios/<%=usuario.id%>/eliminar?_method=DELETE"
+                    class="form-eliminar"
+                    id="<%=usuario.nombre%>"
                   >
                     <button type="submit" class="eliminar">Eliminar</button>
                   </form>
@@ -191,5 +211,10 @@
       </section>
     </div>
     <%- include('../partials/footer') %>
+    <script
+      src="https://kit.fontawesome.com/1998716f67.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./events/borrarStorage.js"></script>
   </body>
 </html>

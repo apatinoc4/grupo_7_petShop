@@ -1,14 +1,80 @@
 <footer>
-  <p>Repositorio del proyecto:</p>
+  <!-- <p>Repositorio del proyecto:</p>
   <a href="https://github.com/apatinoc4/grupo_7_petShop/tree/feature/homePage"
     >Click aquí</a
-  >
-  <!-- <div>
-      <div>
-        <p>correo</p>
-        <p>github</p>
-        <p>Linkedin</p>
+  > -->
+  <div class="contenedorSuscribir">
+    <h3>Suscribete</h3>
+    <p>Recibe noticias y promociones </p>
+    <form style="width: 100%" action="/" method="POST">
+      <input
+        class="barraSuscribir"
+        type="text"
+        name="email"
+        id="email"
+        minlength=" 2"
+        placeholder="Ingresa tu email"
+        value="<%= locals.old && old.email %>"
+      />
+    </form>
+  </div>
+  <div class="contenedorPerfiles">
+    <h3>Proyecto desarrollado por:</h3>
+
+     <div class="contenedorPerfil">
+        <img class="imgFooter" src="./img/assets/mazo.jpeg" alt="" srcset="" />
+        <div>
+          <h3 class="nombreFooter">Andrés Zapata Mazo</h3>
+          <ul class="wrapper">
+           <a href="https://www.linkedin.com/in/andrezmazo/"> 
+             <li class="icon linkedin" >
+              <span class="tooltip">linkedIn</span>
+              <span><i class="fa-brands fa-linkedin-in"></i></span>
+            </li>
+          </a>
+          <a href="https://github.com/andrezmazo">
+            <li class="icon github">
+              <span class="tooltip">Github</span> 
+              <span><i class="fa-brands fa-github"></i></span>
+            </li>
+          </a>
+          <a href="https://instagram.com/andrezmazo">
+            <li class="icon instagram">
+              <span class="tooltip">Instagram</span>
+              <span><i class="fa-brands fa-instagram"></i></i></span>
+            </li>
+          </a>
+          </ul>
+        </div>
+      <div class="contenedorPerfil">
+        <img class="imgFooter" src="./img/assets/patino.jpeg" alt="" srcset="" />
+        <div>
+          <h3 class="nombreFooter">Andrés Patiño</h3>
+          <ul class="wrapper">
+            <a href="https://www.linkedin.com/in/andrespatino1993">
+             <li class="icon linkedin" >
+                <span class="tooltip">linkedIn</span>
+                <span><i class="fa-brands fa-linkedin-in"></i></span>
+             </li>
+           </a>
+           <a href="https://github.com/apatinoc4">
+              <li class="icon github">
+                <span class="tooltip">Github</span>
+                <span><i class="fa-brands fa-github"></i></span>
+             </li>
+            </a>  
+            <a href="https://www.instagram.com/apatinoc4/">
+              <li class="icon instagram">
+                <span class="tooltip">Instagram</span>
+                <span><i class="fa-brands fa-instagram"></i></i></span>
+              </li>
+            </a>
+        </ul>
       </div>
-    </div> -->
-  <p>&copy 2022 Digital House</p>
+    </div>
+
+   </div> 
+  <h3 style="font-weight: 500;">DIGITAL HOUSE 2022</h3>
+</div>
+
 </footer>

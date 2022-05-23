@@ -1,36 +1,51 @@
-<header>
+<header id="site-header" >
   <%if(locals.hayUsuarioLoggeado && locals.infoUsuarioLoggeado.admin){%>
   <div class="headerSuperior" id="admin">
     <%} else {%>
       <div class="headerSuperior">
       <%}%>
       <div class="nombre-logo">
-        <p>PetShop Grupo 7</p>
+        <a href="/" style="text-decoration: none;"><p>PetShop  </p></a>
+        
         <img src="/img/assets/LogoPetShop.png" alt="">
+        <% if(locals.hayUsuarioLoggeado){%>
+          <%if(locals.infoUsuarioLoggeado){%>
+           <h4 id="nombreUsuario">
+              ¡Hola! <%= locals.infoUsuarioLoggeado.nombre%>
+            </h4>
+          <%}%>
+        <%}%>
       </div> 
     <div class="buscador-nav">
       <div class="buscador">
-        <input
-          name="buscador-header"
-          placeholder="Qué quieres buscar hoy?"
-          type="search"
-        />
-        <button type="button">Buscar</button>
+        <input placeholder="Qué quieres buscar hoy?" type="text" class="test">
+        <button  class="test2 botonBuscar">Buscar</button>
       </div>
+      
       <nav>
         <a href="/">Home</a>
-        <% if(locals.hayUsuarioLoggeado){%>
+         <% if(locals.hayUsuarioLoggeado){%>
+         
         <a href="/userProfile">Perfil</a>
         <a href="/productCart">Carrito</a>
         <%if(locals.infoUsuarioLoggeado.admin){%>
         <a href="/listaProductos">Inventario</a>
         <a href="/listaUsuarios">Directorio</a>
         <%}%>
-        <a href="/logout">Salir</a>
+        <a href="/logout" id="logout">Salir</a>
         <%} else {%>
         <a href="/login">Ingreso</a>
         <a href="/register">Registro</a>
         <%}%>
+        <div class="toggle-button-cover">
+          <div class="button-cover">
+            <div class="button r" id="button-3">
+              <input type="checkbox" class="checkbox">
+              <div class="knobs"></div>
+              <div class="layer"></div>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </div>

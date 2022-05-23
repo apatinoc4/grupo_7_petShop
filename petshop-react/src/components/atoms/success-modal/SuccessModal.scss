@@ -1,0 +1,30 @@
+@import "../../App.scss";
+.a-successmodal {
+  &-slogan {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-contents {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    p {
+      margin-bottom: -20px;
+      font-weight: 800;
+    }
+    p:last-child {
+      margin-top: 5px;
+      text-align: right;
+    }
+    h3 {
+      font-family: "Righteous", serif;
+      font-size: 100px;
+      text-shadow: 0.03em 0.03em 0 rgb(0, 255, 0);
+      margin: 0;
+    }
+  }
+}

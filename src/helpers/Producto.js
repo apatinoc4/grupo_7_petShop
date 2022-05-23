@@ -53,6 +53,18 @@ const Producto = {
     });
   },
 
+  encontrarProductoPorNombre: function (productoBuscado) {
+    const Op = Sequelize.Op;
+
+    return db.Producto.findAll({
+      where: {
+        nombre: {
+          [Op.like]: `%${productoBuscado}%`,
+        },
+      },
+      include: ["tipo"],
+    });
+  },
   encontrarProductosSimilares: function (tipoId, cantidad) {
     return db.Producto.findAll({
       where: {

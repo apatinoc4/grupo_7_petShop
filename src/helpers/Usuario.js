@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const { Sequelize } = require("sequelize");
 
 const Usuario = {
   obtenerListaUsuarios: function () {
@@ -29,6 +30,17 @@ const Usuario = {
     };
 
     return db.Usuario.create(usuarioACrear);
+  },
+  encontrarUsuariosPorEmail: function (usuarioBuscado) {
+    const Op = Sequelize.Op;
+
+    return db.Usuario.findAll({
+      where: {
+        email: {
+          [Op.like]: `%${usuarioBuscado}%`,
+        },
+      },
+    });
   },
   encontrarUsuarioPorCampo: function (campo, valor) {
     return db.Usuario.findOne({

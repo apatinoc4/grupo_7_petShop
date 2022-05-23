@@ -28,6 +28,7 @@
   box-shadow: 2px 4px 22px -6px #000000;
   flex-direction: column;
   min-height: 560px;
+  margin-top: 120px;
 }
 
 .mainFoto {

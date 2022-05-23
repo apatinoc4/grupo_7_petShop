@@ -21,6 +21,7 @@ body {
   align-self: center;
   display: flex;
   justify-content: center;
+  margin-top: 135px;
 }
 .mainFoto {
   border-radius: 50%;

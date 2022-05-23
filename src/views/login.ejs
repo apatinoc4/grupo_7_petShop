@@ -43,6 +43,7 @@
           />
           <label class="recordarCheckbox">
             <input
+              class="checkboxCaja"
               type="checkbox"
               name="recordarUsuario"
               id="recordarUsuario"
@@ -56,5 +57,11 @@
       </div>
     </div>
     <%- include('../partials/footer') %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://kit.fontawesome.com/1998716f67.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./events/borrarStorage.js"></script>
   </body>
 </html>

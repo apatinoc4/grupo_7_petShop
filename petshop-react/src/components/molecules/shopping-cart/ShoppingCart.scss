@@ -1,0 +1,13 @@
+@import "../../App.scss";
+
+.m-shoppingcart {
+  &-title {
+    color: $negro;
+    font-family: "Righteous", serif;
+    font-size: 30px;
+    margin: 0;
+  }
+  &-cartinfo {
+    margin: 0 0 30px 0;
+  }
+}

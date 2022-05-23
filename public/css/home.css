@@ -39,7 +39,7 @@
   background-color: var(--naranja2);
   cursor: pointer;
   display: flex;
-  height: 20%;
+  height: 100%;
   justify-content: center;
 }
 
@@ -52,6 +52,33 @@
   font: inherit;
   font-size: 20px;
   font-weight: 800;
+
+  width: 100%;
+  position: relative;
+  transition: all .35s;
+}
+button.comprar span{
+  position: relative;
+  z-index: 2;
+}
+
+button.comprar:after{
+  position: absolute;
+  content: "";
+  top: -6px;
+  left: -100px;
+  width: 0;
+  height: 200%;
+  background:var(--magenta);
+  transition: all .7s;
+}
+
+button.comprar:hover{
+  color: #fff;
+}
+
+button.comprar:hover:after{
+  width: 400%;
 }
 
 .carta-producto {
@@ -65,6 +92,7 @@
   overflow: hidden;
   width: 230px;
   margin: 15px;
+  transition: 0.5s;
 }
 
 .carta-producto .imagen-producto {
@@ -95,6 +123,55 @@
   object-fit: cover;
   width: 100%;
 }
+.categorias{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+.categorias .categoria {
+  background-color: #fff;
+  font-size: 15px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px 3px rgb(68 68 68 / 30%);
+  transition: 1s;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.categoria img{
+ width: 200px;
+ height: 200px;
+
+}
+.categoria a{
+  color: #333;
+  text-decoration: none;
+}
+.categoria .imgAlimentoTop,.categoria .imgJugueteTop{
+  display: none;
+  /* position: relative; */
+}
+.categoria:hover{
+  /* filter: invert(100%) sepia(6%) saturate(643%) hue-rotate(161deg) brightness(121%) contrast(100%); */
+  background-color: #ff6a00;
+}
+.categoria:hover .imgAlimentoTop,.categoria:hover .imgJugueteTop{
+  display: flex;
+}
+.categoria:hover h3{
+  color: white;
+}
+.categoria:hover .imgAlimentoBack,
+  .categoria:hover .imgJugueteBack{
+display: none;
+}
+
 
 .detalles-agregar {
   margin-top: 10px;
@@ -156,14 +233,119 @@
 }
 
 .banner {
+  top: 80px;
+  overflow: hidden;
+  margin-bottom: 100px;
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   text-align: center;
   width: 100%;
   max-width: 100vw;
-  background: linear-gradient(to right, #ee0979, #ff6a00);
-  padding: 2% 0 2% 10%;
+  /* background: linear-gradient(to right, #ee0979, #ff6a00); */
+  padding: 2% 0 2% 0%;
+  background: linear-gradient(-45deg, #ee0979, #ff6a00, #ee0979, #ff6a00);
+  background-size: 400% 400%;
+  animation: gradient 15s ease-out infinite;
+}
+.bannerCirculo {
+  top: 117px;
+  left: 264px;
+  overflow: hidden;
+  position: absolute;
+  /* box-sizing: border-box; */
+  display: flex;
+  text-align: center;
+  width: 440px;
+  height: 440px;
+  /* background: linear-gradient(to right, #ee0979, #ff6a00); */
+  padding: 2% 0 2% 0%;
+  background: linear-gradient(142deg, #ee0979, #ff6a00, #ee0979, #ff6a00);
+  background-size: 400% 400%;
+  z-index: 2;
+  animation: gradient 15s ease-out infinite;
+  border-radius: 50%;
+}
+/* .banner .slider img{
+  height: 500px;
+  width: 500px;
+  position: relative;
+  object-fit: contain;
+} */
+/* .slider div div{
+  position: relative;
+  height: 100%;
+  float: left;
+} */
+.slider{
+  transition: all 750ms ease;
+  overflow: hidden;
+  width: 100%;
+  height: 500px;
+  z-index: 6;
+}
+.slide{
+  width: 20%;
+  transition: 2s;
+}
+.slide img{
+width: 100%;
+height: 500px;
+object-fit: contain;
+}
+.slides{
+  display: flex;
+  width: 600%;
+  height: 500px;
+
+}
+.slides input{
+  display: none;
+}
+.navigation-manual{
+  position: absolute;
+  width: 100%;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  left: 0;
+}
+.manual-btn{
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+.manual-btn:hover{
+  background-color: #ccc ;
+}
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+#radio4:checked ~ .first{
+  margin-left: -60%;
+}
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
 }
 
 .slogan button {
@@ -193,12 +375,46 @@
   justify-content: center;
   width: 50%;
   color: white;
+  text-align: center;
 }
 
 .slogan h1 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 70px;
-}
+   
+   position: relative;
+    color: white;
+    font-family: 'Righteous', serif;
+    font-size: 8rem; 
+    left: 250px;
+    text-shadow: .03em .03em 0 rgb(255, 16, 32);
+    z-index: 5;text-align: center;
+    /* left: 250px; */
+    }
+.slogan h1:after {
+      content: attr(data-shadow);
+      position: relative;
+      top: 0.6rem; left: -31rem;
+      z-index:-1;
+      text-shadow: none;
+      background-image:
+        linear-gradient(
+          45deg,
+          transparent 45%,
+          hsla(48,20%,90%,1) 45%,
+          hsla(48,20%,90%,1) 55%,
+          transparent 0
+          );
+      background-size: .05em .05em;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      animation: shad-anim 15s linear infinite;
+      }
+  
+  @keyframes shad-anim {
+    0% {background-position: 0 0}
+    0% {background-position: 100% -100%}
+  }
+
 
 .wrapper-productos {
   align-items: center;
@@ -209,12 +425,27 @@
 
 @media (max-width: 769px) {
   .banner {
+    top: 100px;
+    margin-bottom: 100px;
+    position: relative;
     overflow: hidden;
     align-items: center;
     font-size: 18px;
+    flex-direction: column-reverse;
+  }
+  .slides{
+    height: 242px;
+  }
+  .slider{
+    height: 258px;
   }
   .banner img {
     height: 200px;
+
+  }
+  .categoria img{
+    width: 100px;
+    height: 100px;
   }
   .index-wrapper {
     padding: 0 5%;
@@ -228,7 +459,15 @@
     width: 60%;
   }
   .slogan h1 {
-    font-size: 2em;
+    font-size: 4rem;
+   position: relative;
+   top: 7.6rem; left: 7.5rem;
+    
+  }
+  .slogan h1:after {
+    position: relative;
+    top: 0.1rem; left:-15.5rem;
+       
   }
 
   .slogan h3 {
@@ -241,4 +480,16 @@
     justify-content: center;
     width: 100%;
   }
+}
+
+.carta-producto:hover{
+  box-shadow:  0 0 0.5em 0 var(--naranja1);
+
+}
+
+/* Alertas */
+.swal2-confirm{
+  background-color: var(--naranja1) !important;
+  border-color: var(--naranja2);
+  border: yellow;
 }

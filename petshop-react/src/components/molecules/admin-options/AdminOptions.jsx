@@ -12,12 +12,14 @@ const AdminOptions = (props) => {
       title: "Productos",
       description: "Busca, crea, o modifica productos de nuestro inventario.",
       img: "productsBanner.jpg",
+      links: "products",
     },
     {
       title: "Usuarios",
       description:
         "Consulta nuestra base de datos de usuarios, asigna o retira privilegios de administrador.",
       img: "usersBanner.jpg",
+      links: "users",
     },
   ];
 

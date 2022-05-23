@@ -1,5 +1,7 @@
 import React from "react";
 import "./Cover.scss";
+import Button from "@mui/material/Button";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Cover = () => {
   return (
@@ -15,6 +17,9 @@ const Cover = () => {
           <h2>PetShop</h2>
           <p>versión React</p>
         </div>
+        <Link to="#user-panel" smooth>
+          <Button className="MuiButton-cover">Comencemos!</Button>
+        </Link>
       </div>
     </div>
   );

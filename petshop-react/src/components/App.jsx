@@ -8,10 +8,11 @@ import AboutUs from "./organisms/about-us/AboutUs";
 import UserPanel from "./organisms/user-panel/UserPanel";
 import PetShopContextProvider from "./context/PetShopContextProvider";
 import UserList from "./organisms/user-list/UserList";
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
-    <React.Fragment>
+    <BrowserRouter>
       <div className="App">
         <PetShopContextProvider>
           <PageThemeProvider>
@@ -25,7 +26,7 @@ const App = () => {
           </PageThemeProvider>
         </PetShopContextProvider>
       </div>
-    </React.Fragment>
+    </BrowserRouter>
   );
 };
 

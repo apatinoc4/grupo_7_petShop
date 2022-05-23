@@ -58,6 +58,7 @@ $cornerSize: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     &:after {
       display: block;
@@ -97,7 +98,7 @@ $cornerSize: 80px;
   }
   &-slogan {
     position: absolute;
-    top: 70%;
+    top: 60%;
     left: 70%;
     transform: translate(-50%, -50%);
     color: white;

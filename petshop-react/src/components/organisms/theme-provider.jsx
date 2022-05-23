@@ -141,6 +141,19 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          "&.MuiButton-cover": {
+            backgroundColor: orange,
+            color: "white",
+            fontWeight: 800,
+            position: "absolute",
+            top: "72%",
+            left: "60%",
+            width: "20%",
+            height: 50,
+            borderRadius: 32,
+            fontSize: 18,
+            boxShadow: "3px 5px 0 rgb(255 16 32)",
+          },
           textTransform: "none",
           margin: "10px",
           "&.MuiButton-edit": {
@@ -243,11 +256,6 @@ const theme = createTheme({
           "&.MuiTabs-login": {
             marginTop: 20,
             width: "100%",
-            // ".MuiTabs-flexContainer": {
-            //   width: "100%",
-            //   justifyContent: "flex-end",
-            //   backgroundColor: "red",
-            // },
           },
         },
       },

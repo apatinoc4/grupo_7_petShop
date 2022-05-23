@@ -38,7 +38,7 @@ const UserPanel = () => {
   }, [fetchUserInfo]);
 
   return (
-    <div className="o-userpanel">
+    <div id="user-panel" className="o-userpanel">
       <div className="o-userpanel-userinfo">
         <UserAvatar user={loggedUserInfo} />
       </div>

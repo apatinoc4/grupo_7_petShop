@@ -80,7 +80,7 @@ const UserList = () => {
   return (
     <>
       {loggedUserInfo.admin === 1 ? (
-        <div className="o-userlist-container">
+        <div id="user-list" className="o-userlist-container">
           <h2 className="o-userlist-title">Directorio Usuarios</h2>
           <Box sx={{ width: "100%" }}>
             <Tabs
@@ -106,7 +106,7 @@ const UserList = () => {
                   wrapped
                 />
               ) : (
-                <></>
+                <div></div>
               )}
             </Tabs>
           </Box>

@@ -96,7 +96,7 @@ const ProductList = () => {
   }, [searchQuery]);
 
   return (
-    <div className="o-productlist-container">
+    <div id="product-list" className="o-productlist-container">
       <Fade right>
         <div className="test"></div>
       </Fade>
@@ -114,7 +114,7 @@ const ProductList = () => {
           {loggedUserInfo.admin === 1 ? (
             <Tab value={2} label="Crear Producto" wrapped />
           ) : (
-            <></>
+            <div></div>
           )}
         </Tabs>
       </Box>

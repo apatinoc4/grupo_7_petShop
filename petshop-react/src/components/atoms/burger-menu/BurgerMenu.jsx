@@ -1,4 +1,4 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useCallback } from "react";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import GroupIcon from "@mui/icons-material/Group";
@@ -13,10 +13,22 @@ import { PetShopContext } from "../../context/PetShopContextProvider";
 import { HashLink as Link } from "react-router-hash-link";
 
 export default function SpeedDialTooltipOpen() {
-  const { loggedUserInfo } = useContext(PetShopContext);
+  const { loggedUserInfo, setLoggedUserInfo } = useContext(PetShopContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const logout = useCallback(async () => {
+    const response = await fetch("/api/logout");
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const jsonResponse = await response.json();
+
+    setLoggedUserInfo(jsonResponse.data);
+  }, [setLoggedUserInfo]);
 
   return (
     <Box
@@ -91,7 +103,7 @@ export default function SpeedDialTooltipOpen() {
             icon={<LogoutIcon />}
             tooltipTitle="Cerrar Sesión"
             tooltipOpen
-            // onClick={handleClose}
+            onClick={() => logout()}
           />
         ) : (
           <SpeedDialAction

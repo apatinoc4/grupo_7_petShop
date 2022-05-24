@@ -22,7 +22,7 @@ const DevCard = (props) => {
             ttarget="_blank"
             className="MuiSocialMedia"
           >
-            <LinkedInIcon sx={{ fontSize: iconSize }} />
+            <LinkedInIcon target="_blank" sx={{ fontSize: iconSize }} />
           </IconButton>
           <IconButton href={gh} target="_blank" className="MuiSocialMedia">
             <GitHubIcon sx={{ fontSize: iconSize }} />

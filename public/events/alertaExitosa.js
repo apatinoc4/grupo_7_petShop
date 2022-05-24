@@ -1,5 +1,4 @@
 window.addEventListener("load", function () {
-  //   console.log("mensaje alerta");
   Swal.fire({
     position: "center",
     icon: "success",
@@ -7,5 +6,4 @@ window.addEventListener("load", function () {
     showConfirmButton: false,
     timer: 1500,
   });
-  //   setTimeout(1500);
 });

@@ -138,6 +138,26 @@ const theme = createTheme({
         },
       },
     },
+    MuiSpeedDial: {
+      styleOverrides: {
+        root: {
+          a: {
+            textDecoration: "none",
+          },
+          ".MuiButtonBase-root": {
+            "&.MuiFab-primary": {
+              backgroundColor: magenta,
+              height: 70,
+              width: 70,
+            },
+          },
+          ".MuiSpeedDialAction-staticTooltipLabel": {
+            width: 100,
+            textAlign: "center",
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

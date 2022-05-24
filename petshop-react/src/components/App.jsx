@@ -9,6 +9,7 @@ import UserPanel from "./organisms/user-panel/UserPanel";
 import PetShopContextProvider from "./context/PetShopContextProvider";
 import UserList from "./organisms/user-list/UserList";
 import { BrowserRouter } from "react-router-dom";
+import SpeedDialTooltipOpen from "./atoms/burger-menu/BurgerMenu";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <PetShopContextProvider>
           <PageThemeProvider>
             <Template>
+              <SpeedDialTooltipOpen />
               <Cover />
               <UserPanel />
               <UserList />

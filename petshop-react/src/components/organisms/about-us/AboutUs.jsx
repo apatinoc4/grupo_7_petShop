@@ -24,7 +24,7 @@ const AboutUs = () => {
     gh: "https://github.com/apatinoc4",
   };
   return (
-    <div className="m-aboutus">
+    <div id="about-us" className="m-aboutus">
       <div className="m-aboutus-cornerbox">
         <div className="m-aboutus-title">
           <h2>El Equipo</h2>

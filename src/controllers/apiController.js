@@ -224,6 +224,19 @@ const apiController = {
 
     res.status(200).send("Producto eliminado exitosamente");
   },
+  detail: async (req, res) => {
+    let id = req.params.id;
+    let producto = await Producto.encontrarProductoPorPK(id);
+    let response = {
+      meta: {
+        status: 200,
+        total: producto.length,
+        url: "/api/producto/:id",
+      },
+      data: producto,
+    };
+    res.json(response);
+  },
 };
 
 module.exports = apiController;

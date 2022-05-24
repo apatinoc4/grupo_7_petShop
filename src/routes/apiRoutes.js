@@ -6,6 +6,10 @@ const validacionesRegistro = require("../middlewares/validacionesRegistroMiddlew
 const validacionesCreacionProducto = require("../middlewares/validacionesCreacionProductoMiddleware");
 const validacionesEdicion = require("../middlewares/validacionesEdicionUsuarioMiddleware");
 
+//carrito app js
+
+router.get("/producto/:id", apiController.detail);
+
 //obtener info usuarios-productos
 
 router.get("/productos", apiController.productos);

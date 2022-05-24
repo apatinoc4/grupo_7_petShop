@@ -38,9 +38,9 @@ app.set("view engine", "ejs");
 
 app.set("views", path.resolve(__dirname, "./views"));
 
-app.use((req, res, next) => {
-  console.log(req.body);
-});
+// app.use((req, res, next) => {
+//   console.log(req.body);
+// });
 app.use("/", rutasAutorizacion);
 app.use("/", rutasProductos);
 app.use("/", rutasUsuarios);
